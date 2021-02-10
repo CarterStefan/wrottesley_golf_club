@@ -38,7 +38,63 @@
     <title>Wrottesley Golf Club {% block extra_title %}{% endblock extra_title %}</title>
   </head>
   <body>
-    <header class="container-fluid"></header>
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-4 my-auto">
+                    <a href="{% url 'home' %}">
+                        <h2 class="logo-font">Wrottesley Golf Club</h2>
+                    </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto">
+                <form method="GET" action="">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><span><i class="fas fa-search"></i></span></span>
+                        <input type="text" name="query" class="form-control" placeholder="Search Our Store" aria-label="Search our Store" aria-describedby="basic-addon1">
+                        <button type="submit">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>            
+            <div class="col-12 col-lg-4 my-auto">
+                <ul class="list-inline list-unstyled text-center">
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div>
+                                <div><i class="fas fa-user"></i></div>
+                                <p>My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Manage Products</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Signup</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="">
+                            <div><i class="fas fa-shopping-basket"></i></div>
+                            <p>
+                                {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
 
     {% if messages %}
     <div class="message-container"></div>
