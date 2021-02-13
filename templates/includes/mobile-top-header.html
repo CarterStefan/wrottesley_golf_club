@@ -1,0 +1,52 @@
+<li class="list-inline-item">
+    <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div>
+            <div><i class="fas fa-search"></i></div>
+            <p>Search</p>
+        </div>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="mobile-search" id="mobile-search-input">
+        <form method="GET" action="">
+            <div class="input-group">
+                <input type="text" name="query" class="form-control" placeholder="Search Our Store" aria-label="Search our Store" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <button class="form-control btn" type="submit">
+                        <span><i class="fas fa-search"></i></span>
+                    </button>
+                </div>                
+            </div>
+        </form>
+    </div>
+</li>
+<li class="list-inline-item dropdown">
+    <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="text-center">
+            <div><i class="fas fa-user"></i></div>
+            <p>My Account</p>
+        </div>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="user-options">
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <a href="" class="dropdown-item">Manage Products</a>
+            {% endif %}
+            <a href="" class="dropdown-item">My Profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% else %}
+            <a href="{% url 'account_signup' %}" class="dropdown-item">Signup</a>
+            <a href="{% url 'account_login' %}" class="dropdown-item">login</a>
+        {% endif %}
+    </div>
+</li>
+<li class="list-inline-item">
+    <a class="nav-link d-block d-lg-none" href="">
+        <div class="text-center"><i class="fas fa-shopping-basket"></i></div>
+        <p>
+            {% if grand_total %}
+                £{{ grand_total|floatformat:2 }}
+            {% else %}
+                £0.00
+            {% endif %}
+        </p>
+    </a>
+</li>

@@ -1,36 +1,101 @@
-/* FONTS */
-
+/* ------------------------------------------------------- FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
 
 
 html {
     height: 100%;
+    font-size: 16px;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: #333333; 
+    color: #333333;
 }
 
-.hero-image {
-    background: url('/media/hero_image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 250px);
+a p{
+    text-decoration: none;
+    color: #333333
 }
 
-h1 {
-    font-family: 'Gilda Display', serif;
+/* ------------------------------------------------------- COLORS */
+/* Color Theme Swatches in Hex */
+.Under-Armour-::-HOVR-Drive-1-hex { color: #D92B4B; }
+.Under-Armour-::-HOVR-Drive-2-hex { color: #555936; }
+.Under-Armour-::-HOVR-Drive-3-hex { color: #8C8851; }
+.Under-Armour-::-HOVR-Drive-4-hex { color: #BFB7A8; }
+.Under-Armour-::-HOVR-Drive-5-hex { color: #D9A171; }
+
+/* Color Theme Swatches in RGBA */
+.Under-Armour-::-HOVR-Drive-1-rgba { color: rgba(216, 43, 75, 1); }
+.Under-Armour-::-HOVR-Drive-2-rgba { color: rgba(85, 89, 53, 1); }
+.Under-Armour-::-HOVR-Drive-3-rgba { color: rgba(140, 136, 81, 1); }
+.Under-Armour-::-HOVR-Drive-4-rgba { color: rgba(191, 183, 168, 1); }
+.Under-Armour-::-HOVR-Drive-5-rgba { color: rgba(216, 161, 112, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Under-Armour-::-HOVR-Drive-1-hsla { color: hsla(348, 69, 51, 1); }
+.Under-Armour-::-HOVR-Drive-2-hsla { color: hsla(67, 25, 27, 1); }
+.Under-Armour-::-HOVR-Drive-3-hsla { color: hsla(56, 26, 43, 1); }
+.Under-Armour-::-HOVR-Drive-4-hsla { color: hsla(39, 15, 70, 1); }
+.Under-Armour-::-HOVR-Drive-5-hsla { color: hsla(28, 57, 64, 1); }
+
+/* ------------------------------------------------------- BOOTSTRAP OVERRIDES */
+.black {
+    color: #333333;
+}
+
+/* ------------------------------------------------------- FONTAWESOME OVERRIDES */
+.fas {
+    color: #333333;
+}
+
+/* ------------------------------------------------------- NAV BAR */
+#nav-bar-logo {
+    font-family: 'Libre Baskerville', serif;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #333333;
+    width: fit-content;
+}
+
+#mobile-search-input {
+    width: 100%;
+}
+
+.nav-link{
     font-weight: 900;
 }
 
-/* Container width for large screens
+.my-auto{
+    margin-top: auto;
+}
+
+/* ------------------------------------------------------- HOMEPAGE */
+.hero-image {
+    background: url('/media/hero_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 200px);
+    filter: grayscale(100%);
+}
+
+.hero-image-title{
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+/* ------------------------------------------------------- MEDIA QUERIES */
+/* Container width for large screens  */
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
 }
- */
 
 /* fixed top navbar for medium and large screens */
 @media (min-width: 992px) {
@@ -42,7 +107,13 @@ h1 {
         z-index: 1030;
     }
 
-    .header-container {
-        padding-top: 200px;
+    .header-container {        
+        z-index: 9999;
     }
+}
+
+/* ------------------------------------------------------- TESTING GRID */
+.second-div{
+    height: 2000px;
+    background-color: #555936;
 }
