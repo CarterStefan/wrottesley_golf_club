@@ -60,16 +60,30 @@ a p{
     width: fit-content;
 }
 
-#mobile-search-input {
-    width: 100%;
-}
-
 .nav-link{
     font-weight: 900;
 }
 
-.my-auto{
-    margin-top: auto;
+.dropdown-item{
+    font-weight: 900;
+}
+
+.dropdown-menu{
+    border: none;
+}
+
+/* Mobile search bar */
+#mobile-search-input {
+    width: 100%;
+    border-radius: 0px;
+}
+
+.input-group{
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.input-group-append{
+    margin-right: 10px;
 }
 
 /* ------------------------------------------------------- HOMEPAGE */
@@ -114,6 +128,5 @@ a p{
 
 /* ------------------------------------------------------- TESTING GRID */
 .second-div{
-    height: 2000px;
     background-color: #555936;
 }
