@@ -122,7 +122,8 @@ a p{
     }
 
     .header-container {        
-        z-index: 9999;
+        z-index: 9999;        
+        padding-top: 200px;
     }
 }
 
