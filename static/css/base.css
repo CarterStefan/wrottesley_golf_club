@@ -12,6 +12,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     color: #333333;
+    letter-spacing: 2px;
 }
 
 a p{
@@ -128,6 +129,28 @@ a p{
 }
 
 /* ------------------------------------------------------- TESTING GRID */
+
+.card-decoration {
+    border: none;
+    box-shadow: -5px 5px 10px grey;
+}
+
+.card-title {
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card-footer {
+    background-color: #ffffff;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 900;
+    font-size: 0.8em;
+    border: none;
+}
+
+/* ------------------------------------------------------- TESTING GRID */
 .second-div{
     background-color: #555936;
+    font-weight: 900;
 }

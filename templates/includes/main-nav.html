@@ -9,17 +9,22 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Blog</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Store</a>
+        </li>
+        <!-- Dropdown for store products 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="second-navbar-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Store
           </a>
           <ul class="dropdown-menu" aria-labelledby="second-navbar-dropdown">
-            <li><a class="dropdown-item" href="#">All Products</a></li>  
+            <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>  
             <li><a class="dropdown-item" href="#">Clubs</a></li>
             <li><a class="dropdown-item" href="#">Accessories</a></li>
             <li><a class="dropdown-item" href="#">Clothing</a></li>            
           </ul>
         </li>
+        -->
         <li class="nav-item">
             <a class="nav-link" href="#">Memberships</a>
         </li>
