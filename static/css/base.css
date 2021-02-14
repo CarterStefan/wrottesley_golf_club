@@ -73,7 +73,7 @@ a p{
     border: none;
 }
 
-/* Mobile search bar */
+/* Search bar 
 #mobile-search-input {
     width: 100%;
     border-radius: 0px;
@@ -86,12 +86,18 @@ a p{
 .input-group-append{
     margin-right: 10px;
 }
+*/
 
 /* ------------------------------------------------------- HOMEPAGE */
-.hero-image {
-    background: url('/media/hero_image.jpg') no-repeat center center fixed;
+.jumbotron {
+    background: url('/media/hero_image.jpg');
     background-size: cover;
-    height: calc(100vh - 200px);
+    background-position: center;
+    margin-top: 0.8em;
+    height: 70vh;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #f2f2f2;
     filter: grayscale(100%);
 }
 
@@ -132,7 +138,7 @@ a p{
 
 .card-decoration {
     border: none;
-    box-shadow: -5px 5px 10px grey;
+    box-shadow: -5px 5px 20px grey;
 }
 
 .card-title {
@@ -153,4 +159,5 @@ a p{
 .second-div{
     background-color: #555936;
     font-weight: 900;
+    height: 1000px;
 }

@@ -39,11 +39,11 @@
     <title>Wrottesley Golf Club {% block extra_title %}{% endblock extra_title %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top">
+    <header class="container-fluid fixed-top-desktop-only">
         <div class="row pt-lg-2 d-none d-lg-flex bg-white justify-content-between">
             <div class="col-12 col-lg-6 my-auto">
                     <a href="{% url 'home' %}" id="nav-bar-logo">
-                        <h2 class="black">Wrottesley Golf Club</h2>
+                        <h2 class="black">Wrottesley<br>Golf Club</h2>
                     </a>
             </div>
             <!--
@@ -60,7 +60,7 @@
             </div>
             -->            
             <div class="col-12 col-lg-4 my-auto">
-                <ul class="list-inline list-unstyled text-center">
+                <ul class="list-inline list-unstyled">
                     <li class="list-inline-item dropdown">
                         <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div>
