@@ -14,7 +14,7 @@ def all_products(request):
     query = None
     categories = None
 
-    if request.GET:
+    if request.GET: 
         if 'filtered_category' in request.GET:
             categories = request.GET['filtered_category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -28,12 +28,10 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
-
     context = {
         'products': products,
         'all_categories': all_categories,
         'current_categories': categories,
-        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)

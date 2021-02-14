@@ -166,6 +166,11 @@ a:hover {
     color: #333333;
 }
 
+.card_product_category {
+    font-size: 0.8em;
+    color: #555936;
+}
+
 /* ------------------------------------------------------- PRODUCT INFORMATION */
 
 .product_information_title {
@@ -179,4 +184,3 @@ a:hover {
     background-color: #555936;
     font-weight: 900;
     height: 1000px;
-}
