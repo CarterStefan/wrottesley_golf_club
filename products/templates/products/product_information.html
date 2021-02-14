@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock page_header %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="row">                    
+                    <div class="col-12 col-lg-6">
+                        <div class="card h-100 card-decoration">
+                            <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">                            
+                            <div class="card-footer text-center">
+                                <p>SKU: {{ product.sku }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div>                                                        
+                            <div>
+                                <p class="product_information_title">{{ product.name }}</p>
+                                <p>£{{ product.price }}</p>
+                                <hr>
+                                <p>{{ product.description }}</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

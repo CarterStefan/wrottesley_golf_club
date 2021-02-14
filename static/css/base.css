@@ -134,11 +134,12 @@ a p{
     }
 }
 
-/* ------------------------------------------------------- TESTING GRID */
+/* ------------------------------------------------------- CARDS */
 
 .card-decoration {
     border: none;
-    box-shadow: -5px 5px 20px grey;
+    box-shadow: -5px 10px 30px grey;
+    text-decoration: none;
 }
 
 .card-title {
@@ -153,6 +154,19 @@ a p{
     font-weight: 900;
     font-size: 0.8em;
     border: none;
+}
+
+.card_links {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* ------------------------------------------------------- PRODUCT INFORMATION */
+
+.product_information_title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 900;
+    font-size: 1.5em;
 }
 
 /* ------------------------------------------------------- TESTING GRID */

@@ -37,3 +37,17 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_information(request, product_id):
+    """ A view to show an individual product detail """
+
+    product = get_object_or_404(Product, pk=product_id)
+    all_categories = Category.objects.all()
+
+    context = {
+        'product': product,
+        'all_categories': all_categories,
+    }
+
+    return render(request, 'products/product_information.html', context)
