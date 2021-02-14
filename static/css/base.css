@@ -6,7 +6,7 @@
 
 html {
     height: 100%;
-    font-size: 16px;
+    font-size: 16px;    
 }
 
 body {
@@ -15,7 +15,12 @@ body {
     letter-spacing: 2px;
 }
 
-a p{
+a {
+    text-decoration: none;
+    color: #333333
+}
+
+a:hover {
     text-decoration: none;
     color: #333333
 }
@@ -138,7 +143,7 @@ a p{
 
 .card-decoration {
     border: none;
-    box-shadow: -5px 10px 30px grey;
+    box-shadow: -5px 10px 10px #f2f2f2;
     text-decoration: none;
 }
 
@@ -156,7 +161,7 @@ a p{
     border: none;
 }
 
-.card_links {
+.category_card {
     text-decoration: none;
     color: #333333;
 }

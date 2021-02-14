@@ -10,7 +10,7 @@
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container card_links">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-lg-3">
                 <div class="row">
@@ -28,7 +28,7 @@
                         {% for category in all_categories %}
                             <div class="card">
                                 <a href="{% url 'products'%}?filtered_category={{ category.name }}">
-                                <div class="card-body">
+                                <div class="card-body category_card">
                                     {{ category.name }}
                                 </div>
                                 </a>
@@ -39,21 +39,21 @@
             </div>        
             <div class="col-12 col-lg-9">
                 <div class="row">
-                {% for product in products %}                            
-                    <div class="col-6 col-md-4 col-xl-3 mb-3">                        
+                    {% for product in products %}                            
+                        <div class="col-6 col-md-4 col-xl-3 mb-3">                        
                             <div class="card h-100 card-decoration">
                                 <a href="{% url 'product_information' product.id %}">
                                     <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">
-                                </a>
+                                </a>                               
                                 <div class="card-body text-center">
                                     <h5 class="card-title">{{ product.name }}</h5>
                                 </div>
                                 <div class="card-footer text-center">
                                     <p>£{{ product.price }}</p>
-                                </div>
+                                </div>                                
                             </div>
-                    </div>
-                {% endfor %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
