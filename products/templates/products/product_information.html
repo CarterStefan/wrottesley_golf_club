@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">
                 <div class="row">                    
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-sm-6">
                         <div class="card h-100 card-decoration">
                             <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">                            
                             <div class="card-footer text-center">
@@ -22,12 +22,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-sm-6">
                         <div>                                                        
                             <div>
                                 <p class="product_information_title">{{ product.name }}</p>
                                 <p>£{{ product.price }}</p>
-                                <p class="text-left card_product_category">{{ product.category.friendly_name }}</p>
+                                <p class="text-left card_product_category">
+                                    <a href="{% url 'products'%}?filtered_category={{ product.category }}">
+                                        {{ product.category.friendly_name }}
+                                    </a>
+                                </p>
                                 <hr>
                                 <p>{{ product.description }}</p>
                             </div>

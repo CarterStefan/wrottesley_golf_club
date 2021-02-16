@@ -166,6 +166,12 @@ a:hover {
     color: #333333;
 }
 
+.category_card:active {
+    text-decoration: none;
+    color: #333333;
+    background-color: #D92B4B;
+}
+
 .card_product_category {
     font-size: 0.8em;
     color: #555936;
