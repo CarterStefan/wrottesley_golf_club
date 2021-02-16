@@ -11,27 +11,35 @@ def all_products(request):
 
     products = Product.objects.all()
     all_categories = Category.objects.all()
-    query = None
-    categories = None
+    search_term = None
+    selected_category = None
 
     if request.GET:
+        # Filter the products to show only those in the selected category
         if 'filtered_category' in request.GET:
-            categories = request.GET['filtered_category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            selected_category = request.GET['filtered_category']
+            products = products.filter(category__name=selected_category)
+            if 'sort' in request.GET:
+                sortkey = request.GET['sort']
+                if selected_category is None:
+                    products = Product.objects.order_by(sortkey)
 
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
+                products = products.order_by(sortkey)
+
+        # Filter the products to show only those that match the search terms
+        if 'search' in request.GET:
+            search_term = request.GET['search']
+            if not search_term:
                 messages.error(request, "Please enter something to search the store!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=search_term) | Q(description__icontains=search_term) | Q(category__name__icontains=search_term)
             products = products.filter(queries)
+
     context = {
         'products': products,
         'all_categories': all_categories,
-        'current_categories': categories,
+        'selected_category': selected_category,
     }
 
     return render(request, 'products/products.html', context)

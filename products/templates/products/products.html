@@ -17,20 +17,14 @@
                     <div class="col-12">
                         <form method="GET" action="{% url 'products' %}">
                             <div class="input-group mb-3">                                
-                                <input type="text" name="q" class="form-control" placeholder="Search..." aria-label="Search our Store" aria-describedby="basic-addon1">
+                                <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Search our Store" aria-describedby="basic-addon1">
                                 <button type="submit">
                                     <span><i class="fas fa-search"></i></span>
                                 </button>
                             </div>
                         </form>
                     </div>
-                    <div class="col-12">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>All Products</option>
-                            {% for category in all_categories %}
-                                <option value="{{category.name}}">{{category.friendly_name}}</option>
-                            {% endfor %}
-                        </select>
+                    <div class="col-12">                        
                         {% for category in all_categories %}
                             <div class="card">
                                 <a href="{% url 'products'%}?filtered_category={{ category.name }}">
@@ -41,22 +35,38 @@
                             </div>
                         {% endfor %}
                         <div class="card">
-                                <a href="{% url 'products'%}">
+                            <a href="{% url 'products'%}">
                                 <div class="card-body category_card">
                                     All Products
                                 </div>
-                                </a>
-                            </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>        
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col-6">
-                        {% for c in current_categories %}
-                            <a href="{% url 'products'%}?filtered_category={{ c.name }}"><h3>{{ c.friendly_name }}</h3></a>
-                        {% endfor %}
+                        {% if selected_category is not None %}
+                                <a href="{% url 'products'%}?filtered_category={{ selected_category }}"><h3>{{ selected_category }}</h3></a>
+                        {% else %}
+                            <h3>All Products</h3>
+                        {% endif %}
                     </div>
+                    <div class="col-6 justify-content-end">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-secondary">Sort By</button>
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=price">Price (low-high)</a>
+                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=-price">Price (high-low)</a>
+                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=name">Name (A-Z)</a>
+                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=-name">Name (Z-A)</a>
+                                </div>
+                            </div>                            
+                        </div>
                 </div>                
                 <div class="row">                    
                     {% for product in products %}                            
