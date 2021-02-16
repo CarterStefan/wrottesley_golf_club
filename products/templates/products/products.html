@@ -50,7 +50,14 @@
                     </div>
                 </div>
             </div>        
-            <div class="col-12 col-lg-9">                
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-6">
+                        {% for c in current_categories %}
+                            <a href="{% url 'products'%}?filtered_category={{ c.name }}"><h3>{{ c.friendly_name }}</h3></a>
+                        {% endfor %}
+                    </div>
+                </div>                
                 <div class="row">                    
                     {% for product in products %}                            
                         <div class="col-6 col-md-4 col-xl-3 mb-3">                        
