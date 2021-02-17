@@ -28,7 +28,7 @@
                                 <p class="product_information_title">{{ product.name }}</p>
                                 <p>£{{ product.price }}</p>
                                 <p class="text-left card_product_category">
-                                    <a href="{% url 'products'%}?filtered_category={{ product.category }}">
+                                    <a href="{% url 'products'%}?category={{ product.category }}">
                                         {{ product.category.friendly_name }}
                                     </a>
                                 </p>

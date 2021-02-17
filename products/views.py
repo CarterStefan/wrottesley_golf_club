@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db.models.functions import Lower
 from django.contrib import messages
 from django.db.models import Q
 from . models import Product, Category
@@ -10,21 +11,31 @@ def all_products(request):
     """ A view for the products page, including different categories, searching and sorting """
 
     products = Product.objects.all()
-    all_categories = Category.objects.all()
+    categories = Category.objects.all()
     search_term = None
-    selected_category = None
+    current_category = None
+    current_category_upper = None
+    direction = None
+    sort = None
 
     if request.GET:
-        # Filter the products to show only those in the selected category
-        if 'filtered_category' in request.GET:
-            selected_category = request.GET['filtered_category']
-            products = products.filter(category__name=selected_category)
-            if 'sort' in request.GET:
-                sortkey = request.GET['sort']
-                if selected_category is None:
-                    products = Product.objects.order_by(sortkey)
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
 
-                products = products.order_by(sortkey)
+        # Filter the products to show only those in the selected category
+        if 'category' in request.GET:
+            current_category = request.GET['category']
+            products = products.filter(category__name=current_category)
+            current_category_upper = current_category.capitalize()
 
         # Filter the products to show only those that match the search terms
         if 'search' in request.GET:
@@ -36,10 +47,15 @@ def all_products(request):
             queries = Q(name__icontains=search_term) | Q(description__icontains=search_term) | Q(category__name__icontains=search_term)
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products': products,
-        'all_categories': all_categories,
-        'selected_category': selected_category,
+        'categories': categories,
+        'search_term': search_term,
+        'current_category': current_category,
+        'current_sorting': current_sorting,
+        'current_category_upper': current_category_upper,
     }
 
     return render(request, 'products/products.html', context)

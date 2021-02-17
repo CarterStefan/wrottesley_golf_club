@@ -25,9 +25,9 @@
                         </form>
                     </div>
                     <div class="col-12">                        
-                        {% for category in all_categories %}
+                        {% for category in categories %}
                             <div class="card">
-                                <a href="{% url 'products'%}?filtered_category={{ category.name }}">
+                                <a href="{% url 'products'%}?category={{ category.name }}">
                                 <div class="card-body category_card">
                                     {{ category.friendly_name }}
                                 </div>
@@ -47,8 +47,8 @@
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col-6">
-                        {% if selected_category is not None %}
-                                <a href="{% url 'products'%}?filtered_category={{ selected_category }}"><h3>{{ selected_category }}</h3></a>
+                        {% if current_category is not None %}
+                                <a href="{% url 'products'%}?category={{ current_category }}"><h3>{{ current_category_upper }}</h3></a>
                         {% else %}
                             <h3>All Products</h3>
                         {% endif %}
@@ -60,10 +60,17 @@
                                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=price">Price (low-high)</a>
-                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=-price">Price (high-low)</a>
-                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=name">Name (A-Z)</a>
-                                <a class="dropdown-item" href="{%url 'products' %}?filtered_category={{ selected_category }}&sort=-name">Name (Z-A)</a>
+                                {% if current_category is not None %}
+                                    <a class="dropdown-item" href="{%url 'products' %}?category={{ current_category }}&sort=price&direction=asc">Price (low-high)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?category={{ current_category }}&sort=price&direction=desc">Price (high-low)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?category={{ current_category }}&sort=name&direction=asc">Name (A-Z)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?category={{ current_category }}&sort=name&direction=desc">Name (Z-A)</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{%url 'products' %}?sort=price&direction=asc">Price (low-high)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?sort=price&direction=desc">Price (high-low)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?sort=name&direction=asc">Name (A-Z)</a>
+                                    <a class="dropdown-item" href="{%url 'products' %}?sort=name&direction=desc">Name (Z-A)</a>
+                                {% endif %}                                
                                 </div>
                             </div>                            
                         </div>
