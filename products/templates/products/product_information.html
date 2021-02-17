@@ -25,7 +25,7 @@
                     <div class="col-12 col-sm-6">
                         <div>                                                        
                             <div>
-                                <p class="product_information_title">{{ product.name }}</p>
+                                <p class="product_information_title mt-5">{{ product.name }}</p>
                                 <p>£{{ product.price }}</p>
                                 <p class="text-left card_product_category">
                                     <a href="{% url 'products'%}?category={{ product.category }}">
@@ -34,6 +34,9 @@
                                 </p>
                                 <hr>
                                 <p>{{ product.description }}</p>
+                                <div class="btn" onclick="goBack()">
+                                    <span><i class="fas fa-angle-double-left"></i> Back to Product search</span>
+                                </div>
                             </div>
                         </div>
                     </div>                    
@@ -42,3 +45,12 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block postloadjs %}
+    {{ block.super }}    
+    <script type="text/javascript">
+        function goBack() {
+            window.history.go(-1);
+        };
+    </script>
+{% endblock postloadjs %}
