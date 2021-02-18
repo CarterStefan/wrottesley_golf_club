@@ -13,6 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333333;
     letter-spacing: 2px;
+    background-color: #f2f2f2;
 }
 
 a {
@@ -140,14 +141,19 @@ a:hover {
 
 .card-decoration {
     border: none;
-    box-shadow: -5px 10px 10px #f2f2f2;
+    /* box-shadow: -5px 10px 10px #f2f2f2; */
+    text-decoration: none;
+    transition: border 0.5s;
+}
+
+.card-decoration:hover {
+    border: 1px solid #555936;
     text-decoration: none;
 }
 
 .card-title {
     font-size: 0.8em;
     font-weight: 600;
-    text-transform: uppercase;
 }
 
 .card-footer {
