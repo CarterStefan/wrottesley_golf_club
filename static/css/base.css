@@ -21,8 +21,7 @@ a {
 }
 
 a:hover {
-    text-decoration: none;
-    color: #333333
+    text-decoration: none;    
 }
 
 /* ------------------------------------------------------- COLORS */
@@ -164,11 +163,12 @@ a:hover {
 .category_card {
     text-decoration: none;
     color: #333333;
+    font-size: 0.8em;
 }
 
 .category_card:hover {
     text-decoration: none;
-    color: #f2f2f2;
+    color: #f2f2f2 !important;
     background-color: #555936;
 }
 
@@ -183,6 +183,10 @@ a:hover {
     background-color: #555936;
 }
 
+.product_count{
+    font-size: 0.8em;
+}
+
 /* ------------------------------------------------------- PRODUCT INFORMATION */
 
 .product_information_title {
@@ -192,9 +196,17 @@ a:hover {
 }
 
 #sort-selector {
-    width: 100%;
+    width: 100%;    
+    padding: 10px;
 }
 
+.custom-select-sm{
+    height: 50px;
+}
+
+.border-info{
+    border-color: #333333 !important;
+}
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
     background-color: #555936;
