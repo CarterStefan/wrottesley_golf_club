@@ -16,14 +16,16 @@
                 <div class="row">
                     <div class="col-12">
                         {% if current_category != None %}
-                                <a href="{% url 'products'%}?category={{ current_category }}"><span class="product_count">{{ current_category_upper }} | {{ products|length }} products</span></a>
+                                <p>
+                                    <a href="{% url 'products'%}?category={{ current_category }}"><span class="product_count"><strong>{{ current_category_upper }}</strong> | {{ products|length }} products</span></a>
+                                </p>
                         {% else %}
-                            <p class="product_count">{{ products|length }} products {% if search_term %} found for "{{ search_term }}"{% endif %}</p>
+                            <p class="product_count">{{ products|length }} products {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}</p>
                         {% endif %}
                     </div>
                 </div>
                 <div class="row">                    
-                    <div class="col-12">
+                    <div class="col-12 p-1">
                         <form method="GET" action="{% url 'products' %}">
                             <div class="input-group mb-3">                                
                                 <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Search our Store" aria-describedby="basic-addon1">
@@ -59,14 +61,13 @@
             </div>        
             <div class="col-12 col-lg-9">
                 <div class="row">
-                    <div class="col-6 col-md-8">                        
-                    </div>
-                    <div class="col-6 col-md-4"><select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    <div class="col-6 col-md-4 col-xl-3 offset-6 offset-md-8 offset-xl-9 p-1">
+                        <select id="sort-selector" class="custom-select custom-select-sm p-1 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} dropdown_options">
+                            <option class="" value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option class="" value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option class="" value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option class="" value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option class="" value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                         </select>
                     </div>
                 </div>                

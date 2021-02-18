@@ -77,20 +77,18 @@ a:hover {
     border: none;
 }
 
-/* Search bar 
+
 #mobile-search-input {
     width: 100%;
     border-radius: 0px;
 }
 
-.input-group{
-    margin-left: 10px;
+.input-group{    
     border-radius: 10px;
 }
-.input-group-append{
-    margin-right: 10px;
+#sort-selector{    
+    border-radius: 5px;
 }
-*/
 
 /* ------------------------------------------------------- HOMEPAGE */
 .jumbotron {
@@ -185,6 +183,14 @@ a:hover {
 
 .product_count{
     font-size: 0.8em;
+}
+
+.dropdown_options{
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    line-height: 5em;
+    color: #333333;
+    font-size: 0.8em
 }
 
 /* ------------------------------------------------------- PRODUCT INFORMATION */
