@@ -10,5 +10,23 @@
 {% endblock page_header %}
 
 {% block content %}
-    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="nav-bar-logo">Your Basket</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if basket_items %}
+                    <div class="table-responsive"></div>
+                {% else %}
+                    <p>You haven't added any items</p>
+                    <a href="{% url 'products' %}">
+                        <button type="button" class="btn btn-secondary btn-lg">Go to store</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}

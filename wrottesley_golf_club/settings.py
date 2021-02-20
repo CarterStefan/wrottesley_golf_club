@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # This is required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'basket.contexts.basket_contents',
             ],
         },
     },
@@ -154,3 +155,11 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+PRO_DELIVERY_CHARGE = 0
+AMATEUR_DELIVERY_CHARGE = 0
+BEGINNER_DELIVERY_CHARGE = 10
+
+PRO_STORE_DISCOUNT = 20
+AMATEUR_STORE_DISCOUNT = 10
+BEGINNER_STORE_DISCOUNT = 0
