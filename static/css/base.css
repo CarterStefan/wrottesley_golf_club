@@ -49,7 +49,15 @@ a:hover {
 
 /* ------------------------------------------------------- BOOTSTRAP OVERRIDES */
 .black {
-    color: #333333;
+    color: #333333 !important;
+}
+
+.red {
+    color: #D92525 !important;
+}
+
+.green {
+    color: #3C7322 !important;
 }
 
 .bg-green {
@@ -245,6 +253,11 @@ a:hover {
     border: 1px solid #3C7322;
     color: #3C7322;
     background-color: #f2f2f2;
+}
+
+.remove-item,
+.update-link {
+    cursor: pointer;
 }
 
 /* ------------------------------------------------------- TESTING GRID */
