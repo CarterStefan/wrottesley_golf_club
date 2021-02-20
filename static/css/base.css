@@ -218,6 +218,33 @@ a:hover {
 .border-info{
     border-color: #333333 !important;
 }
+
+#keep-shopping-btn {
+    border-radius: 5px;
+    border: 1px solid #333333;
+}
+
+#keep-shopping-btn:hover {
+    border-radius: 5px;
+    border: 1px solid #555936;
+    color: #f2f2f2;
+    background-color: #555936;
+}
+
+#add-to-basket-btn {
+    border-radius: 5px;
+    border: 1px solid #555936;
+    color: #f2f2f2;
+    background-color: #555936;
+}
+
+#add-to-basket-btn:hover {
+    border-radius: 5px;
+    border: 1px solid #555936;
+    color: #555936;
+    background-color: #f2f2f2;
+}
+
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
     background-color: #555936;
