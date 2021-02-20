@@ -13,7 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333333;
     letter-spacing: 2px;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 
 a {
@@ -27,34 +27,33 @@ a:hover {
 
 /* ------------------------------------------------------- COLORS */
 /* Color Theme Swatches in Hex */
-.Under-Armour-::-HOVR-Drive-1-hex { color: #D92B4B; }
-.Under-Armour-::-HOVR-Drive-2-hex { color: #555936; }
-.Under-Armour-::-HOVR-Drive-3-hex { color: #8C8851; }
-.Under-Armour-::-HOVR-Drive-4-hex { color: #BFB7A8; }
-.Under-Armour-::-HOVR-Drive-5-hex { color: #D9A171; }
+.Flying-festival-Amazon-parrot-on-the-white-background-1-hex { color: #3C7322; }
+.Flying-festival-Amazon-parrot-on-the-white-background-2-hex { color: #89BF15; }
+.Flying-festival-Amazon-parrot-on-the-white-background-3-hex { color: #83A637; }
+.Flying-festival-Amazon-parrot-on-the-white-background-4-hex { color: #D92525; }
+.Flying-festival-Amazon-parrot-on-the-white-background-5-hex { color: #F2F2F2; }
 
 /* Color Theme Swatches in RGBA */
-.Under-Armour-::-HOVR-Drive-1-rgba { color: rgba(216, 43, 75, 1); }
-.Under-Armour-::-HOVR-Drive-2-rgba { color: rgba(85, 89, 53, 1); }
-.Under-Armour-::-HOVR-Drive-3-rgba { color: rgba(140, 136, 81, 1); }
-.Under-Armour-::-HOVR-Drive-4-rgba { color: rgba(191, 183, 168, 1); }
-.Under-Armour-::-HOVR-Drive-5-rgba { color: rgba(216, 161, 112, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-1-rgba { color: rgba(59, 114, 34, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-2-rgba { color: rgba(137, 191, 21, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-3-rgba { color: rgba(130, 165, 54, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-4-rgba { color: rgba(216, 36, 36, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-5-rgba { color: rgba(242, 242, 242, 1); }
 
 /* Color Theme Swatches in HSLA */
-.Under-Armour-::-HOVR-Drive-1-hsla { color: hsla(348, 69, 51, 1); }
-.Under-Armour-::-HOVR-Drive-2-hsla { color: hsla(67, 25, 27, 1); }
-.Under-Armour-::-HOVR-Drive-3-hsla { color: hsla(56, 26, 43, 1); }
-.Under-Armour-::-HOVR-Drive-4-hsla { color: hsla(39, 15, 70, 1); }
-.Under-Armour-::-HOVR-Drive-5-hsla { color: hsla(28, 57, 64, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-1-hsla { color: hsla(101, 53, 29, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-2-hsla { color: hsla(78, 80, 41, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-3-hsla { color: hsla(78, 50, 43, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-4-hsla { color: hsla(0, 70, 49, 1); }
+.Flying-festival-Amazon-parrot-on-the-white-background-5-hsla { color: hsla(0, 0, 95, 1); }
 
 /* ------------------------------------------------------- BOOTSTRAP OVERRIDES */
 .black {
     color: #333333;
 }
 
-/* ------------------------------------------------------- FONTAWESOME OVERRIDES */
-.fas {
-    color: #333333;
+.bg-green {
+    background-color: #3C7322;
 }
 
 /* ------------------------------------------------------- NAV BAR */
@@ -63,6 +62,10 @@ a:hover {
     text-decoration: underline;
     text-transform: uppercase;
     color: #333333;
+}
+
+#main-navbar{
+    color: #f2f2f2;
 }
 
 .nav-link {
@@ -146,7 +149,7 @@ a:hover {
 }
 
 .card-decoration:hover {
-    border: 1px solid #555936;
+    border: 1px solid #3C7322;
     text-decoration: none;
 }
 
@@ -172,18 +175,18 @@ a:hover {
 .category_card:hover {
     text-decoration: none;
     color: #f2f2f2 !important;
-    background-color: #555936;
+    background-color: #3C7322;
 }
 
 .card_product_category {
     font-size: 0.8em;
-    color: #555936;
+    color: #3C7322;
 }
 
 .current_category_card {
     text-decoration: none;
     color: #f2f2f2;
-    background-color: #555936;
+    background-color: #3C7322;
 }
 
 .product_count{
@@ -193,7 +196,6 @@ a:hover {
 .dropdown_options{
     font-family: 'Roboto', sans-serif;
     padding: 10px;
-    line-height: 5em;
     color: #333333;
     font-size: 0.8em
 }
@@ -219,35 +221,39 @@ a:hover {
     border-color: #333333 !important;
 }
 
-#keep-shopping-btn {
+.keep-shopping-btn {
     border-radius: 5px;
     border: 1px solid #333333;
 }
 
-#keep-shopping-btn:hover {
+.keep-shopping-btn:hover {
     border-radius: 5px;
-    border: 1px solid #555936;
+    border: 1px solid #3C7322;
     color: #f2f2f2;
-    background-color: #555936;
+    background-color: #3C7322;
 }
 
-#add-to-basket-btn {
+.add-to-basket-btn {
     border-radius: 5px;
-    border: 1px solid #555936;
+    border: 1px solid #3C7322;
     color: #f2f2f2;
-    background-color: #555936;
+    background-color: #3C7322;
 }
 
-#add-to-basket-btn:hover {
+.add-to-basket-btn:hover {
     border-radius: 5px;
-    border: 1px solid #555936;
-    color: #555936;
+    border: 1px solid #3C7322;
+    color: #3C7322;
     background-color: #f2f2f2;
 }
 
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
-    background-color: #555936;
+    background-color: #3C7322;
     font-weight: 900;
     height: 1000px;
+}
+
+.basket-image {
+    height: 200px;
 }
