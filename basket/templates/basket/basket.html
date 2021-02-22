@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -41,10 +42,10 @@
                                         <p>SKU: {{ item.product.sku }}</p>
                                     </td>
                                     <td>
-                                        <p>{{ item.product.price }}</p>                                        
+                                        <p>£{{ item.product.price }}</p>                                        
                                     </td>
                                     <td>
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'edit_basket' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -74,16 +75,17 @@
                                             </div>
                                         </form>
                                         <a class="update-link green"><small>Update</small></a>
-                                        <a class="remove-item float-right red" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item float-right red" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td>
-                                        <p>{{ item.product.price }}</p>                                        
+                                        <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>                                        
                                     </td>
                                 </tr>
                             {% endfor %}                            
                                 <tr>                                    
                                     <td colspan="5" class="text-right">
                                         <p>Basket Total: £{{ total|floatformat:2 }}</p>
+                                        <p>Membership Discount: - £{{ discount|floatformat:2 }}</p>
                                         <p>Delivery: £{{ delivery|floatformat:2 }}</p>
                                         <p>Total: £{{ grand_total|floatformat:2 }}</p>
                                     </td>
@@ -117,17 +119,17 @@
 
 <script type="text/javascript">
     // Update the quantity if update button is clicked
-    $('update-link').click(function(e) {
+    $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item from basket and reload when remove button is clicked
-    $('remove-item').click(function(e) {
+    $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}"
         var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('size');
-        var url = `/basket/remove/${itemId}`;
+        var size = $(this).data('product_size');
+        var url = `/basket/delete/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
 
         $.post(url, data)
