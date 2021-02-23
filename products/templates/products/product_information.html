@@ -10,22 +10,22 @@
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">
                 <div class="row">                    
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <div class="card h-100 card-decoration">
-                            <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">                            
+                            <img src="{{ product.image_url }}" class="card-img-top center product-information-card-image" alt="{{ product.name }}">                            
                             <div class="card-footer text-center">
                                 <p>SKU: {{ product.sku }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-md-6">
                         <div>                                                        
                             <div>
-                                <p class="product_information_title mt-5">{{ product.name }}</p>
+                                <p class="product_information_title">{{ product.name }}</p>
                                 <p>£{{ product.price }}</p>
                                 <p class="text-left card_product_category">
                                     <a href="{% url 'products'%}?category={{ product.category }}">
