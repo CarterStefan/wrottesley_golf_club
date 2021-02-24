@@ -98,12 +98,25 @@ Using the website, all users will be able to:
 ## UX
 
 #### Desktop Wireframes
+##### Homepage
 ![Homepage](https://user-images.githubusercontent.com/64138643/109057030-24a97c00-76d9-11eb-970e-a57d0d017f35.png)
+
+##### Products
 ![Products](https://user-images.githubusercontent.com/64138643/109057014-2115f500-76d9-11eb-8e23-21a0433e092e.png)
+
+##### Product Details
 ![Product Details](https://user-images.githubusercontent.com/64138643/109057032-24a97c00-76d9-11eb-9ce6-50de431d0e4f.png)
+
+##### Basket
 ![Basket](https://user-images.githubusercontent.com/64138643/109057019-22dfb880-76d9-11eb-924b-7ee89c4d09c8.png)
+
+##### Checkout
 ![Checkout](https://user-images.githubusercontent.com/64138643/109057025-23784f00-76d9-11eb-9b63-e9324238e2d7.png)
+
+##### Blog
 ![Blog](https://user-images.githubusercontent.com/64138643/109057021-22dfb880-76d9-11eb-944b-87542884a8e7.png)
+
+##### Tournaments
 ![Tournaments](https://user-images.githubusercontent.com/64138643/109057017-21ae8b80-76d9-11eb-8faa-fc96ce54c6c2.png)
 
 
