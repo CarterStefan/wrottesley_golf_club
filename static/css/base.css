@@ -60,6 +60,10 @@ a:hover {
     color: #3C7322 !important;
 }
 
+.green-secondary {
+    color: #83A637;
+}
+
 .bg-green {
     background-color: #3C7322;
 }
@@ -278,4 +282,12 @@ a:hover {
 
 .basket-image {
     height: 200px;
+}
+
+/* ------------------------------------------------------- MESSAGES */
+.message-container {
+    position: fixed;
+    bottom: 50px;
+    right: 15px;
+    z-index: 999999999;
 }
