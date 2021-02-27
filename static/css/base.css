@@ -55,7 +55,6 @@ a:hover {
 .Flying-festival-Amazon-parrot-on-the-white-background-4-hsla { color: hsla(0, 70, 49, 1); }
 .Flying-festival-Amazon-parrot-on-the-white-background-5-hsla { color: hsla(0, 0, 95, 1); }
 
-/* ------------------------------------------------------- BOOTSTRAP OVERRIDES */
 .black {
     color: #333333 !important;
 }
@@ -113,27 +112,6 @@ a:hover {
     border-color: #f2f2f2;
 }
 
-.dropdown-item{
-    font-weight: 900;
-}
-
-.dropdown-menu{
-    border: none;
-}
-
-
-#mobile-search-input {
-    width: 100%;
-    border-radius: 0px;
-}
-
-.input-group{    
-    border-radius: 10px;
-}
-#sort-selector{    
-    border-radius: 5px;
-}
-
 /* ------------------------------------------------------- HOMEPAGE */
 .jumbotron {
     background: url('/media/hero_image.jpg');
@@ -156,31 +134,29 @@ a:hover {
     font-weight: 900;
 }
 
-/* ------------------------------------------------------- MEDIA QUERIES */
-/* Container width for large screens  */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+/* ------------------------------------------------------- PRODUCTS */
+.dropdown-item{
+    font-weight: 900;
 }
 
-/* fixed top navbar for medium and large screens */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {        
-        z-index: 9999;        
-        padding-top: 176px;
-    }
+.dropdown-menu{
+    border: none;
 }
 
-/* ------------------------------------------------------- CARDS */
+#mobile-search-input {
+    width: 100%;
+    border-radius: 0px;
+}
+
+.input-group{    
+    border-radius: 10px;
+}
+
+#sort-selector{    
+    border-radius: 5px;
+}
+
+/* CARDS */
 
 .card-decoration {
     text-decoration: none;
@@ -290,17 +266,6 @@ a:hover {
     cursor: pointer;
 }
 
-/* ------------------------------------------------------- TESTING GRID */
-.second-div {
-    background-color: #3C7322;
-    font-weight: 900;
-    height: 1000px;
-}
-
-.basket-image {
-    height: 200px;
-}
-
 /* ------------------------------------------------------- MESSAGES */
 .message-container {
     position: fixed;
@@ -327,3 +292,38 @@ a:hover {
     font-size: 0.8em;
     color: #3C7322;
 }
+
+/* ------------------------------------------------------- MEDIA QUERIES */
+/* Container width for large screens  */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar for medium and large screens */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {        
+        z-index: 9999;        
+        padding-top: 176px;
+    }
+}
+/* ------------------------------------------------------- TESTING GRID */
+.second-div {
+    background-color: #3C7322;
+    font-weight: 900;
+    height: 1000px;
+}
+
+.basket-image {
+    height: 200px;
+}
+
