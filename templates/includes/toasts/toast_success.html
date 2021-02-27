@@ -1,13 +1,43 @@
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
-  <div class="toast-header">
-    <span class="green mr-1"><i class="far fa-check-circle"></i></span>
-    <strong class="mr-auto green">Success!</strong>
-    <small class="text-muted"></small>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="toast-body">
-    {{ message }}
-  </div>
+    <div class="toast-header">
+        <span class="green mr-1"><i class="far fa-check-circle"></i></span>
+        <strong class="mr-auto green">Success!</strong>
+        <small class="text-muted"></small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr>
+            </div>
+        </div>
+        {% if grand_total %}
+            <p class=""><strong>My Basket</strong>, {{ product_count }} items</p>            
+            <div class="notification-wrapper w-100">
+                {% for item in basket_items %}
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <img class="w-100" src="{{ item.product.image_url }}">
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0 libre message-name">{{ item.product.name }}</p>
+                            <p class="my-0 message-price"><strong>£{{ item.product.price }}</strong></p>
+                            <p class="my-0 message-text">Size: {% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 message-text">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}                
+            </div>
+            <hr>
+            <div class="col">
+                <p><strong>Total: <span class="float-right">£{{ grand_total|floatformat:2 }}</span></strong></p>
+            </div>
+            <div class="col">
+                <a class="btn w-100 add-to-basket-btn" href="{% url 'view_basket' %}">View Basket</a>
+            </div>       
+        {% endif %}
+    </div>
 </div>

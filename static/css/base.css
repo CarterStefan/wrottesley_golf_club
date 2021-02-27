@@ -3,6 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
 
+.libre {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
 
 html {
     height: 100%;
@@ -299,4 +307,23 @@ a:hover {
     bottom: 50px;
     right: 15px;
     z-index: 999999999;
+}
+
+.notification-wrapper{
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.message-price {
+    font-size: 0.8em
+}
+
+.message-name {
+    font-size: 0.9em
+}
+
+.message-text {
+    font-size: 0.8em;
+    color: #3C7322;
 }
