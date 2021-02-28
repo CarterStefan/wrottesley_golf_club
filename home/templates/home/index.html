@@ -2,20 +2,40 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container-fluid jumbotron">
-        <div class="container">
-            <h1 class="hero-image-title">Welcome to Wrottesly Golf Club</h1>
-        </div>     
+<div class="container-fluid jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-6 jumbotron-box mt-5">
+                <h3 class="libre m-4 black">Our store is now live</h3>
+                <p><h5 class="m-4 black">View our range of clubs, clothing and accessories</h5></p>
+                <p class="m-4"><a class="btn homepage-btn" href="{% url 'products' %}">VISIT STORE</a></p>
+            </div>
+        </div>
     </div>
-    <div class="second-div">
-        <h2>Your are currently a {{ membership_level }} member!</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col m-1 bg-green">
+            <p class="text-center homepage-submenu-box">The Club</p>
+        </div>
+        <div class="col m-1 bg-green">
+            <p class="text-center homepage-submenu-box">Tournaments</p>
+        </div>
+        <div class="col m-1 bg-green">
+            <p class="text-center homepage-submenu-box">Blog</p>
+        </div>
     </div>
+</div>
+<div class="container">
+    <div class="row">
+    </div>
+</div>
 {% endblock content %}

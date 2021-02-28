@@ -118,24 +118,51 @@ a:hover {
 
 /* ------------------------------------------------------- HOMEPAGE */
 .jumbotron {
-    background: url('/media/hero_image.jpg');
+    background: url('/media/hero_image_bw.jpg');
     background-size: cover;
     background-position: center;
     height: 70vh;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
     color: #f2f2f2;
-    filter: grayscale(100%);
     border-radius: 0px;
 }
 
-.hero-image-title{
+.jumbotron-box {
+    border-radius: 10px;
+    background-color: #f2f2f2;    
+}
+
+.hero-image-title {
     color: white;
     margin: 0;
     position: absolute;
     top: 50%;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+}
+
+.homepage-btn {
+    border-radius: 5px;
+    border: 1px solid #3C7322;
+    color: #f2f2f2;
+    background-color: #3C7322;
+    padding: 20px;
+}
+
+.homepage-btn:hover {
+    border-radius: 5px;
+    border: 1px solid #3C7322;
+    color: #3C7322;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.homepage-submenu-box {
+    padding-top: 125px;
+    padding-bottom: 125px;
+    font-family: 'Libre Baskerville', serif;
+    color: #f2f2f2;
+    font-size: 1.2em;
 }
 
 /* ------------------------------------------------------- PRODUCTS */
