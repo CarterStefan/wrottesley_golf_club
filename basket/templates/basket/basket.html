@@ -3,113 +3,148 @@
 {% load basket_tools %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-1">
-                <h2 class="libre">Your Basket</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-1">
-                {% if basket_items %}               
-                    {% for item in basket_items %}
-                        <div class="row">
-                            <div class="col-4">
-                                <img class="w-100" src="{{ item.product.image_url }}">
-                            </div>
-                            <div class="col-8">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <span>£{{ item.product.price }}</span>
-                                    </div>
-                                    <div class="col-6">
-                                        <span>
-                                            <a class="remove-item float-right red" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                                <i class="far fa-times-circle red float-right"></i>
-                                            </a>                                            
-                                        </span>
-                                    </div>
-                                </div>                                
-                                <p class="libre">{{ item.product.name }}</p>
-                                <p>Size: {% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                                <p class="mb-0">Qty:</p>
-                                <form class="form update-form w-50" method="POST" action="{% url 'edit_basket' item.item_id %}">
-                                    {% csrf_token %}
-                                    <div class="form-group mb-1">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend bg-green">
-                                                <button class="btn minus-qty"
-                                                    data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
-                                                    <span>
-                                                        <i class="fas fa-minus fa-sm off-white"></i>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                            <input class="form-control qty_selection" type="number" name="quantity"
-                                                value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                                                id="id_qty_{{ item.item_id }}"> 
-                                            <div class="input-group-append bg-green">
-                                                <button class="btn plus-qty"
-                                                    data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
-                                                    <span>
-                                                        <i class="fas fa-plus fa-sm off-white"></i>
-                                                    </span>
-                                                </button>
-                                            </div> 
-                                            {% if item.product.has_sizes %}
-                                                <input type="hidden" name="product_size" value="{{ item.size }}">
-                                            {% endif %}    
-                                        </div>
-                                    </div>
-                                </form>
-                                <a class="update-link green"><small>Update</small></a>
-                            </div>
-                        </div>
-                        <hr>
-                    {% endfor %}
-                {% else %}
-                    <p>You haven't added any items</p>
-                    <a href="{% url 'products' %}">
-                        <button type="button" class="btn btn-secondary btn-lg">Go to store</button>
-                    </a>
-                {% endif %}                        
-            </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-1">
+            <h2 class="libre">Your Basket</h2>
+            <hr>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-1">
+            {% if basket_items %}
+            {% for item in basket_items %}
+            <div class="row">
+                <div class="col-4">
+                    <img class="w-100" src="{{ item.product.image_url }}">
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <span>£{{ item.product.price }}</span>
+                        </div>
+                        <div class="col-6">
+                            <span>
+                                <a class="remove-item float-right red" id="remove_{{ item.item_id }}"
+                                    data-product_size="{{ item.size }}">
+                                    <i class="far fa-times-circle red float-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="libre">{{ item.product.name }}</p>
+                    <p>Size: {% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                    <p class="mb-0"><small>Qty:</small></p>
+                    <form class="form update-form w-50" method="POST" action="{% url 'edit_basket' item.item_id %}">
+                        {% csrf_token %}
+                        <div class="form-group mb-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-green">
+                                    <button class="btn minus-qty" data-item_id="{{ item.item_id }}"
+                                        id="minus-qty_{{ item.item_id }}">
+                                        <span>
+                                            <i class="fas fa-minus fa-sm off-white"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input class="form-control qty_selection" type="number" name="quantity"
+                                    value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+                                    id="id_qty_{{ item.item_id }}">
+                                <div class="input-group-append bg-green">
+                                    <button class="btn plus-qty" data-item_id="{{ item.item_id }}"
+                                        id="plus-qty_{{ item.item_id }}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm off-white"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                {% if item.product.has_sizes %}
+                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                    <a class="update-link green"><small>Update</small></a>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+            {% else %}
+            <p>You haven't added any items</p>
+            <a href="{% url 'products' %}">
+                <button type="button" class="btn btn-secondary btn-lg">Go to store</button>
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-12 col-lg-4 ml-lg-5">
+            <h4 class="libre">Total</h4>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <p class="libre"><small>Basket Total:</small></p>
+                </div>
+                <div class="col-6">
+                    <p class="float-right">£{{ total|floatformat:2 }}</p>
+                </div>
+                <div class="col-6">
+                    <p class="libre"><small>Membership Discount:</small></p>
+                </div>
+                <div class="col-6">
+                    <p class="float-right">£{{ discount|floatformat:2 }}</p>
+                </div>
+                <div class="col-6">
+                    <p class="libre"><small>Delivery:</small></p>
+                </div>
+                <div class="col-6">
+                    <p class="float-right">£{{ delivery|floatformat:2 }}</p>
+                </div>
+                <div class="col-6">
+                    <p class="libre"><small>Total:</small></p>
+                </div>
+                <div class="col-6">
+                    <p class="float-right">£{{ grand_total|floatformat:2 }}</p>
+                </div>
+            </div>
+            <hr>
+            <p>
+                <a class="btn w-100 add-to-basket-btn" href="">CHECKOUT</a>
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 {% block postloadjs %}
-    {{ block.super }} 
-    {% include 'products/includes/quantity_script.html' %}
+{{ block.super }}
+{% include 'products/includes/quantity_script.html' %}
 
 <script type="text/javascript">
     // Update the quantity if update button is clicked
-    $('.update-link').click(function(e) {
+    $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item from basket and reload when remove button is clicked
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}"
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('product_size');
         var url = `/basket/delete/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = { 'csrfmiddlewaretoken': csrfToken, 'product_size': size };
 
         $.post(url, data)
-        .done(function() {
-            location.reload();
-        });
+            .done(function () {
+                location.reload();
+            });
 
     })
 </script>
