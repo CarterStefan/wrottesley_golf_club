@@ -44,10 +44,10 @@
                             <p class="mb-0"><strong>Size:</strong></p>
                             <select class="form-select form-select-lg p-2 mb-3 w-100"
                                 aria-label=".form-select-lg example" name="product_size" id="product_size">
-                                <option value="s">Small</option>
-                                <option value="m" selected>Medium</option>
-                                <option value="l">Large</option>
-                                <option value="l">X Large</option>
+                                <option value="S">Small</option>
+                                <option value="M" selected>Medium</option>
+                                <option value="L">Large</option>
+                                <option value="XL">X Large</option>
                             </select>
                         </div>
                         <div class="col-12 col-lg-6 offset-lg-1">
@@ -105,7 +105,7 @@
                         {% endwith %}
                     </div>
                     <div class="row">
-                        <div class="col-12 col-lg-5">
+                        <div class="col-12 col-lg-5 ml-4">
                             <input class="btn w-100 add-to-basket-btn" type="submit" value="Add to Basket">
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>

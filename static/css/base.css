@@ -59,6 +59,10 @@ a:hover {
     color: #333333 !important;
 }
 
+.off-white {
+    color: #f2f2f2;
+}
+
 .red {
     color: #D92525 !important;
 }
@@ -322,8 +326,3 @@ a:hover {
     font-weight: 900;
     height: 1000px;
 }
-
-.basket-image {
-    height: 200px;
-}
-

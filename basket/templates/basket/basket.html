@@ -13,101 +13,75 @@
 {% block content %}
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
-                <h2 class="nav-bar-logo">Your Basket</h2>
+            <div class="col-12 col-lg-6 offset-lg-1">
+                <h2 class="libre">Your Basket</h2>
+                <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                {% if basket_items %}                
-                    <div class="table-responsive">
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
-                                </tr>
-                            </thead>
-                            {% for item in basket_items %}
-                                <tr>
-                                    <td>
-                                        <img class="basket-image" src="{{ item.product.image_url }}">
-                                    </td>
-                                    <td>
-                                        <p>{{ item.product.name }}</p>
-                                        <p>Size: {% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                                        <p>SKU: {{ item.product.sku }}</p>
-                                    </td>
-                                    <td>
-                                        <p>£{{ item.product.price }}</p>                                        
-                                    </td>
-                                    <td>
-                                        <form class="form update-form" method="POST" action="{% url 'edit_basket' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="btn minus-qty"
-                                                            data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control qty_selection" type="number" name="quantity"
-                                                        value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}"> 
-                                                    <div class="input-group-append">
-                                                        <button class="btn plus-qty"
-                                                            data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div> 
-                                                    {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                    {% endif %}    
-                                                </div>
+            <div class="col-12 col-lg-6 offset-lg-1">
+                {% if basket_items %}               
+                    {% for item in basket_items %}
+                        <div class="row">
+                            <div class="col-4">
+                                <img class="w-100" src="{{ item.product.image_url }}">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span>£{{ item.product.price }}</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>
+                                            <a class="remove-item float-right red" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                                <i class="far fa-times-circle red float-right"></i>
+                                            </a>                                            
+                                        </span>
+                                    </div>
+                                </div>                                
+                                <p class="libre">{{ item.product.name }}</p>
+                                <p>Size: {% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
+                                <p class="mb-0">Qty:</p>
+                                <form class="form update-form w-50" method="POST" action="{% url 'edit_basket' item.item_id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group mb-1">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-green">
+                                                <button class="btn minus-qty"
+                                                    data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
+                                                    <span>
+                                                        <i class="fas fa-minus fa-sm off-white"></i>
+                                                    </span>
+                                                </button>
                                             </div>
-                                        </form>
-                                        <a class="update-link green"><small>Update</small></a>
-                                        <a class="remove-item float-right red" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-                                    </td>
-                                    <td>
-                                        <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>                                        
-                                    </td>
-                                </tr>
-                            {% endfor %}                            
-                                <tr>                                    
-                                    <td colspan="5" class="text-right">
-                                        <p>Basket Total: £{{ total|floatformat:2 }}</p>
-                                        <p>Membership Discount: - £{{ discount|floatformat:2 }}</p>
-                                        <p>Delivery: £{{ delivery|floatformat:2 }}</p>
-                                        <p>Total: £{{ grand_total|floatformat:2 }}</p>
-                                    </td>
-                                </tr>                                
-                                <tr>
-                                    <td colspan="5" class="text-right">
-                                        <a href="{% url 'products' %}" class="btn mt-2 keep-shopping-btn">
-                                            <span><i class="fas fa-angle-double-left"></i> Back to Products</span>
-                                        </a>
-                                        <a href="" class="btn mt-2 add-to-basket-btn">
-                                            <span><i class="fas fa-shopping-basket"></i> Checkout</span>
-                                        </a>
-                                    </td>
-                                </tr>                         
-                        </table>
-                    </div>
+                                            <input class="form-control qty_selection" type="number" name="quantity"
+                                                value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+                                                id="id_qty_{{ item.item_id }}"> 
+                                            <div class="input-group-append bg-green">
+                                                <button class="btn plus-qty"
+                                                    data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
+                                                    <span>
+                                                        <i class="fas fa-plus fa-sm off-white"></i>
+                                                    </span>
+                                                </button>
+                                            </div> 
+                                            {% if item.product.has_sizes %}
+                                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                            {% endif %}    
+                                        </div>
+                                    </div>
+                                </form>
+                                <a class="update-link green"><small>Update</small></a>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
                 {% else %}
                     <p>You haven't added any items</p>
                     <a href="{% url 'products' %}">
                         <button type="button" class="btn btn-secondary btn-lg">Go to store</button>
                     </a>
-                {% endif %}
+                {% endif %}                        
             </div>
         </div>
     </div>
@@ -130,7 +104,7 @@
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('product_size');
         var url = `/basket/delete/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
         $.post(url, data)
         .done(function() {
