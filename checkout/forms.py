@@ -9,25 +9,25 @@ class OrderForm(forms.ModelForm):
                   'street_address', 'town_or_city', 'postcode',
                   'county', 'country',)
 
-    """
-    Add placeholders and classes, remove auto-generated
-    labels and set autofocus on first field
-    """
-    super().__init__(*args, **kwargs)
-    placeholders = {
-        'full_name': 'full name',
-        'email': 'e-mail address',
-        'phone_number': 'phone number',
-        'street_address': 'street address',
-        'town_or_city': 'town or city',
-        'postcode': 'postcode',
-        'county': 'county',
-        'country': 'country',
-    }
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'full_name': 'full name',
+            'email': 'e-mail address',
+            'phone_number': 'phone number',
+            'street_address': 'street address',
+            'town_or_city': 'town or city',
+            'postcode': 'postcode',
+            'county': 'county',
+            'country': 'country',
+        }
 
-    self.fields['full_name'].widget.attrs['autofocus'] = True
-    for field in self.fields:
-        if field != 'country':
+        self.fields['full_name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+<div class="container mt-5">    
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-1">
+            <h2 class="libre">Checkout</h2>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-1">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="mb-5">
+                        <legend class="fieldset-label libre w-auto">Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="mb-5">
+                        <legend class="fieldset-label libre w-auto">Delivery</legend>
+                        {{ order_form.street_address | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right">
+                            {% if user.is_authenticated %}
+                            <label class="form-check-label" for="id-save-info">Save delivery information to my
+                                profile</label>
+                            <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                            {% else %}
+                            <label class="form-check-label" for="id-save-info">
+                                <a href="{% url 'account_signup' %}">Create Account</a>
+                                <a href="{% url 'account_login' %}">Login</a> to save information
+                            </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset class="mb-5">
+                        <legend class="fieldset-label libre w-auto">Payment</legend>
+                        <div id="card-element"></div>
+                        <div class="red" id="card-errors" role="alert"></div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 ml-lg-5">
+                <h4 class="libre">Total</h4>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="libre"><small>Basket Total:</small></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right">£{{ total|floatformat:2 }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="libre"><small>Membership Discount:</small></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right">£{{ discount|floatformat:2 }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="libre"><small>Delivery:</small></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right">£{{ delivery|floatformat:2 }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="libre"><small>Total:</small></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="float-right">£{{ grand_total|floatformat:2 }}</p>
+                    </div>
+                    <div class="col-12 submit-button">
+                        <a href="{% url 'view_basket' %}" class="keep-shopping-btn">
+                            <span>Adjust Basket</span>
+                        </a>                        
+                        <p>Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                    </div>
+                </div>
+                <hr>
+                <p>
+                    <button id="submit-button" class="btn w-100 add-to-basket-btn">COMPLETE ORDER</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
