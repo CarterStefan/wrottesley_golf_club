@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-around m-2">
+        <div class="col-12 col-lg-11 pl-0">
+            <h2 class="libre">Success</h2>
+            <hr>
+            <p>Thank you for your order. Please see your order summary below</p>
+            <p>A confirmation email will shortly be sent to {{ order.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-4 text-right">
+            <a class="btn primary-btn-lg" href="{% url 'products' %}">BACK TO STORE</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

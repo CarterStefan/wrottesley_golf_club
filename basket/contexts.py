@@ -6,7 +6,7 @@ from products.models import Product
 
 def basket_contents(request):
 
-    membership_level = 'pro'
+    membership_level = 'Pro'
 
     basket_items = []
     total = 0
@@ -35,10 +35,10 @@ def basket_contents(request):
                     'size': size,
                 })
 
-    if membership_level == 'pro':
+    if membership_level == 'Pro':
         discount = total * Decimal(settings.PRO_STORE_DISCOUNT / 100)
         delivery = total * Decimal(settings.PRO_DELIVERY_CHARGE / 100)
-    elif membership_level == 'amateur':
+    elif membership_level == 'Amateur':
         discount = total * Decimal(settings.AMATEUR_STORE_DISCOUNT / 100)
         delivery = total * Decimal(settings.AMATEUR_DELIVERY_CHARGE / 100)
     else:
