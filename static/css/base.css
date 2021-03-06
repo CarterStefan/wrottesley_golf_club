@@ -141,20 +141,43 @@ a:hover {
     font-weight: 900;
 }
 
-.homepage-btn {
+.primary-btn-lg {
     border-radius: 5px;
-    border: 1px solid #3C7322;
     color: #f2f2f2;
     background-color: #3C7322;
     padding: 20px;
+    min-width: 200px;
+    text-transform: uppercase;
 }
 
-.homepage-btn:hover {
+.primary-btn-lg:hover {
     border-radius: 5px;
-    border: 1px solid #3C7322;
     color: #3C7322;
+    border-color: #3C7322;
     background-color: #f2f2f2;
     padding: 20px;
+    min-width: 200px;
+    text-transform: uppercase;
+}
+
+.secondary-btn {
+    border-radius: 5px;
+    color: #333333;
+    border-color: #333333;
+    background-color: #ffffff;
+    padding: 10px;
+    min-width: 150px;
+    text-transform: uppercase;
+}
+
+.secondary-btn:hover {
+    border-radius: 5px;
+    color: #333333;
+    border-color: #333333;
+    background-color: #f2f2f2;
+    padding: 10px;
+    min-width: 150px;
+    text-transform: uppercase;
 }
 
 .homepage-submenu-box {
@@ -264,32 +287,6 @@ a:hover {
 
 .border-info{
     border-color: #333333 !important;
-}
-
-.keep-shopping-btn {
-    border-radius: 5px;
-    border: 1px solid #333333;
-}
-
-.keep-shopping-btn:hover {
-    border-radius: 5px;
-    border: 1px solid #3C7322;
-    color: #f2f2f2;
-    background-color: #3C7322;
-}
-
-.add-to-basket-btn {
-    border-radius: 5px;
-    border: 1px solid #3C7322;
-    color: #f2f2f2;
-    background-color: #3C7322;
-}
-
-.add-to-basket-btn:hover {
-    border-radius: 5px;
-    border: 1px solid #3C7322;
-    color: #3C7322;
-    background-color: #f2f2f2;
 }
 
 .remove-item,
