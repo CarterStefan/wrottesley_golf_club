@@ -53,8 +53,13 @@
                     </fieldset>
                     <div id="card-element" class="mt-3"></div>
                     <div class="red" id="card-errors" role="alert"></div>
-                    <button id="submit-button" class="btn w-100 primary-btn-lg mt-3">COMPLETE ORDER</button>
+                    <button id="submit-button" class="btn w-100 primary-btn-lg mt-3">
+                        <span id="submit-button-text">COMPLETE ORDER</span>                        
+                    </button>
                 </form>
+                <button id="loading-spinner" class="btn w-100 primary-btn-lg mt-5">
+                    <span><i class="fas fa-spinner fa-spin"></i></span>                        
+                </button>               
             </div>
             <div class="col-12 col-lg-4 offset-lg- ml-lg-5">
                 <h4 class="libre">Total</h4>

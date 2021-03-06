@@ -33,10 +33,7 @@ var card = elements.create('card', { style: style });
 card.mount('#card-element');
 
 // Handle validation errors on card element
-card.on("change", function (event) {
-    // Disable Submit button when form is empty
-    // document.getElementById("submit-button").disabled = event.empty;
-    
+card.on("change", function (event) {      
     //Show stripe error message in the error div if there is one
     var errorDiv = document.getElementById("card-errors")
     if (event.error) {       
@@ -54,6 +51,9 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
+    $('#payment-form').fadeToggle(100);
+    $('#submit-button-text').fadeToggle(100);
+    $('#loading-spinner').fadeToggle(100);
     // If the client secret was rendered server-side as a data-secret attribute
     // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
     stripe.confirmCardPayment(clientSecret, {
@@ -66,6 +66,9 @@ form.addEventListener('submit', function(ev) {
             // Show error to your customer (e.g., insufficient funds)
             console.log(result.error.message);
             errorDiv.textContent = result.error.message;
+            $('#payment-form').fadeToggle(100);
+            $('#submit-button-text').fadeToggle(100);
+            $('#loading-spinner').fadeToggle(100);
             card.update({'disabled': false});
             $('#submit-button').attr('disabled', false);
         } else {

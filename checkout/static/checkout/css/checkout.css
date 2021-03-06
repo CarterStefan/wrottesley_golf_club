@@ -38,3 +38,8 @@
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
 }
+
+#loading-spinner {
+    display: none;
+    z-index: 9999;
+}
