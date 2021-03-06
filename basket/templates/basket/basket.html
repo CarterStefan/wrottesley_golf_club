@@ -18,9 +18,9 @@
             <hr>
         </div>
     </div>
+    {% if basket_items %}
     <div class="row">
         <div class="col-12 col-lg-6 offset-lg-1">
-            {% if basket_items %}
             {% for item in basket_items %}
             <div class="row">
                 <div class="col-4">
@@ -77,12 +77,6 @@
             </div>
             <hr>
             {% endfor %}
-            {% else %}
-            <p>You haven't added any items</p>
-            <a href="{% url 'products' %}">
-                <button type="button" class="btn btn-secondary btn-lg">Go to store</button>
-            </a>
-            {% endif %}
         </div>
         <div class="col-12 col-lg-4 ml-lg-5">
             <h4 class="libre">Total</h4>
@@ -119,6 +113,16 @@
             </p>
         </div>
     </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-1">
+            <p>You haven't added any items</p>
+            <a href="{% url 'products' %}">
+                <button type="button" class="btn primary-btn-lg">Go to store</button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock content %}
 

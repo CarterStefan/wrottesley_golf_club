@@ -20,7 +20,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     color: #333333;
-    letter-spacing: 2px;
+    letter-spacing: 2px !important;
     background-color: #ffffff;
 }
 
@@ -152,6 +152,7 @@ a:hover {
     padding: 20px;
     min-width: 200px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .primary-btn-lg:hover {
@@ -162,6 +163,7 @@ a:hover {
     padding: 20px;
     min-width: 200px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .secondary-btn {
@@ -172,6 +174,7 @@ a:hover {
     padding: 10px;
     min-width: 150px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .secondary-btn:hover {
@@ -182,6 +185,7 @@ a:hover {
     padding: 10px;
     min-width: 150px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .homepage-submenu-box {
