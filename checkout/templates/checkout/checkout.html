@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -11,23 +15,23 @@
 
 {% block content %}
 <div class="container mt-5">    
-    <div class="row m-2">
-        <div class="col-12 col-lg-6 offset-lg-1 pl-0">
+    <div class="row justify-content-around m-2">
+        <div class="col-12 col-lg-11 pl-0">
             <h2 class="libre">Checkout</h2>
             <hr>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-1">
+        <div class="row justify-content-around">
+            <div class="col-12 col-lg-5">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="mb-5">
-                        <legend class="fieldset-label libre w-auto">Details</legend>
+                        <legend class="fieldset-label w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
                     <fieldset class="mb-5">
-                        <legend class="fieldset-label libre w-auto">Delivery</legend>
+                        <legend class="fieldset-label w-auto">Delivery</legend>
                         {{ order_form.street_address | as_crispy_field }}
                         {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
@@ -53,7 +57,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="col-12 col-lg-4 ml-lg-5">
+            <div class="col-12 col-lg-4 offset-lg- ml-lg-5">
                 <h4 class="libre">Total</h4>
                 <hr>
                 <div class="row">
@@ -82,7 +86,7 @@
                         <p class="float-right">£{{ grand_total|floatformat:2 }}</p>
                     </div>
                     <div class="col-12 submit-button">
-                        <a href="{% url 'view_basket' %}" class="btn keep-shopping-btn">
+                        <a href="{% url 'view_basket' %}" class="btn secondary-btn">
                             <span>Adjust Basket</span>
                         </a>                        
                         <p class="mt-5">Your card will be charged £{{ grand_total|floatformat:2 }}</p>

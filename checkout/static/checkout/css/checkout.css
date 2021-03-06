@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+
+.fieldset-label {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9em;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #333333;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
