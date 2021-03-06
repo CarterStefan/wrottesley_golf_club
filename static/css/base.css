@@ -153,6 +153,7 @@ a:hover {
     min-width: 200px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .primary-btn-lg:hover {
@@ -164,6 +165,7 @@ a:hover {
     min-width: 200px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .secondary-btn {
@@ -175,6 +177,7 @@ a:hover {
     min-width: 150px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .secondary-btn:hover {
@@ -186,6 +189,7 @@ a:hover {
     min-width: 150px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .homepage-submenu-box {
