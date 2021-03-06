@@ -75,6 +75,10 @@ a:hover {
     color: #83A637;
 }
 
+.muted-text {
+    color: #9DB392;
+}
+
 .bg-green {
     background-color: #3C7322;
 }
@@ -162,8 +166,8 @@ a:hover {
 
 .secondary-btn {
     border-radius: 5px;
-    color: #333333;
-    border-color: #333333;
+    color: #3C7322;
+    border-color: #3C7322;
     background-color: #ffffff;
     padding: 10px;
     min-width: 150px;
@@ -172,8 +176,8 @@ a:hover {
 
 .secondary-btn:hover {
     border-radius: 5px;
-    color: #333333;
-    border-color: #333333;
+    color: #3C7322;
+    border-color: #3C7322;
     background-color: #f2f2f2;
     padding: 10px;
     min-width: 150px;
