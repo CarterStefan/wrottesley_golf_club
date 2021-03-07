@@ -39,11 +39,14 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if membership_level == 'Pro':
             self.delivery_cost = self.order_total * settings.PRO_DELIVERY_CHARGE / 100
+            self.discount = self.order_total * settings.PRO_STORE_DISCOUNT / 100
         elif membership_level == 'Amateur':
             self.delivery_cost = self.order_total * settings.AMATEUR_DELIVERY_CHARGE / 100
+            self.discount = self.order_total * settings.AMATEUR_STORE_DISCOUNT / 100
         else:            
             self.delivery_cost = self.order_total * settings.BEGINNER_DELIVERY_CHARGE / 100
-        self.grand_total = self.order_total + self.delivery_cost
+            self.discount = self.order_total * settings.BEGINNER_STORE_DISCOUNT / 100
+        self.grand_total = self.order_total - self.discount + self.delivery_cost
         self.save()
 
     def save(self, *args, **kwargs):
