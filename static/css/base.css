@@ -19,14 +19,14 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: #333333;
+    color: #562c2c;
     letter-spacing: 1px !important;
-    background-color: #ffffff;
+    background-color: #f2f2f2;
 }
 
 a {
     text-decoration: none;
-    color: #333333
+    color: #562c2c
 }
 
 a:hover {
@@ -34,45 +34,29 @@ a:hover {
 }
 
 /* ------------------------------------------------------- COLORS */
-/* Color Theme Swatches in Hex */
-.Flying-festival-Amazon-parrot-on-the-white-background-1-hex { color: #3C7322; }
-.Flying-festival-Amazon-parrot-on-the-white-background-2-hex { color: #89BF15; }
-.Flying-festival-Amazon-parrot-on-the-white-background-3-hex { color: #83A637; }
-.Flying-festival-Amazon-parrot-on-the-white-background-4-hex { color: #D92525; }
-.Flying-festival-Amazon-parrot-on-the-white-background-5-hex { color: #F2F2F2; }
 
-/* Color Theme Swatches in RGBA */
-.Flying-festival-Amazon-parrot-on-the-white-background-1-rgba { color: rgba(59, 114, 34, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-2-rgba { color: rgba(137, 191, 21, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-3-rgba { color: rgba(130, 165, 54, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-4-rgba { color: rgba(216, 36, 36, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-5-rgba { color: rgba(242, 242, 242, 1); }
-
-/* Color Theme Swatches in HSLA */
-.Flying-festival-Amazon-parrot-on-the-white-background-1-hsla { color: hsla(101, 53, 29, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-2-hsla { color: hsla(78, 80, 41, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-3-hsla { color: hsla(78, 50, 43, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-4-hsla { color: hsla(0, 70, 49, 1); }
-.Flying-festival-Amazon-parrot-on-the-white-background-5-hsla { color: hsla(0, 0, 95, 1); }
-
-.black {
-    color: #333333 !important;
-}
-
-.off-white {
-    color: #f2f2f2;
+.brown {
+    color: #562c2c;
 }
 
 .red {
-    color: #D92525 !important;
+    color: #f2542d;
 }
 
-.green {
-    color: #3C7322 !important;
+.off-white {
+    color: #f5dfbb;
 }
 
 .green-secondary {
-    color: #83A637;
+    color: #0e9594;
+}
+
+.green {
+    color: #127475 !important;
+}
+
+.black {
+    color: #562c2c !important;
 }
 
 .muted-text {
@@ -80,7 +64,7 @@ a:hover {
 }
 
 .bg-green {
-    background-color: #3C7322;
+    background-color: #127475;
 }
 
 /* ------------------------------------------------------- NAV BAR */
@@ -88,7 +72,7 @@ a:hover {
     font-family: 'Libre Baskerville', serif;
     text-decoration: underline;
     text-transform: uppercase;
-    color: #333333;
+    color: #562c2c;
 }
 
 .navbar {
@@ -96,7 +80,7 @@ a:hover {
 }
 
 #main-navbar{
-    color: #f2f2f2;
+    color: #f5dfbb;
 }
 
 .nav-link {
@@ -105,19 +89,19 @@ a:hover {
 
 .main-nav-link {
     font-weight: 900;
-    color: #f2f2f2;
+    color: #f5dfbb;
     padding: 20px 20px;
 }
 
 .mobile-nav-link {
     font-weight: 900;
-    color: #f2f2f2;
+    color: #f5dfbb;
     padding: 20px 20px;
 }
 
 .navbar-light .navbar-toggler {
-    color: #f2f2f2;
-    border-color: #f2f2f2;
+    color: #f5dfbb;
+    border-color: #f5dfbb;
 }
 
 /* ------------------------------------------------------- HOMEPAGE */
@@ -127,7 +111,7 @@ a:hover {
     background-position: center;
     height: 70vh;
     font-family: 'Roboto', sans-serif;
-    color: #f2f2f2;
+    color: #f5dfbb;
     border-radius: 0px;
 }
 
@@ -147,8 +131,8 @@ a:hover {
 
 .primary-btn-lg {
     border-radius: 5px;
-    color: #f2f2f2;
-    background-color: #3C7322;
+    color: #f5dfbb;
+    background-color: #127475;
     padding: 20px;
     min-width: 200px;
     text-transform: uppercase;
@@ -158,9 +142,9 @@ a:hover {
 
 .primary-btn-lg:hover {
     border-radius: 5px;
-    color: #3C7322;
-    border-color: #3C7322;
-    background-color: #f2f2f2;
+    color: #127475;
+    border-color: #127475;
+    background-color: #f5dfbb;
     padding: 20px;
     min-width: 200px;
     text-transform: uppercase;
@@ -170,8 +154,8 @@ a:hover {
 
 .secondary-btn {
     border-radius: 5px;
-    color: #3C7322;
-    border-color: #3C7322;
+    color: #127475;
+    border-color: #127475;
     background-color: #ffffff;
     padding: 10px;
     min-width: 150px;
@@ -182,9 +166,9 @@ a:hover {
 
 .secondary-btn:hover {
     border-radius: 5px;
-    color: #3C7322;
-    border-color: #3C7322;
-    background-color: #f2f2f2;
+    color: #127475;
+    border-color: #127475;
+    background-color: #f5dfbb;
     padding: 10px;
     min-width: 150px;
     text-transform: uppercase;
@@ -196,7 +180,7 @@ a:hover {
     padding-top: 125px;
     padding-bottom: 125px;
     font-family: 'Libre Baskerville', serif;
-    color: #f2f2f2;
+    color: #f5dfbb;
     font-size: 1.2em;
 }
 
@@ -249,25 +233,25 @@ a:hover {
 
 .category_card {
     text-decoration: none;
-    color: #333333;
+    color: #562c2c;
     font-size: 0.8em;
 }
 
 .category_card:hover {
     text-decoration: none;
-    color: #f2f2f2 !important;
-    background-color: #3C7322;
+    color: #f5dfbb !important;
+    background-color: #127475;
 }
 
 .card_product_category {
     font-size: 0.8em;
-    color: #3C7322;
+    color: #127475;
 }
 
 .current_category_card {
     text-decoration: none;
-    color: #f2f2f2;
-    background-color: #3C7322;
+    color: #f5dfbb;
+    background-color: #127475;
 }
 
 .product_count{
@@ -277,7 +261,7 @@ a:hover {
 .dropdown_options{
     font-family: 'Roboto', sans-serif;
     padding: 10px;
-    color: #333333;
+    color: #562c2c;
     font-size: 0.8em
 }
 
@@ -298,7 +282,7 @@ a:hover {
 }
 
 .border-info{
-    border-color: #333333 !important;
+    border-color: #562c2c !important;
 }
 
 .remove-item,
@@ -330,7 +314,7 @@ a:hover {
 
 .message-text {
     font-size: 0.8em;
-    color: #3C7322;
+    color: #127475;
 }
 
 /* ------------------------------------------------------- MEDIA QUERIES */
@@ -358,7 +342,7 @@ a:hover {
 }
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
-    background-color: #3C7322;
+    background-color: #127475;
     font-weight: 900;
     height: 1000px;
 }
