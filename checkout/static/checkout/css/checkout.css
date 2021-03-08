@@ -43,3 +43,13 @@
     display: none;
     z-index: 9999;
 }
+
+select,
+select option{
+    color: #333333;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}

@@ -17,7 +17,7 @@ var style = {
         color: "#333333",
         fontFamily: 'Arial, sans-serif',
         fontSmoothing: "antialiased",
-        fontSize: "16px",
+        fontSize: "14px",
         "::placeholder": {
           color: "#aab7c4"
         }
