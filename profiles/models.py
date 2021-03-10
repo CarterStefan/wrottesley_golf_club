@@ -17,8 +17,8 @@ class UserProfile(models.Model):
     default_street_address = models.CharField(max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=30, null=True, blank=True)
 
-    def __string__(self):
-        return self.user.name
+    def __str__(self):
+        return self.user.username
 
 
 @receiver(post_save, sender=User)
