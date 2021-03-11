@@ -1,0 +1,31 @@
+#profile-update-form input {
+  height: 40px;
+  padding: 10px 12px;
+  color: #562c2c;
+  border: 1px solid #562c2c;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#profile-update-form select {
+  height: 40px;
+  padding: 10px 12px;
+  color: #562c2c;
+  border: 1px solid #562c2c;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#profile-update-form input::placeholder {
+  color: #aab7c4;
+  font-family: 'Roboto', sans-serif;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #562c2c;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4 !important;
+}
