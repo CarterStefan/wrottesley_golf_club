@@ -17,10 +17,16 @@
 <div class="container mt-5">
     <div class="row justify-content-around m-2">
         <div class="col-12 col-lg-11 pl-0">
+            {% if from_profile %}
+            <h2 class="libre">Order {{ order.order_number</h2>
+            <hr>
+            <p>Please see your order details below</p>
+            {% else %}
             <h2 class="libre">Success</h2>
             <hr>
             <p>Thank you for your order. Please see your order summary below</p>
             <p>A confirmation email will shortly be sent to {{ order.email }}</p>
+            {% endif %}
         </div>
     </div>
     <div class="row justify-content-around m-2">
@@ -173,9 +179,15 @@
         </div>
     </div>
     <div class="row">
+        {% if from_profile %}
+            <div class="col-12 col-lg-4 text-right">
+            <a class="btn primary-btn-lg" href="{% url 'profile' %}">BACK TO PROFILE</a>
+        </div>
+        {% else %}        
         <div class="col-12 col-lg-4 text-right">
             <a class="btn primary-btn-lg" href="{% url 'products' %}">BACK TO STORE</a>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}
