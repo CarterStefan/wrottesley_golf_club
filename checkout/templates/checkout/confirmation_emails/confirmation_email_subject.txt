@@ -1,0 +1,1 @@
+Wrottesley Golf Club order confirmation: {{ order.order_number }}
