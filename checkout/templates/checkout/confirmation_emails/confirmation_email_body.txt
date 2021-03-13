@@ -11,6 +11,7 @@ Order Date: {{ order.date }}
 
 Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
+Discount: £{{ order.discount }}
 Grand Total: £{{ order.grand_total }}
 
 Delivery Details:
@@ -18,6 +19,7 @@ Delivery Details:
 {{ order.street_address }}
 {{ order.town_or_city }}
 {{ order.county }}
+{{ order.postcode }}
 {{ order.country }}
 
 If there are any issues or queries, please contact us on {{ contact_email }}.
