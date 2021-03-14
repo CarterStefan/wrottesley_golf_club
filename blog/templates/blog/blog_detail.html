@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">            
+            <div class="col-12 p-0">
+                <img class="w-100" src="{{ MEDIA_URL }}{{ blog_post.main_image }}" alt="Card image cap">
+            </div>            
+        </div>        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="col-12 text-center">
+                    <h2 class="libre mt-5">{{ blog_post.title }}</h2>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ blog_post.blog_content }}</p>
+                    <p class="card-text"><small class="text-muted">Last updated on {{ blog_post.last_updated }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page_header %}
+
+{% block content %}
+
+
+{% endblock content %}

@@ -8,7 +8,7 @@ def blog_list(request):
     """
     A view to return all the blog posts
     """
-    all_blog_posts = Blog.objects.all().order_by('-date-created')
+    all_blog_posts = Blog.objects.all().order_by('-date_created')
 
     context = {
         'all_blog_posts': all_blog_posts,
