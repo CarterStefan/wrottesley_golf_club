@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 .libre {
     font-family: 'Libre Baskerville', serif;
@@ -11,6 +12,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.playfair {
+    font-family: 'Playfair Display', serif;
+}
 
 html {
     height: 100%;

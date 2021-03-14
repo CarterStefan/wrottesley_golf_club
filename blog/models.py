@@ -19,3 +19,23 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse("blog_detail", kwargs={"slug": str(self.slug)})
+
+
+class Comment(models.Model):
+
+    class Meta:
+        ordering = ['-date_created']
+
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=100)
+    body = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)

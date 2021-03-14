@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
+{% block content %}
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -28,9 +28,31 @@
             </div>
         </div>
     </div>
-{% endblock page_header %}
-
-{% block content %}
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="card-body">                    
+                    <h3>Leave a comment</h3>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form|crispy }}
+                        {% csrf_token %}
+                    <button type="submit" class="btn primary-btn-lg">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 offset-lg-2">
+                {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                            {{ comment.date_created }}
+                            </span>
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}
