@@ -13,7 +13,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=300, unique=True)
-    main_image = models.ImageField()
+    main_image = models.ImageField(null=True, blank=True)
     last_updated = models.DateTimeField(auto_now=True)
     blog_content = models.TextField()
 
