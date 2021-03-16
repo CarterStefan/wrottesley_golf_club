@@ -52,7 +52,6 @@ def blog_detail(request, slug):
 
 def add_blog(request):
     """ A view to add a new blog post """
-
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -69,3 +68,26 @@ def add_blog(request):
     }
 
     return render(request, 'blog/add_new_blog.html', context)
+
+
+def edit_blog(request, slug):
+    """ A view to edit a blog post """
+    blog_post = get_object_or_404(Blog, slug=slug)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES, instance=blog_post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'{blog_post.title} updated')
+            return redirect(reverse('blog_detail', args=[blog_post.slug]))
+        else:
+            messages.error(request, 'There was an error. Please try again')
+    else:
+        form = BlogPostForm(instance=blog_post)
+        messages.info(request, f'Now editing {blog_post.title}')
+
+    context = {
+        'form': form,
+        'blog_post': blog_post,
+    }
+
+    return render(request, 'blog/edit_blog.html', context)

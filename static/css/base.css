@@ -129,8 +129,8 @@ body {
     border-radius: 5px;
     color: #f5dfbb;
     background-color: #127475;
-    padding: 20px;
-    min-width: 200px;
+    padding: 10px;
+    min-width: 150px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
@@ -141,12 +141,13 @@ body {
     color: #127475;
     border-color: #127475;
     background-color: #f5dfbb;
-    padding: 20px;
-    min-width: 200px;
+    padding: 10px;
+    min-width: 150px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
+
 
 .secondary-btn {
     border-radius: 5px;
