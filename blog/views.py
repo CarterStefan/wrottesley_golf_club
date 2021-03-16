@@ -55,9 +55,9 @@ def add_blog(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            blog_post = form.save()
             messages.success(request, 'New blog post uploaded')
-            return redirect(reverse('add_blog'))
+            return redirect(reverse('blog_detail', args=[blog_post.slug]))
         else:
             messages.error(request, 'There was an error. Please try again')
     else:
@@ -91,3 +91,11 @@ def edit_blog(request, slug):
     }
 
     return render(request, 'blog/edit_blog.html', context)
+
+
+def delete_blog(request, slug):
+    """ Delete a blog post """
+    blog_post = get_object_or_404(Blog, slug=slug)
+    blog_post.delete()
+    messages.success(request, f'{blog_post.title} deleted')
+    return redirect(reverse('blog_list'))

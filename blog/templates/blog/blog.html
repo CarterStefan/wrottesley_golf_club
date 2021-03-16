@@ -6,37 +6,50 @@
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mt-5">
-                <h2 class="libre">Blog</h2>
-                <hr>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <h2 class="libre">Blog</h2>
+            <hr>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
-                {% for post in all_blog_posts %}
-                    <div class="card mb-3">
-                        <img class="card-img-top blog-post-main-image" src="{{ MEDIA_URL }}{{ post.main_image }}" alt="{{ post.title }} image">
-                        <div class="card-body">
-                            <h2 class="card-title libre">{{ post.title }}</h2>
-                            <p class="card-text">{{ post.blog_content|slice:":200" }}</p>
-                            <a href="{% url 'blog_detail' post.slug  %}" class="btn primary-btn-lg">Read More</a>
-                            <p class="card-text"><small class="text-muted">Last updated on {{ post.last_updated }}</small></p>
-                        </div>
-                    </div>
-                {% endfor %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
+            {% for post in all_blog_posts %}
+            <div class="card mb-3">
+                <img class="card-img-top blog-post-main-image" src="{{ MEDIA_URL }}{{ post.main_image }}"
+                    alt="{{ post.title }} image">
+                <div class="card-body">
+                    <h2 class="card-title libre">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.blog_content|slice:":200" }}</p>
+                    <a href="{% url 'blog_detail' post.slug  %}" class="btn primary-btn-lg">Read More</a>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated on {{ post.last_updated }}</small>
+                        {% if request.user.is_superuser %}
+                        <small class="text-muted float-right">
+                            <a href="{% url 'edit_blog' post.slug %}">
+                                <i class="fas fa-edit"></i> EDIT
+                            </a> |
+                            <a class="red" href="{% url 'delete_blog' post.slug %}">
+                                <i class="fas fa-trash-alt"></i> DELETE
+                            </a>
+                        </small>
+                        {% endif %}
+                    </p>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
+</div>
 {% endblock content %}

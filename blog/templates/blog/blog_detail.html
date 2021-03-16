@@ -24,7 +24,19 @@
             </div>
             <div class="card-body">
                 <p class="card-text">{{ blog_post.blog_content }}</p>
-                <p class="card-text"><small class="text-muted">Last updated on {{ blog_post.last_updated }}</small></p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated on {{ blog_post.last_updated }}</small>
+                    {% if request.user.is_superuser %}
+                    <small class="text-muted float-right">
+                        <a href="{% url 'edit_blog' blog_post.slug %}">
+                            <i class="fas fa-edit"></i> EDIT
+                        </a> |
+                        <a class="red" href="{% url 'delete_blog' blog_post.slug %}">
+                            <i class="fas fa-trash-alt"></i> DELETE
+                        </a>
+                    </small>
+                    {% endif %}
+                </p>
             </div>
         </div>
     </div>
