@@ -348,6 +348,22 @@ body {
     height: 400px;
 }
 
+.file-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.file-btn input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------- TESTING GRID */
 .blog-header-main-image {
     object-fit: cover;
     object-position: center;
