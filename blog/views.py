@@ -50,8 +50,13 @@ def blog_detail(request, slug):
     return render(request, 'blog/blog_detail.html', context)
 
 
+@login_required
 def add_blog(request):
     """ A view to add a new blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Only WGC staff can do this"')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -70,8 +75,13 @@ def add_blog(request):
     return render(request, 'blog/add_new_blog.html', context)
 
 
+@login_required
 def edit_blog(request, slug):
     """ A view to edit a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Only WGC staff can do this"')
+        return redirect(reverse('home'))
+
     blog_post = get_object_or_404(Blog, slug=slug)
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES, instance=blog_post)
@@ -93,8 +103,13 @@ def edit_blog(request, slug):
     return render(request, 'blog/edit_blog.html', context)
 
 
+@login_required
 def delete_blog(request, slug):
     """ Delete a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Only WGC staff can do this"')
+        return redirect(reverse('home'))
+
     blog_post = get_object_or_404(Blog, slug=slug)
     blog_post.delete()
     messages.success(request, f'{blog_post.title} deleted')

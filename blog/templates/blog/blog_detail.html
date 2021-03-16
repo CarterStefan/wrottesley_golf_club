@@ -43,6 +43,7 @@
 </div>
 <div class="container">
     <div class="row">
+        {% if request.user.is_authenticated %}
         <div class="col-12 col-lg-8 offset-lg-2">
             <div class="card-body">
                 <h3>Leave a comment</h3>
@@ -53,6 +54,13 @@
                 </form>
             </div>
         </div>
+        {% else %}
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="card-body">
+                <p class="libre"><a href="{% url 'account_login' %}">Login</a> to leave a comment</p>
+            </div>
+        </div>
+        {% endif %}
         <div class="col-12 col-lg-8 offset-lg-2">
             <h3 class="libre">Previous Comments</h3>
             <hr>
