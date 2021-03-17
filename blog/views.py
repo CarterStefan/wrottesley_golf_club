@@ -33,10 +33,13 @@ def blog_detail(request, slug):
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.blog = blog_post
-            messages.success(request, 'Thank you for your comment, it has been sent for approval and will appear once done')
+            # Add the username to the comment
+            new_comment.name = request.user
             # Save the comment to the database
             new_comment.save()
-
+            # Show message to confirm comment
+            messages.success(request, 'Thank you for your comment, it has been sent for approval and will appear once done')
+            return redirect(reverse('blog_detail', args=[blog_post.slug]))
     else:
         comment_form = CommentForm()
 
@@ -63,8 +66,7 @@ def add_blog(request):
             blog_post = form.save()
             messages.success(request, 'New blog post uploaded')
             new_blog = get_object_or_404(Blog, slug=blog_post.slug)
-            username = request.user
-            new_blog.author = username
+            new_blog.author = request.user
             new_blog.save()
             return redirect(reverse('blog_detail', args=[blog_post.slug]))
         else:
