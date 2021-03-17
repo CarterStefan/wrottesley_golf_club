@@ -62,6 +62,10 @@ def add_blog(request):
         if form.is_valid():
             blog_post = form.save()
             messages.success(request, 'New blog post uploaded')
+            new_blog = get_object_or_404(Blog, slug=blog_post.slug)
+            username = request.user
+            new_blog.author = username
+            new_blog.save()
             return redirect(reverse('blog_detail', args=[blog_post.slug]))
         else:
             messages.error(request, 'There was an error. Please try again')
