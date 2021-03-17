@@ -338,10 +338,10 @@ body {
     }
 }
 /* ------------------------------------------------------- TESTING GRID */
-.second-div {
-    background-color: #127475;
-    font-weight: 900;
-    height: 1000px;
+.blog-header-main-image {
+    object-fit: cover;
+    object-position: center;
+    height: 400px;
 }
 
 .blog-header {
@@ -363,9 +363,21 @@ body {
     cursor: pointer;
 }
 
+.add_blog_btn{
+    background-color: #127475;
+    color: #f5dfbb !important;
+    font-size: 2em;
+    position: fixed;
+    bottom: 10px;
+    right: 10px; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
 /* ------------------------------------------------------- TESTING GRID */
-.blog-header-main-image {
-    object-fit: cover;
-    object-position: center;
-    height: 400px;
+.second-div {
+    background-color: #127475;
+    font-weight: 900;
+    height: 1000px;
 }
