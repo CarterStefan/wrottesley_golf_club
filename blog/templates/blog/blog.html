@@ -52,9 +52,11 @@
         </div>
     </div>
 </div>
+{% if request.user.is_superuser %}
 <div>
     <a class="p-0 add_blog_btn" href="{% url 'add_blog' %}">
         <i class="fas fa-plus-circle p-3"></i>
     </a>
 </div>
+{% endif %}
 {% endblock content %}
