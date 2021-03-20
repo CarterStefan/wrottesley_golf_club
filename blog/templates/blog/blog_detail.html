@@ -17,17 +17,19 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="col-12 col-lg-6 offset-lg-3">
             <div class="col-12 text-center">
                 <h1 class="libre mt-5">{{ blog_post.title }}</h1>
+                <p class="small">A blog post by {{ blog_post.author }}</p>
                 <hr>
             </div>
             <div class="card-body">
-                <h2 class="blog_subtitle">{{ blog_post.sub_title_one }}</h2>
-                <p class="card-text">{{ blog_post.blog_content_one }}</p>
-                {% if blog_post.subtitle_two %}
-                <h2 class="blog_subtitle">{{ blog_post.sub_title_two }}</h2>
-                <p class="card-text">{{ blog_post.blog_content_two }}</p>
+                <h3 class="blog_subtitle libre">{{ blog_post.sub_title_one }}</h3>
+                <p class="card-text">{{ blog_post.blog_content_one | linebreaks }}</p>
+                <br>
+                {% if blog_post.sub_title_two %}
+                <h3 class="blog_subtitle libre">{{ blog_post.sub_title_two }}</h3>
+                <p class="card-text">{{ blog_post.blog_content_two | linebreaks }}</p>
                 {% endif %}
                 <p class="card-text">
                     <small class="text-muted">Last updated on {{ blog_post.last_updated }}</small>
@@ -47,28 +49,26 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        {% if request.user.is_authenticated %}
-        <div class="col-12 col-lg-8 offset-lg-2">
-            <div class="card-body">
-                <h3>Leave a comment</h3>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form|crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn primary-btn-lg">Post Comment</button>
-                </form>
-            </div>
-        </div>
-        {% else %}
-        <div class="col-12 col-lg-8 offset-lg-2">
-            <div class="card-body">
-                <p class="libre"><a href="{% url 'account_login' %}">Login</a> to leave a comment</p>
-            </div>
-        </div>
-        {% endif %}
-        <div class="col-12 col-lg-8 offset-lg-2">
-            <h3 class="libre">Previous Comments</h3>
+    <div class="row">        
+        <div class="col-12 col-lg-6 offset-lg-3 mt-5">
+            <p class="text-center"><strong>{{ comments|length }} COMMENTS</strong></p>
             <hr>
+            {% if request.user.is_authenticated %}
+                <div class="card-body">
+                    <h5>Leave a comment</h5>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form|crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn primary-btn-lg">Post Comment</button>
+                    </form>
+                </div>
+            {% else %}
+            <div class="col-12 col-lg-6 offset-lg-3">
+                <div class="card-body">                
+                    <p class="libre"><a href="{% url 'account_login' %}">Login</a> to leave a comment</p>
+                </div>
+            </div>
+        {% endif %}
             {% if comments %}
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
@@ -78,9 +78,9 @@
                             {{ comment.date_created }}
                         </span>
                     </p>
-                    {{ comment.body | linebreaks }}
-                    <hr>
+                    "{{ comment.body | linebreaks }}"
                 </div>
+                <br>
                 {% endfor %}
             {% else %}
                 <div class="comments" style="padding: 10px;">

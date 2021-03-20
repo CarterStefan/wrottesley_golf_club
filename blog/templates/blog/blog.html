@@ -30,7 +30,8 @@
                 <img class="card-img-top blog-post-main-image" src="{{ MEDIA_URL }}{{ post.main_image }}"
                     alt="{{ post.title }} image">
                 <div class="card-body">
-                    <h2 class="card-title libre">{{ post.title }}</h2>
+                    <h2 class="blog-card-title libre">{{ post.title }}</h2>
+                    <p class="small">A blog post by {{ post.author }}</p>
                     <p class="card-text">{{ post.blog_content_one|slice:":200" }}...</p>
                     <a href="{% url 'blog_detail' post.slug  %}" class="btn primary-btn-lg">Read More</a>
                     <p class="card-text">
