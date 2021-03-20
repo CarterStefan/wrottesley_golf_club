@@ -419,6 +419,10 @@ hr {
     border-left: 3px solid #127475;
 }
 
+.character-count {
+    color: #562c2c;
+}
+
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
     background-color: #127475;
