@@ -14,7 +14,8 @@
                 <hr>
             </div>
         </div>
-        {% if grand_total and not on_profile_page %}
+        {% if not on_blog_page and grand_total %}
+            {% if not on_profile_page %}
             <p class=""><strong>My Basket</strong>, {{ product_count }} items</p>            
             <div class="notification-wrapper w-100">
                 {% for item in basket_items %}
@@ -37,7 +38,8 @@
             </div>
             <div class="col">
                 <a class="btn w-100 primary-btn-lg" href="{% url 'view_basket' %}">View Basket</a>
-            </div>       
+            </div>
+            {% endif %}      
         {% endif %}
     </div>
 </div>

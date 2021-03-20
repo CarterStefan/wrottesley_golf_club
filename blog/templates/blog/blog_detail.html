@@ -20,7 +20,15 @@
         <div class="col-12 col-lg-6 offset-lg-3">
             <div class="col-12 text-center">
                 <h1 class="libre mt-5">{{ blog_post.title }}</h1>
-                <p class="small">A blog post by {{ blog_post.author }}</p>
+            </div>
+            <div class="col">
+                <p class="">
+                    A blog post by {{ blog_post.author }}
+                    <span class="float-right">
+                        <i class="fas fa-comment-alt"></i> {{ comments|length }}
+                    </span>
+                </p>
+
                 <hr>
             </div>
             <div class="card-body">
@@ -49,47 +57,63 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">        
+    <div class="row">
         <div class="col-12 col-lg-6 offset-lg-3 mt-5">
             <p class="text-center"><strong>{{ comments|length }} COMMENTS</strong></p>
             <hr>
             {% if request.user.is_authenticated %}
-                <div class="card-body">
-                    <h5>Leave a comment</h5>
-                    <form method="post" style="margin-top: 1.3em;">
-                        {{ comment_form|crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn primary-btn-lg">Post Comment</button>
-                    </form>
-                </div>
+            <div class="card-body">
+                <h5>Leave a comment</h5>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form|crispy }}
+                    {% csrf_token %}
+                    <small class="float-right text-muted"><span id="char">0</span> / 800</small>
+                    <br>
+                    <button type="submit" class="btn primary-btn-lg">
+                        <i class="fas fa-comment-alt"></i> Post Comment
+                    </button>
+                </form>
+            </div>
             {% else %}
             <div class="col-12 col-lg-6 offset-lg-3">
-                <div class="card-body">                
+                <div class="card-body">
                     <p class="libre"><a href="{% url 'account_login' %}">Login</a> to leave a comment</p>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
             {% if comments %}
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.date_created }}
-                        </span>
-                    </p>
-                    "{{ comment.body | linebreaks }}"
-                </div>
-                <br>
-                {% endfor %}
+            {% for comment in comments %}
+            <div class="comments" style="padding: 1.25em;">
+                <p class="font-weight-bold">
+                    {{ comment.name }}
+                    <span class=" text-muted font-weight-normal">
+                        {{ comment.date_created }}
+                    </span>
+                </p>
+                "{{ comment.body | linebreaks }}"
+            </div>
+            <br>
+            {% endfor %}
             {% else %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        No comments yet. Be the first to comment!
-                    </p>
-                </div>
+            <div class="comments" style="padding: 10px;">
+                <p class="font-weight-bold">
+                    <i class="fas fa-comment-alt"></i> No comments yet. Be the first to comment!
+                </p>
+            </div>
+            <hr>
             {% endif %}
         </div>
     </div>
 </div>
 {% endblock content %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#id_body').keyup(function() {
+            var maxLength = 800;
+            var currentLegnth = $(this).val().length;
+            $('#char').text(currentLegnth);
+        });
+    </script>
+{% endblock postloadjs %}

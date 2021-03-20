@@ -44,6 +44,22 @@ hr {
     border-top: 1px solid #0e9594;
 }
 
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #562c2c;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #562c2c;
+    border-radius: 5px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 /* ------------------------------------------------------- COLORS */
 
 .brown {
@@ -357,6 +373,12 @@ hr {
     object-fit: cover;
     object-position: center;
     height: 400px;
+}
+
+.blog-post-main-image {
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
 }
 
 .blog-header {

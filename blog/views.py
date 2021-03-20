@@ -15,6 +15,7 @@ def blog_list(request):
 
     context = {
         'all_blog_posts': all_blog_posts,
+        'on_blog_page': True
     }
 
     return render(request, 'blog/blog.html', context)
@@ -48,6 +49,7 @@ def blog_detail(request, slug):
         'comments': comments,
         'new_comment': new_comment,
         'comment_form': comment_form,
+        'on_blog_page': True
     }
 
     return render(request, 'blog/blog_detail.html', context)
@@ -64,7 +66,7 @@ def add_blog(request):
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
             blog_post = form.save()
-            messages.success(request, 'New blog post uploaded')
+            messages.success(request, f'New post: {blog_post.title} uploaded successfully')
             new_blog = get_object_or_404(Blog, slug=blog_post.slug)
             new_blog.author = request.user
             new_blog.save()
@@ -75,7 +77,8 @@ def add_blog(request):
         form = BlogPostForm()
 
     context = {
-        'form': form
+        'form': form,
+        'on_blog_page': True
     }
 
     return render(request, 'blog/add_new_blog.html', context)
@@ -104,6 +107,7 @@ def edit_blog(request, slug):
     context = {
         'form': form,
         'blog_post': blog_post,
+        'on_blog_page': True
     }
 
     return render(request, 'blog/edit_blog.html', context)
