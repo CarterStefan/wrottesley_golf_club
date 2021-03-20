@@ -19,11 +19,16 @@
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">
             <div class="col-12 text-center">
-                <h2 class="libre mt-5">{{ blog_post.title }}</h2>
+                <h1 class="libre mt-5">{{ blog_post.title }}</h1>
                 <hr>
             </div>
             <div class="card-body">
-                <p class="card-text">{{ blog_post.blog_content }}</p>
+                <h2 class="blog_subtitle">{{ blog_post.sub_title_one }}</h2>
+                <p class="card-text">{{ blog_post.blog_content_one }}</p>
+                {% if blog_post.subtitle_two %}
+                <h2 class="blog_subtitle">{{ blog_post.sub_title_two }}</h2>
+                <p class="card-text">{{ blog_post.blog_content_two }}</p>
+                {% endif %}
                 <p class="card-text">
                     <small class="text-muted">Last updated on {{ blog_post.last_updated }}</small>
                     {% if request.user.is_superuser %}
@@ -64,18 +69,26 @@
         <div class="col-12 col-lg-8 offset-lg-2">
             <h3 class="libre">Previous Comments</h3>
             <hr>
-            {% for comment in comments %}
-            <div class="comments" style="padding: 10px;">
-                <p class="font-weight-bold">
-                    {{ comment.name }}
-                    <span class=" text-muted font-weight-normal">
-                        {{ comment.date_created }}
-                    </span>
-                </p>
-                {{ comment.body | linebreaks }}
-                <hr>
-            </div>
-            {% endfor %}
+            {% if comments %}
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            {{ comment.date_created }}
+                        </span>
+                    </p>
+                    {{ comment.body | linebreaks }}
+                    <hr>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        No comments yet. Be the first to comment!
+                    </p>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
