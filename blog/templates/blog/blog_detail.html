@@ -22,7 +22,7 @@
                 <h1 class="libre mt-5">{{ blog_post.title }}</h1>
             </div>
             <div class="col">
-                <p class="">
+                <p class="mt-5">
                     A blog post by {{ blog_post.author }}
                     <span class="float-right">
                         <i class="fas fa-comment-alt"></i> {{ comments|length }}
@@ -59,7 +59,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-6 offset-lg-3 mt-5">
+            {% if comments|length == 1 %}
+            <p class="text-center"><strong>{{ comments|length }} COMMENT</strong></p>
+            {% else %}
             <p class="text-center"><strong>{{ comments|length }} COMMENTS</strong></p>
+            {% endif %}
             <hr>
             {% if request.user.is_authenticated %}
             <div class="card-body">
@@ -67,7 +71,7 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form|crispy }}
                     {% csrf_token %}
-                    <small class="float-right character-count"><span id="char">0</span> / 800</small>
+                    <small class="float-right" id="character-count"><span id="char">0</span> / 200</small>
                     <br>
                     <button type="submit" class="btn primary-btn-lg">
                         <i class="fas fa-comment-alt"></i> Post Comment
@@ -114,7 +118,22 @@
             var maxLength = 800;
             var currentLegnth = $('#id_body').val().length;
             var char = $('#char');
+            var submit = $(":submit");
+            var characterCount =  $('#character-count');
             char.text(currentLegnth);
+            if (currentLegnth > 200) {
+                characterCount.css('color','#f2542d');
+                characterCount.css('font-weight','bold');
+                submit.prop('disabled', true);
+                } else if (currentLegnth >= 140 && currentLegnth <= 200) {
+                characterCount.css('color','#F26716');
+                characterCount.css('font-weight','bold');
+                submit.prop('disabled', false);
+                } else {
+                characterCount.css('color','#127475');
+                characterCount.css('font-weight','normal');
+                submit.prop('disabled', false);
+                }
         });
     </script>
 {% endblock postloadjs %}
