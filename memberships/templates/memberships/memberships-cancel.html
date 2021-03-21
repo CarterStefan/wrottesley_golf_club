@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_header %}
+
+{% block content %}
+<div class="container mt-5">
+    <p>You have cancelled the checkout.</p>
+      <p><a href="{% url 'memberships' %}">Return to the dashboard</a></p>
+</div>
+{% endblock content %}
