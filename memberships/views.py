@@ -15,8 +15,20 @@ import stripe
 @login_required
 def memberships(request):
     """ A view to display the memberships page """
+    try:
+        # Retrieve the subscription & product
+        stripe_customer = StripeCustomer.objects.get(user=request.user)
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        product = stripe.Product.retrieve(subscription.plan.product)
 
-    return render(request, 'memberships/memberships.html')
+        return render(request, 'memberships/memberships.html', {
+            'subscription': subscription,
+            'product': product,
+        })
+
+    except StripeCustomer.DoesNotExist:
+        return render(request, 'memberships/memberships.html')
 
 
 @csrf_exempt
