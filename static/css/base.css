@@ -144,11 +144,16 @@ hr {
     font-family: 'Roboto', sans-serif;
     color: #f5dfbb;
     border-radius: 0px;
+    position: relative;
+    margin-bottom: 20vh;
 }
 
 .jumbotron-box {
     border-radius: 10px;
     background-color: rgba(242, 242, 242, 0.9);
+    position: absolute;  
+    height: 350px;  
+    top: 60vh;
 }
 
 .hero-image-title {
@@ -168,7 +173,6 @@ hr {
     min-width: 150px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
 }
 
 .primary-btn-lg:hover {
@@ -328,6 +332,7 @@ hr {
     bottom: 50px;
     right: 15px;
     z-index: 999999999;
+    min-width: 250px;
 }
 
 .notification-wrapper{
@@ -425,6 +430,21 @@ hr {
 
 .character-count {
     color: #562c2c;
+}
+
+
+.memberships-header {
+    background: url('/media/hero_image_bw.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    border-radius: 0px;
+    position: relative;
+}
+
+.memberships-card {
+    position: absolute;
+    top: 280px;
 }
 
 /* ------------------------------------------------------- TESTING GRID */

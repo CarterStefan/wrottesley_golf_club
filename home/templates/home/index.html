@@ -10,18 +10,16 @@
 {% endblock page_header %}
 
 {% block content %}
-<div class="container-fluid jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-10 col-lg-6 jumbotron-box">
-                <h3 class="libre m-2 black">Our store is now live</h3>
-                <p><h5 class="m-2 black">View our range of clubs, clothing and accessories</h5></p>
-                <p class="m-2"><a class="btn primary-btn-lg" href="{% url 'products' %}">VISIT STORE</a></p>
-            </div>
+<div class="container-fluid">
+    <div class="row jumbotron">
+        <div class="col-12 col-md-6 offset-md-3 jumbotron-box">
+            <h3 class="libre m-2 black">Our store is now live</h3>
+            <p><h5 class="m-2 black">View our range of clubs, clothing and accessories</h5></p>
+            <p class="m-2"><a class="btn primary-btn-lg" href="{% url 'products' %}">VISIT STORE</a></p>
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container homepage-boxes">
     <div class="row">
         <div class="col m-1 bg-green rounded">
             <p class="text-center homepage-submenu-box">The Club</p>
