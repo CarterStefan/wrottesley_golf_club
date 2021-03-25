@@ -18,14 +18,29 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-5">
-            <h1 class="libre">Your Membership</h1>
+            <h1 class="libre">Memberships</h1>
             <hr>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">
-                        {{ product.description }}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row memberships-header">       
+        <div class="col-10 offset-1 col-md-6 offset-md-3 text-center mt-5 offset-card">
+            <div class="card memberships-card">
+                <div class="card-header libre">
+                    <h2 class="p-5">You are currently a {{ product.name }} member!</h2>
+                </div>
+                <div class="card-body">                   
+                    <p class="card-text text-justify p-5">
+                        By being a {{ product.name }} member, you’ll get access to the features of the Beginner level membership as well as some added exclusive offers within our store.
+                        By visiting our newly launched store as a {{ product.name }} member, you will have have access to a permanent 10% discount on all items.
                     </p>
+
+                    <p class="card-text text-justify p-5">
+                        Although we hope you enjoy the benefits of being a {{ product.name }}, you are able to cancel at any time.
+                        Cancelling is simple, just use the link below. You can re-join at any time.
+                    </p>
+                    <button type="submit" class="btn primary-btn-lg mt-5" id="submitBtn">Downgrade</button>
                 </div>
             </div>
         </div>
@@ -43,22 +58,24 @@
 <div class="container-fluid">
     <div class="row memberships-header">       
         <div class="col-10 offset-1 col-md-6 offset-md-3 text-center mt-5 offset-card">
-            <div class="card">
+            <div class="card memberships-card">
                 <div class="card-header libre">
-                    <h2>Become a pro member today!</h2>
+                    <h2 class="p-5">Become a pro member today!</h2>
                 </div>
                 <div class="card-body">
-                    <p class="card-text text-justify">
+                    <p class="card-text text-justify p-5">
                         Our Pro and Beginner membership levels are designed to help you maximise your Wrottesley Golf
-                        Club experience and benefit you with great savings in our store.
-                        enabling us to offer you the highest rates of cashback around, and letting you choose an account
-                        that’s suited to you.
-                        <br>
-                        <br>
-                        By joining or upgrading to Plus membership, you’ll get access to all of the exclusive benefits
-                        below in exchange for up to £5 of your annual cashback earnings.
+                        Club experience and benefit you with great savings in our store and give you exclusive access to our blog.
                     </p>
-                    <button type="submit" class="btn primary-btn-lg" id="submitBtn">Subscribe</button>
+                    <p class="card-text text-justify p-5">
+                        When signing up, you will automatically be signed up to our Beginner membership level. Don't worry, this level is completely free
+                        and gives you extra access around the site that non members do not see. On this membership, you will be able to interact more with the club you love, by engaging with our blog posts and being able to talk back to us with the comments feature. 
+                    </p>
+                    <p class="card-text text-justify p-5">
+                        By joining or upgrading to Pro membership, you’ll get access to the features of the Beginner level membership as well as some added exclusive offers within our store.
+                        By visiting our newly launched store as a pro member, you will have have access to a permanent 10% discount on all items. So, to make the most of your Wrottesley Golf Club experience, why not become a Pro member today and hit that subscribe button below!
+                    </p>
+                    <button type="submit" class="btn primary-btn-lg mt-5" id="submitBtn">Subscribe</button>
                 </div>
             </div>
         </div>

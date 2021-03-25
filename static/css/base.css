@@ -67,7 +67,8 @@ hr {
     padding: 10px;
     min-width: 150px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2px;    
+    margin-bottom: 10px;
 }
 
 .primary-btn-lg:hover {
@@ -441,8 +442,7 @@ hr {
 }
 
 .memberships-card {
-    position: absolute;
-    top: 280px;
+    background-color: rgba(242, 242, 242, 0.9);
 }
 
 /* ------------------------------------------------------- TESTING GRID */
