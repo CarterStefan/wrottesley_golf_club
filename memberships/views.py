@@ -111,3 +111,15 @@ def stripe_webhook(request):
         print(user.username + ' just subscribed.')
 
     return HttpResponse(status=200)
+
+
+def downgrade(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    stripe_customer = StripeCustomer.objects.get(user=request.user)
+    subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+    product = stripe.Product.retrieve(subscription.plan.product)
+
+    stripe.Subscription.delete(subscription.id)
+
+    print('sanity check')
+    return render(request, 'memberships/downgrade.html')

@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-{% endblock %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -40,7 +36,7 @@
                         Although we hope you enjoy the benefits of being a {{ product.name }}, you are able to cancel at any time.
                         Cancelling is simple, just use the link below. You can re-join at any time.
                     </p>
-                    <button type="submit" class="btn primary-btn-lg mt-5" id="submitBtn">Downgrade</button>
+                    <button type="submit" class="btn primary-btn-lg mt-5" id="cancelBtn">Downgrade</button>
                 </div>
             </div>
         </div>
