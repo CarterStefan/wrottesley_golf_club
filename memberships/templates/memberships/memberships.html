@@ -10,7 +10,7 @@
 {% endblock page_header %}
 
 {% block content %}
-{% if subscription.status == "active" %}
+{% if product.name == "Pro" %}
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-5">
@@ -36,7 +36,43 @@
                         Although we hope you enjoy the benefits of being a {{ product.name }}, you are able to cancel at any time.
                         Cancelling is simple, just use the link below. You can re-join at any time.
                     </p>
-                    <button type="submit" class="btn primary-btn-lg mt-5" id="cancelBtn">Downgrade</button>
+                    <a href="{% url 'downgrade' %}">
+                        <button type="submit" class="btn primary-btn-lg mt-5" id="cancelBtn">Downgrade</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% elif product.name == "Beginner" %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <h1 class="libre">Memberships</h1>
+            <hr>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row memberships-header">       
+        <div class="col-10 offset-1 col-md-6 offset-md-3 text-center mt-5 offset-card">
+            <div class="card memberships-card">
+                <div class="card-header libre">
+                    <h2 class="p-5">You are currently a {{ product.name }} member!</h2>
+                </div>
+                <div class="card-body">                   
+                    <p class="card-text text-justify p-5">
+                        By being a {{ product.name }} member, you’ll get access to the features of the Beginner level membership.
+                        This includes access to our blog with the additional  privilage of being able to comments and interact with other members.
+                    </p>
+
+                    <p class="card-text text-justify p-5">
+                        As you have previously taken advantage of our Pro membership, upgrading back is super easy.
+                        Simply click the button below, and you will automatically be upgraded to our Pro membership plan.
+                    </p>
+                    <a href="{% url 'upgrade' %}">
+                        <button type="submit" class="btn primary-btn-lg mt-5" id="upgradeBtn">Subscribe</button>
+                    </a>
                 </div>
             </div>
         </div>

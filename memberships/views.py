@@ -119,7 +119,44 @@ def downgrade(request):
     subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
     product = stripe.Product.retrieve(subscription.plan.product)
 
-    stripe.Subscription.delete(subscription.id)
+    stripe.Subscription.modify(
+        subscription.id,
+        cancel_at_period_end=False,
+        proration_behavior='create_prorations',
+        items=[{
+            'id': subscription['items']['data'][0].id,
+            'price': settings.STRIPE_BEGINNER_PRICE_ID,
+        }]
+    )
+
+    context = {
+        'subscription': subscription,
+        'product': product,
+    }
+    print('sanity check')
+    return render(request, 'memberships/memberships.html', context)
+
+
+def upgrade(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    stripe_customer = StripeCustomer.objects.get(user=request.user)
+    subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+    product = stripe.Product.retrieve(subscription.plan.product)
+
+    stripe.Subscription.modify(
+        subscription.id,
+        cancel_at_period_end=False,
+        proration_behavior='create_prorations',
+        items=[{
+            'id': subscription['items']['data'][0].id,
+            'price': settings.STRIPE_PRO_PRICE_ID,
+        }]
+    )
+
+    context = {
+        'subscription': subscription,
+        'product': product,
+    }
 
     print('sanity check')
-    return render(request, 'memberships/downgrade.html')
+    return render(request, 'memberships/memberships.html', context)
