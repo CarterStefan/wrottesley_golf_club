@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import StripeCustomer
+from profiles.models import UserProfile
+from django.contrib import messages
 
 import stripe
 
@@ -108,7 +110,10 @@ def stripe_webhook(request):
             stripeCustomerId=stripe_customer_id,
             stripeSubscriptionId=stripe_subscription_id,
         )
-        print(user.username + ' just subscribed.')
+
+        profile = get_object_or_404(UserProfile, user=request.user)
+        profile.membership_type = 'Pro'
+        profile.save()
 
     return HttpResponse(status=200)
 
@@ -128,6 +133,10 @@ def downgrade(request):
             'price': settings.STRIPE_BEGINNER_PRICE_ID,
         }]
     )
+
+    profile = get_object_or_404(UserProfile, user=request.user)
+    profile.membership_type = 'Beginner'
+    profile.save()
 
     context = {
         'subscription': subscription,
@@ -153,10 +162,12 @@ def upgrade(request):
         }]
     )
 
+    profile = get_object_or_404(UserProfile, user=request.user)
+    profile.membership_type = 'Pro'
+    profile.save()
+
     context = {
         'subscription': subscription,
         'product': product,
     }
-
-    print('sanity check')
     return render(request, 'memberships/memberships.html', context)
