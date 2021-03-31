@@ -2,11 +2,13 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from profiles.models import UserProfile
 
 
 def basket_contents(request):
 
-    membership_level = 'Pro'
+    profile = get_object_or_404(UserProfile, user=request.user)
+    membership_level = profile.membership_type
 
     basket_items = []
     total = 0
@@ -38,12 +40,12 @@ def basket_contents(request):
     if membership_level == 'Pro':
         discount = total * Decimal(settings.PRO_STORE_DISCOUNT / 100)
         delivery = total * Decimal(settings.PRO_DELIVERY_CHARGE / 100)
-    elif membership_level == 'Amateur':
-        discount = total * Decimal(settings.AMATEUR_STORE_DISCOUNT / 100)
-        delivery = total * Decimal(settings.AMATEUR_DELIVERY_CHARGE / 100)
+    elif membership_level == 'Beginner':
+        discount = total * Decimal(settings.BEGINNER_STORE_DISCOUNT / 100)
+        delivery = total * Decimal(settings.BEGINNER_DELIVERY_CHARGE / 100)
     else:
-        discount = total * Decimal(settings.AMATEUR_STORE_DISCOUNT / 100)
-        delivery = total * Decimal(settings.PRO_DELIVERY_CHARGE / 100)
+        discount = total * Decimal(settings.BEGINNER_STORE_DISCOUNT / 100)
+        delivery = total * Decimal(settings.BEGINNER_DELIVERY_CHARGE / 100)
 
     grand_total = total - discount + delivery
 
