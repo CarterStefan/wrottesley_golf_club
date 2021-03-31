@@ -43,18 +43,9 @@ class Order(models.Model):
         """
         Update grand total each time a line item is added
         """
-        membership_level = 'pro'
-
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        if membership_level == 'Pro':
-            self.delivery_cost = self.order_total * settings.PRO_DELIVERY_CHARGE / 100
-            self.discount = self.order_total * settings.PRO_STORE_DISCOUNT / 100
-        elif membership_level == 'Beginner':
-            self.delivery_cost = self.order_total * settings.BEGINNER_DELIVERY_CHARGE / 100
-            self.discount = self.order_total * settings.BEGINNER_STORE_DISCOUNT / 100
-        else:
-            self.delivery_cost = self.order_total * settings.BEGINNER_DELIVERY_CHARGE / 100
-            self.discount = self.order_total * settings.BEGINNER_STORE_DISCOUNT / 100
+        self.delivery_cost = self.order_total * settings.BEGINNER_DELIVERY_CHARGE / 100
+        self.discount = self.order_total * settings.BEGINNER_STORE_DISCOUNT / 100
         self.grand_total = self.order_total - self.discount + self.delivery_cost
         self.save()
 
@@ -64,6 +55,17 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+
+        if self.user_profile:
+            if self.user_profile.membership_type == 'Pro':
+                self.delivery_cost = self.order_total * settings.PRO_DELIVERY_CHARGE / 100
+                self.discount = self.order_total * settings.PRO_STORE_DISCOUNT / 100
+                self.grand_total = self.order_total - self.discount + self.delivery_cost
+            else:
+                self.delivery_cost = self.order_total * settings.BEGINNER_DELIVERY_CHARGE / 100
+                self.discount = self.order_total * settings.BEGINNER_STORE_DISCOUNT / 100
+                self.grand_total = self.order_total - self.discount + self.delivery_cost
+
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -7,8 +7,11 @@ from profiles.models import UserProfile
 
 def basket_contents(request):
 
-    profile = get_object_or_404(UserProfile, user=request.user)
-    membership_level = profile.membership_type
+    membership_level = None
+
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user=request.user)
+        membership_level = profile.membership_type
 
     basket_items = []
     total = 0
