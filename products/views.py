@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 
+import random
+
 # Create your views here.
 
 
@@ -66,10 +68,17 @@ def product_information(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     all_categories = Category.objects.all()
+    print(product.category)
+    all_products = Product.objects.all()
+    similar_products = all_products.filter(category__name=product.category)
+    similar_products = list(similar_products)
+    similar_products = random.sample(similar_products, 3)
+    print(similar_products)
 
     context = {
         'product': product,
         'all_categories': all_categories,
+        'similar_products': similar_products,
     }
 
     return render(request, 'products/product_information.html', context)

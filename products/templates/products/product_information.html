@@ -120,24 +120,45 @@
                                     <p>{{ product.description }}</p>
                                 </div>
                             </div>
+                        </div>                        
+                        <div class="col">
+                            <a href="{% url 'products' %}">
+                                <div class="btn mt-2 secondary-btn">
+                                    <span><i class="fas fa-angle-double-left"></i> Back to Products</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-2 offset-1">
-            <a href="{% url 'products' %}">
-                <div class="btn mt-2 secondary-btn">                
-                        <span><i class="fas fa-angle-double-left"></i> Back to Products</span>                
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row pt-5">
+    </div>        
+</div>
+<div class="container-fluid mt-5">
+    <div class="row pt-5 bg-green">
         <div class="col-12 text-center">
-            <h3 class="product_information_title">You may also like:</h3>
+            <h3 class="product_information_title off-white">You may also like:</h3>
+            <div class="row justify-content-center mt-5">
+                {% for sp in similar_products|slice:'4' %}
+                {% if sp.name != product.name %}
+                <div class="col-4 col-lg-2 mb-3">
+                    <div class="card h-100 card-decoration">
+                        <p class="text-left card_product_category p-2">{{ sp.category.friendly_name }}</p>
+                        <a href="{% url 'product_information' sp.id %}">
+                            <img src="{{ sp.image_url }}" class="card-img-top center" alt="{{ sp.name }}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ sp.name }}</h5>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <p>£{{ sp.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
