@@ -457,8 +457,8 @@ hr {
     position: relative;
 }
 
-.memberships-card {
-    background-color: rgba(242, 242, 242, 0.9);
+.memberships-card-header {
+    color: #f5dfbb; 
 }
 
 /* ------------------------------------------------------- TESTING GRID */
