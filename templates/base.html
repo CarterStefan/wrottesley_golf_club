@@ -109,31 +109,32 @@
     </header>
 
 
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
+    <div class="content">
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
-        {% endwith %}
-        {% endfor %}
+
+        {% block page_header %}
+        {% endblock page_header %}
+
+        {% block content %}
+        {% endblock content %}
+
     </div>
-    {% endif %}
-
-    {% block page_header %}
-    {% endblock page_header %}
-
-    {% block content %}
-    {% endblock content %}
-
-    <div style="flex:1"></div>
     <div class="footer">
         <div class="row footer-row">
             <div class="col-12">
