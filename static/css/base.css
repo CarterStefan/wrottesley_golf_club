@@ -499,3 +499,19 @@ hr {
     font-weight: 900;
     height: 1000px;
 }
+
+
+/* ------------------------------------------------------- ALLAUTH */
+.allauth-jumbotron {
+    background: url('/media/hero_image_bw.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0px;
+    min-height: 85vh;
+}
+
+.allauth-jumbotron-card {
+    color: #f5dfbb;
+    max-width: 700px;
+}

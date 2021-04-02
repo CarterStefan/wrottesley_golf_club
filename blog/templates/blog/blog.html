@@ -38,7 +38,7 @@
                         <small class="text-muted">Last updated on {{ post.last_updated }}</small>
                         {% if request.user.is_superuser %}
                         <small class="text-muted float-right">
-                            <a href="{% url 'edit_blog' post.slug %}">
+                            <a class="green" href="{% url 'edit_blog' post.slug %}">
                                 <i class="fas fa-edit"></i> EDIT
                             </a> |
                             <a class="red" href="{% url 'delete_blog' post.slug %}">
