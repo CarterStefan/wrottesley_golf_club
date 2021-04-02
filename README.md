@@ -41,7 +41,6 @@ Using the website, all users will be able to:
 - View pricing information about the course
 - View directions and location of the map
 - View contact information about the club
-- See details of upcoming tournaments
 - See a list of all the products that I can purchase through the club
 
 #### Registration & User Accounts
@@ -49,8 +48,8 @@ Using the website, all users will be able to:
 - Login and Logout of the account
 - Recover my password easily
 - Recieve email confirmations once I have registered for an account
-- Have an area of the user profile dedicated to my purchase history & my payment information
-- Have an area of the user profile dedicated to my personal information and golf stats
+- Have an area of the user profile dedicated to my purchase history
+- Have an area of the user profile dedicated to my personal information
 
 #### The Store
 - View and sort all products in the store
@@ -60,24 +59,19 @@ Using the website, all users will be able to:
 - Select the quantity of an item to purchase
 - Select the size of an item (if applicable)
 - View my items that I have added to my bag
-- Delete an item and reduce the side selected
+- Delete an item and reduce the size selected
 - Easily fill out delivery and payment information
 - View an order summary once a purchase is made
 - Recieve an email confirmation
 
 #### Subscribtions
-- See a list of membership types, descriptions and prices
-- Be able to purchase a membership type
+- Siee the benefits of a pro membership
+- Be able to purchase a pro membership
 
 #### Blog
 - Read the latest news about the course
 - Upload blog posts about the course (Admin Only)
 - Comment on a blog post
-
-#### Tournaments
-- See the upcoming tournaments at the club
-- Upload information about upcoming tournaments (Admin Only)
-- Register for a tournament
 
 #### Administration
 - Upload new products to the store (Admin Only)
@@ -88,7 +82,6 @@ Using the website, all users will be able to:
 
 - Homepage
 - The Club (History and current information)
-- Tournaments
 - Blog
 - Store
 - Memberships
