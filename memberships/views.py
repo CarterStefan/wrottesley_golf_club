@@ -142,8 +142,8 @@ def downgrade(request):
         'subscription': subscription,
         'product': product,
     }
-    print('sanity check')
-    return render(request, 'memberships/memberships.html', context)
+    messages.success(request, 'Membership successfully downgraded')
+    return render(request, 'home/index.html', context)
 
 
 def upgrade(request):
@@ -170,4 +170,5 @@ def upgrade(request):
         'subscription': subscription,
         'product': product,
     }
-    return render(request, 'memberships/memberships.html', context)
+    messages.success(request, 'Membership successfully upgraded')
+    return render(request, 'home/index.html', context)

@@ -1,0 +1,10 @@
+.memberships-card-image {
+    background: url('/media/peter-drew-SzSNFsD3wOI-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+}
+
+.memberships-card-header {
+    color: #f5dfbb; 
+}

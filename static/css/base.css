@@ -447,20 +447,6 @@ hr {
     color: #562c2c;
 }
 
-
-.memberships-header {
-    background: url('/media/hero_image_bw.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 50vh;
-    border-radius: 0px;
-    position: relative;
-}
-
-.memberships-card-header {
-    color: #f5dfbb; 
-}
-
 /* ------------------------------------------------------- TESTING GRID */
 .second-div {
     background-color: #127475;
