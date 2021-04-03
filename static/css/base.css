@@ -161,6 +161,9 @@ hr {
 .bg-orange {
     background-color: #F26716;
 }
+.bg-off-white {
+    background-color: #f5dfbb;
+}
 
 /* ------------------------------------------------------- NAV BAR */
 #nav-bar-logo {
@@ -264,12 +267,44 @@ hr {
     color: #f5dfbb;
 }
 
-.homepage-submenu-box {
-    padding-top: 125px;
-    padding-bottom: 125px;
+.homepage-submenu-box-one {
+    background: url('/media/edewaa-foster-V2xlPVSnMYA-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
     font-family: 'Libre Baskerville', serif;
     color: #f5dfbb;
     font-size: 1.5em;
+    min-height: 300px;
+    border-radius: 10px;
+}
+
+.homepage-submenu-box-two {
+    background: url('/media/erik-brolin-ddyR4bSyibs-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Libre Baskerville', serif;
+    color: #f5dfbb;
+    font-size: 1.5em;
+    min-height: 300px;
+    border-radius: 10px;
+}
+
+.homepage-submenu-box-three {
+    
+    background: url('/media/robert-baird-7OHXl3sLguQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Libre Baskerville', serif;
+    color: #f5dfbb;
+    font-size: 1.5em;
+    min-height: 300px;
+    border-radius: 10px;
+}
+
+.submenu-text {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: #127475;
 }
 
 /* ------------------------------------------------------- PRODUCTS */
