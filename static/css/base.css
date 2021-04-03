@@ -483,11 +483,11 @@ hr {
 
     .header-container {        
         z-index: 9999;        
-        padding-top: 154px;
+        padding-top: 145px;
     }
 }
 
-/* Mobile padding */
+/* Mobile Padding and Sizes */
 @media (max-width: 991px) {
     .header-container {        
         z-index: 9999;
@@ -495,7 +495,7 @@ hr {
 
     .mobile-nav-link {
         padding: 0.15rem;
-        font-size: 1em;
+        font-size: 0.8em;
     }
 
     .navbar {
@@ -507,8 +507,19 @@ hr {
     }
 
     .product_information_title {
-    padding-top: 1em;
-}
+        padding-top: 1em;
+    }
+
+    #main-navbar {
+        height: calc(100vh - 64.5px);
+    }
+
+    .nav-item {
+        font-size: 3em;
+        padding: 50px 0px;
+        text-align: center;
+        filter: opacity(100%) !important;
+    }
 }
 /* ------------------------------------------------------- TESTING GRID */
 .blog-header-main-image {
