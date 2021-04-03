@@ -63,7 +63,8 @@
                 {% for item in order.lineitems.all %}
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="libre">{{ item.product.name }}{% if item.product_size %} - Size: {{ item.product.size }}{% endif %}
+                        <p class="libre">{{ item.product.name }}{% if item.product_size %} - Size:
+                            {{ item.product.size }}{% endif %}
                         </p>
                     </div>
                     <div class="col-12 col-md-4">
@@ -101,7 +102,7 @@
                         <p>{{ order.town_or_city }}</p>
                     </div>
                 </div>
-                {% if order.county %}                
+                {% if order.county %}
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="libre">County</p>
@@ -111,7 +112,7 @@
                     </div>
                 </div>
                 {% endif %}
-                {% if order.postcode %}  
+                {% if order.postcode %}
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="libre">Postcode</p>
@@ -120,7 +121,7 @@
                         <p>{{ order.postcode }}</p>
                     </div>
                 </div>
-                {% endif %}                
+                {% endif %}
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="libre">Country</p>
@@ -180,10 +181,10 @@
     </div>
     <div class="row">
         {% if from_profile %}
-            <div class="col-12 col-lg-4 text-right">
+        <div class="col-12 col-lg-4 text-right">
             <a class="btn primary-btn-lg" href="{% url 'profile' %}">BACK TO PROFILE</a>
         </div>
-        {% else %}        
+        {% else %}
         <div class="col-12 col-lg-4 text-right">
             <a class="btn primary-btn-lg" href="{% url 'products' %}">BACK TO STORE</a>
         </div>

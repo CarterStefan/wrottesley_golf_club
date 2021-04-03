@@ -28,7 +28,6 @@
                         <i class="fas fa-comment-alt"></i> {{ comments|length }}
                     </span>
                 </p>
-
                 <hr>
             </div>
             <div class="card-body blog-text">
@@ -112,28 +111,28 @@
 {% endblock content %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">        
-        $('#id_body').keyup(function() {
-            var maxLength = 800;
-            var currentLegnth = $('#id_body').val().length;
-            var char = $('#char');
-            var submit = $(":submit");
-            var characterCount =  $('#character-count');
-            char.text(currentLegnth);
-            if (currentLegnth > 200) {
-                characterCount.css('color','#f2542d');
-                characterCount.css('font-weight','bold');
-                submit.prop('disabled', true);
-                } else if (currentLegnth >= 140 && currentLegnth <= 200) {
-                characterCount.css('color','#F26716');
-                characterCount.css('font-weight','bold');
-                submit.prop('disabled', false);
-                } else {
-                characterCount.css('color','#127475');
-                characterCount.css('font-weight','normal');
-                submit.prop('disabled', false);
-                }
-        });
-    </script>
+{{ block.super }}
+<script type="text/javascript">
+    $('#id_body').keyup(function () {
+        var maxLength = 800;
+        var currentLegnth = $('#id_body').val().length;
+        var char = $('#char');
+        var submit = $(":submit");
+        var characterCount = $('#character-count');
+        char.text(currentLegnth);
+        if (currentLegnth > 200) {
+            characterCount.css('color', '#f2542d');
+            characterCount.css('font-weight', 'bold');
+            submit.prop('disabled', true);
+        } else if (currentLegnth >= 140 && currentLegnth <= 200) {
+            characterCount.css('color', '#F26716');
+            characterCount.css('font-weight', 'bold');
+            submit.prop('disabled', false);
+        } else {
+            characterCount.css('color', '#127475');
+            characterCount.css('font-weight', 'normal');
+            submit.prop('disabled', false);
+        }
+    });
+</script>
 {% endblock postloadjs %}

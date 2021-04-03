@@ -2,121 +2,131 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-lg-3">
-                <div class="row">
-                    <div class="col-12">
-                        {% if current_category != None %}
-                                <p>
-                                    <a href="{% url 'products'%}?category={{ current_category }}"><span class="product_count"><strong>{{ current_category_upper }}</strong> | {{ products|length }} products</span></a>
-                                </p>
-                        {% else %}
-                            <p class="product_count">{{ products|length }} products {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}</p>
-                        {% endif %}
-                    </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <div class="row">
+                <div class="col-12">
+                    {% if current_category != None %}
+                    <p>
+                        <a href="{% url 'products'%}?category={{ current_category }}"><span
+                                class="product_count"><strong>{{ current_category_upper }}</strong> |
+                                {{ products|length }} products</span></a>
+                    </p>
+                    {% else %}
+                    <p class="product_count">{{ products|length }} products {% if search_term %} found for
+                        <strong>"{{ search_term }}"</strong>{% endif %}</p>
+                    {% endif %}
                 </div>
-                <div class="row">                    
-                    <div class="col-12 p-1">
-                        <form method="GET" action="{% url 'products' %}">
-                            <div class="input-group mb-3">                                
-                                <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Search our Store" aria-describedby="basic-addon1">
-                                <button type="submit">
-                                    <span><i class="fas fa-search"></i></span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>                
-                </div>
-                <div class="row">                                            
-                    {% for category in categories %}
-                        <div class="col-6 col-lg-12 p-1">
-                            <a href="{% url 'products'%}?category={{ category.name }}">
-                                <button class="btn secondary-btn w-100">
-                                    {{ category.friendly_name }}
-                                </button>   
-                            </a>
+            </div>
+            <div class="row">
+                <div class="col-12 p-1">
+                    <form method="GET" action="{% url 'products' %}">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" class="form-control" placeholder="Search..."
+                                aria-label="Search our Store" aria-describedby="basic-addon1">
+                            <button type="submit">
+                                <span><i class="fas fa-search"></i></span>
+                            </button>
                         </div>
-                    {% endfor %}
-                    <div class="col-6 col-lg-12 p-1">
-                        <a href="{% url 'products'%}">
-                            <button class="btn secondary-btn w-100">
-                                All Products
-                            </button> 
-                        </a> 
-                    </div>                                       
+                    </form>
                 </div>
-            </div>        
-            <div class="col-12 col-lg-9">
-                <div class="row">
-                    <div class="col-6 col-md-4 col-xl-3 offset-6 offset-md-8 offset-xl-9 p-1">
-                        <select id="sort-selector" class="custom-select custom-select-sm p-1 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} dropdown_options">
-                            <option class="" value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option class="" value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option class="" value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                            <option class="" value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                            <option class="" value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                        </select>
-                    </div>
-                </div>                
-                <div class="row mt-5">                    
-                    {% for product in products %}                            
-                        <div class="col-6 col-md-4 col-lg-3 mb-3">                        
-                            <div class="card h-100 card-decoration">
-                                <p class="text-left card_product_category p-2">{{ product.category.friendly_name }}</p>
-                                <a href="{% url 'product_information' product.id %}">
-                                    <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">
-                                </a>                                                              
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">{{ product.name }}</h5>                                     
-                                </div>
-                                
-                                <div class="card-footer text-center">
-                                    <p>£{{ product.price }}</p>                                    
-                                </div>                                
-                            </div>
-                        </div>
-                    {% endfor %}                                       
+            </div>
+            <div class="row">
+                {% for category in categories %}
+                <div class="col-6 col-lg-12 p-1">
+                    <a href="{% url 'products'%}?category={{ category.name }}">
+                        <button class="btn secondary-btn w-100">
+                            {{ category.friendly_name }}
+                        </button>
+                    </a>
+                </div>
+                {% endfor %}
+                <div class="col-6 col-lg-12 p-1">
+                    <a href="{% url 'products'%}">
+                        <button class="btn secondary-btn w-100">
+                            All Products
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="col-12 col-lg-9">
+            <div class="row">
+                <div class="col-6 col-md-4 col-xl-3 offset-6 offset-md-8 offset-xl-9 p-1">
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm p-1 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %} dropdown_options">
+                        <option class="" value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
+                            Sort by...
+                        </option>
+                        <option class="" value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>
+                            Price (low to high)
+                        </option>
+                        <option class="" value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>
+                            Price (high to low)
+                        </option>
+                        <option class="" value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>
+                            Name (A-Z)
+                        </option>
+                        <option class="" value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>
+                            Name (Z-A)
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-5">
+                {% for product in products %}
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card h-100 card-decoration">
+                        <p class="text-left card_product_category p-2">{{ product.category.friendly_name }}</p>
+                        <a href="{% url 'product_information' product.id %}">
+                            <img src="{{ product.image_url }}" class="card-img-top center" alt="{{ product.name }}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ product.name }}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <p>£{{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+</div>
 {% endblock content %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            let selector = $(this)
-            let currentUrl = new URL(window.location)
+{{ block.super }}
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        let selector = $(this)
+        let currentUrl = new URL(window.location)
 
-            let selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                let sort = selectedVal.split("_")[0];
-                let direction = selectedVal.split("_")[1];
+        let selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            let sort = selectedVal.split("_")[0];
+            let direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-
-    <script type="text/javascript">
-        
-    </script>
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock postloadjs %}
