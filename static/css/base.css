@@ -275,6 +275,7 @@ hr {
     color: #f5dfbb;
     font-size: 1.5em;
     min-height: 300px;
+    min-width: 280px;
     border-radius: 10px;
 }
 
@@ -286,6 +287,7 @@ hr {
     color: #f5dfbb;
     font-size: 1.5em;
     min-height: 300px;
+    
     border-radius: 10px;
 }
 
@@ -298,6 +300,7 @@ hr {
     color: #f5dfbb;
     font-size: 1.5em;
     min-height: 300px;
+    min-width: 280px;
     border-radius: 10px;
 }
 
@@ -417,6 +420,21 @@ hr {
     cursor: pointer;
 }
 
+.input-group {
+    min-height: 45px;
+}
+
+.form-select {
+    min-height: 45px;
+}
+
+.qty_selection {
+    min-height: 45px;
+}
+
+.basket-item-qty {
+    width: 150px;
+}
 /* ------------------------------------------------------- MESSAGES */
 .message-container {
     position: fixed;
@@ -467,6 +485,30 @@ hr {
         z-index: 9999;        
         padding-top: 154px;
     }
+}
+
+/* Mobile padding */
+@media (max-width: 991px) {
+    .header-container {        
+        z-index: 9999;
+    }
+
+    .mobile-nav-link {
+        padding: 0.15rem;
+        font-size: 1em;
+    }
+
+    .navbar {
+        padding: 1em;
+    }
+
+    .navbar-toggler {
+        padding: 0.5em;
+    }
+
+    .product_information_title {
+    padding-top: 1em;
+}
 }
 /* ------------------------------------------------------- TESTING GRID */
 .blog-header-main-image {

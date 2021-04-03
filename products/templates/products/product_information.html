@@ -40,7 +40,7 @@
                     <div class="form-row">
                         {% with product.has_sizes as s %}
                         {% if s %}
-                        <div class="col-12 col-lg-5">
+                        <div class="col-12 col-md-6">
                             <p class="mb-0"><strong>Size:</strong></p>
                             <select class="form-select form-select-lg p-2 mb-3 w-100"
                                 aria-label=".form-select-lg example" name="product_size" id="product_size">
@@ -50,7 +50,7 @@
                                 <option value="XL">X Large</option>
                             </select>
                         </div>
-                        <div class="col-12 col-lg-6 offset-lg-1">
+                        <div class="col-12 col-md-6">
                             <p class="mb-0"><strong>Quantity:</strong></p>
                             <div class="form-group">
                                 <div class="input-group">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         {% else %}
-                        <div class="col-6">
+                        <div class="col col-md-6">
                             <p>Quantity</p>
                             <div class="form-group">
                                 <div class="input-group">
@@ -141,7 +141,7 @@
             <div class="row justify-content-center mt-5">
                 {% for sp in similar_products|slice:'4' %}
                 {% if sp.name != product.name %}
-                <div class="col-4 col-lg-2 mb-3">
+                <div class="col col-md-3 col-lg-2 mb-3">
                     <div class="card h-100 card-decoration">
                         <p class="text-left card_product_category p-2">{{ sp.category.friendly_name }}</p>
                         <a href="{% url 'product_information' sp.id %}">

@@ -45,7 +45,7 @@
                     <p class="mb-0"><small>Qty:</small></p>
                     <form class="form update-form w-50" method="POST" action="{% url 'edit_basket' item.item_id %}">
                         {% csrf_token %}
-                        <div class="form-group mb-1">
+                        <div class="form-group mb-1 basket-item-qty">
                             <div class="input-group">
                                 <div class="input-group-prepend bg-green">
                                     <button class="btn minus-qty" data-item_id="{{ item.item_id }}"

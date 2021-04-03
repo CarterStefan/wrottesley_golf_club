@@ -65,7 +65,7 @@
                             aria-expanded="false">
                             <div>
                                 <div class="text-center"><i class="fas fa-user"></i></div>
-                                <p>My Account</p>
+                                <p class="mb-0">My Account</p>
                             </div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="user-options">
@@ -84,7 +84,7 @@
                     <li class="list-inline-item">
                         <a class="nav-link" href="{% url 'view_basket' %}">
                             <div class="text-center"><i class="fas fa-shopping-basket"></i></div>
-                            <p>
+                            <p class="mb-0">
                                 {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
                                 {% else %}
