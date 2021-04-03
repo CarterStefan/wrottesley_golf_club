@@ -139,35 +139,28 @@
         <div class="row footer-row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col footer_list">
+                        <p>Wrottesley Golf Club</p>
+                        <p>Holyhead Road</p>
+                        <p>Codsall</p>
+                        <p>Wolverhampton</p>
+                        <p>WV8 2HL</p>
+
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    <div class="col">
                         <ul class="footer_list">
                             <li>
-                                <a class="off-white" href="#">Item</a>
-                            </li>
-                            {% if request.user.is_authenticated %}
-                            <!-- OPTIONS IF USER IS LOGGED IN -->
-                            <li>
-                                <a class="off-white" href="#">Item</a>
+                                <a class="off-white" href="#">Logged In Item</a>
                             </li>
                             <li>
-                                <a class="off-white" href="#">Item</a>
+                                <a class="off-white" href="#">Logged In Item</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <ul class="footer_list">
-                            <li>
-                                <a class="off-white" href="#">Item</a>
-                            </li>
-                            <li>
-                                <a class="off-white" href="#">Item</a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                    {% if not request.user.is_authenticated %}
+                    {% else %}
                     <!-- OPTIONS IF USER IS LOGGED OUT -->
-                    <div class="col-12 col-md-4">
+                    <div class="col">
                         <ul class="footer_list">
                             <li>
                                 <a class="off-white" href="#">Logged Out Item</a>
@@ -178,7 +171,7 @@
                         </ul>
                     </div>
                     {% endif %}
-                    <div class="col-12 col-md-4">
+                    <div class="col">
                         <ul class="footer_list">
                             <li>Copyright Stefan Carter 2021</li>
                         </ul>
