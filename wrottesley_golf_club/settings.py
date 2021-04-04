@@ -215,7 +215,7 @@ BEGINNER_STORE_DISCOUNT = 0
 
 MEMBERSHIP_LEVEL = 'Pro'
 
-DOMAIN_URL = 'https://8000-purple-quail-85at856o.ws-eu03.gitpod.io/memberships/'
+DOMAIN_URL = os.getenv('DOMAIN_URL', '')
 
 
 # Stripe
