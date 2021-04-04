@@ -27,6 +27,7 @@ def memberships(request):
         return render(request, 'memberships/memberships.html', {
             'subscription': subscription,
             'product': product,
+            'on_membership_page': True,
         })
 
     except StripeCustomer.DoesNotExist:
@@ -141,6 +142,7 @@ def downgrade(request):
     context = {
         'subscription': subscription,
         'product': product,
+        'on_membership_page': True,
     }
     messages.success(request, 'Membership successfully downgraded')
     return render(request, 'home/index.html', context)
@@ -169,6 +171,7 @@ def upgrade(request):
     context = {
         'subscription': subscription,
         'product': product,
+        'on_membership_page': True,
     }
     messages.success(request, 'Membership successfully upgraded')
     return render(request, 'home/index.html', context)
