@@ -1,0 +1,1 @@
+web: gunicorn wrottesley_golf_club.wsgi:application
