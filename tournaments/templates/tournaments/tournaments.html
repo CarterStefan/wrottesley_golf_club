@@ -41,10 +41,14 @@
                                     <td>{{ tournament.start_date }}</td>
                                     <td>{{ tournament.start_time }}</td>
                                     <td>{{ tournament.location }}</td>
+                                    {% if request.user.is_authenticated %}
                                     {% if membership == 'Pro' %}
-                                        <td>Free</td>
+                                    <td>Free</td>
                                     {% else %}
-                                        <td>£ {{ tournament.entry_fee }}</td>
+                                    <td>£ {{ tournament.entry_fee }}</td>
+                                    {% endif %}
+                                    {% else %}
+                                    <td>£ {{ tournament.entry_fee }}</td>
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
