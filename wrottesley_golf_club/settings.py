@@ -215,7 +215,7 @@ BEGINNER_STORE_DISCOUNT = 0
 
 MEMBERSHIP_LEVEL = 'Pro'
 
-DOMAIN_URL = os.getenv('DOMAIN_URL', '')
+DOMAIN_URL = os.environ.get('DOMAIN_URL', '')
 
 
 # Stripe
