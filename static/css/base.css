@@ -225,6 +225,7 @@ hr {
     text-transform: uppercase;
     margin-top:30px;
     width: 100%;
+    text-align: justify;
 }
 
 .footer a:hover {
@@ -242,6 +243,11 @@ hr {
     margin-left: auto;
     margin-right: auto;    
     margin-bottom: -1px;    
+}
+
+.social-links {
+    font-size: 2em;
+    margin-right: 2em;
 }
 
 /* ------------------------------------------------------- HOMEPAGE */
@@ -320,6 +326,15 @@ hr {
     font-weight: 900;
 }
 
+.store-search-box {
+    min-height: 45px;
+}
+
+.store-search-btn {
+    background-color: #127475;
+    color: #f5dfbb;
+}
+
 .dropdown-menu{
     border: none;
 }
@@ -393,7 +408,6 @@ hr {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     color: #562c2c;
-    font-size: 0.8em
 }
 
 .product-card {
@@ -528,7 +542,7 @@ hr {
 
     .message-container {
         position: fixed;
-        bottom: 50px;
+        bottom: 0px;
         right: 0px;
         z-index: 999999999;
         min-width: 250px;

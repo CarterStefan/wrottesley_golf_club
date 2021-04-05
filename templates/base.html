@@ -138,24 +138,32 @@
     <div class="footer">
         <div class="row footer-row">
             <div class="col-12">
-                <div class="row">
-                    <div class="col footer_list">
-                        <p>Wrottesley Golf Club</p>
-                        <p>Holyhead Road</p>
-                        <p>Codsall</p>
-                        <p>Wolverhampton</p>
-                        <p>WV8 2HL</p>
-
+                <div class="row mx-auto">
+                    <div class="col footer_list ">
+                        <p class="mb-0">Wrottesley Golf Club</p>
+                        <p class="mb-0">Holyhead Road</p>
+                        <p class="mb-0">Codsall</p>
+                        <p class="mb-0">Wolverhampton</p>
+                        <p class="mb-0">WV8 2HL</p>
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="col">
                         <ul class="footer_list">
                             <li>
-                                <a class="off-white" href="#">Logged In Item</a>
+                                <a class="off-white" href="{% url 'tournaments' %}">Tournaments</a>
                             </li>
                             <li>
-                                <a class="off-white" href="#">Logged In Item</a>
+                                <a class="off-white" href="{% url 'blog_list' %}">Blog</a>
                             </li>
+                            <li>
+                                <a class="off-white" href="{% url 'products' %}">Store</a>
+                            </li>
+                            <li>
+                                <a class="off-white" href="{% url 'memberships' %}">Memberships</a>
+                            </li>
+                            <li>
+                                <a class="off-white" href="{% url 'profile' %}">Profile</a>
+                            </li>                            
                         </ul>
                     </div>
                     {% else %}
@@ -163,18 +171,26 @@
                     <div class="col">
                         <ul class="footer_list">
                             <li>
-                                <a class="off-white" href="#">Logged Out Item</a>
+                                <a class="off-white" href="{% url 'account_signup' %}">Sign Up</a>
                             </li>
                             <li>
-                                <a class="off-white" href="#">Logged Out Item</a>
+                                <a class="off-white" href="{% url 'account_login' %}">Log In</a>
                             </li>
                         </ul>
                     </div>
                     {% endif %}
-                    <div class="col">
-                        <ul class="footer_list">
-                            <li>Copyright Stefan Carter 2021</li>
-                        </ul>
+                    <div class="col footer_list">
+                        <div class="col footer_list social-links">
+                            <a class="off-white" href="https://www.facebook.com/wrottesleygolfclub" target="_blank">
+                                <i class="fab fa-facebook-square mr-5"></i>
+                            </a>
+                            <a class="off-white" href="https://twitter.com/wrottesleygc?lang=en" target="_blank">                                                               
+                                <i class="fab fa-twitter-square mr-5"></i>
+                            </a>
+                            <a class="off-white" href="https://www.instagram.com/explore/locations/1176731365704302/wrottesley-golf-club/?hl=en" target="_blank">                                                <i class="fab fa-instagram-square mr-5"></i>
+                            </a>
+                        </div> 
+                        <p class="mb-0 small">Copyright Stefan Carter 2021</p>                                              
                     </div>
                 </div>
             </div>
