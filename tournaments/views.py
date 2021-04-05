@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from profiles.models import UserProfile
 from .models import Tournament
 
@@ -7,8 +7,15 @@ from .models import Tournament
 
 def tournaments(request):
     tournaments = Tournament.objects.all()
-    profile = get_object_or_404(UserProfile, user=request.user)
-    membership = profile.membership_type
+
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            membership = profile.membership_type
+        except UserProfile.DoesNotExist:
+            membership = 'Beginner'
+    else:
+        membership = 'Beginner'
 
     context = {
         'tournaments': tournaments,

@@ -40,8 +40,12 @@
                                     <th scope="row">{{ tournament.name }}</th>
                                     <td>{{ tournament.start_date }}</td>
                                     <td>{{ tournament.start_time }}</td>
-                                    <td>{{ tournament.location }}</td>                                    
-                                    <td>£ {{ tournament.entry_fee }}</td>                                    
+                                    <td>{{ tournament.location }}</td>
+                                    {% if membership == 'Pro' %}
+                                    <td><span class="strikethrough">£{{ tournament.entry_fee }}</span> Free</td>
+                                    {% else %}
+                                    <td>£{{ tournament.entry_fee }}</td>
+                                    {% endif %}                                    
                                 </tr>
                                 {% endfor %}
                             </tbody>
