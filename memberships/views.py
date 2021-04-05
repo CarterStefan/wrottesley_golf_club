@@ -112,66 +112,96 @@ def stripe_webhook(request):
             stripeSubscriptionId=stripe_subscription_id,
         )
 
-        profile = get_object_or_404(UserProfile, user=request.user)
+        profile = get_object_or_404(UserProfile, user=user)
         profile.membership_type = 'Pro'
         profile.save()
 
     return HttpResponse(status=200)
 
 
+@login_required
 def downgrade(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    stripe_customer = StripeCustomer.objects.get(user=request.user)
-    subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
-    product = stripe.Product.retrieve(subscription.plan.product)
+    member = get_object_or_404(UserProfile, user=request.user)
+    membership_type = member.membership_type
 
-    stripe.Subscription.modify(
-        subscription.id,
-        cancel_at_period_end=False,
-        proration_behavior='create_prorations',
-        items=[{
-            'id': subscription['items']['data'][0].id,
-            'price': settings.STRIPE_BEGINNER_PRICE_ID,
-        }]
-    )
+    if membership_type == 'Pro':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe_customer = StripeCustomer.objects.get(user=request.user)
+        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        product = stripe.Product.retrieve(subscription.plan.product)
 
-    profile = get_object_or_404(UserProfile, user=request.user)
-    profile.membership_type = 'Beginner'
-    profile.save()
+        stripe.Subscription.modify(
+            subscription.id,
+            cancel_at_period_end=False,
+            proration_behavior='create_prorations',
+            items=[{
+                'id': subscription['items']['data'][0].id,
+                'price': settings.STRIPE_BEGINNER_PRICE_ID,
+            }]
+        )
 
-    context = {
-        'subscription': subscription,
-        'product': product,
-        'on_membership_page': True,
-    }
-    messages.success(request, 'Membership successfully downgraded')
-    return render(request, 'home/index.html', context)
+        profile = get_object_or_404(UserProfile, user=request.user)
+        profile.membership_type = 'Beginner'
+        profile.save()
+
+        context = {
+            'subscription': subscription,
+            'product': product,
+            'on_membership_page': True,
+        }
+        messages.success(request, 'Membership successfully downgraded')
+        return render(request, 'home/index.html', context)
+    else:
+        context = {
+            'on_membership_page': True,
+        }
+        messages.success(request, 'You are already a Beginner member')
+        return render(request, 'home/index.html', context)
 
 
+@login_required
 def upgrade(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    stripe_customer = StripeCustomer.objects.get(user=request.user)
-    subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
-    product = stripe.Product.retrieve(subscription.plan.product)
+    member = get_object_or_404(UserProfile, user=request.user)
+    membership_type = member.membership_type
 
-    stripe.Subscription.modify(
-        subscription.id,
-        cancel_at_period_end=False,
-        proration_behavior='create_prorations',
-        items=[{
-            'id': subscription['items']['data'][0].id,
-            'price': settings.STRIPE_PRO_PRICE_ID,
-        }]
-    )
+    if membership_type == 'Beginner':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe_customer = StripeCustomer.objects.get(user=request.user)
+        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        product = stripe.Product.retrieve(subscription.plan.product)
 
-    profile = get_object_or_404(UserProfile, user=request.user)
-    profile.membership_type = 'Pro'
-    profile.save()
+        stripe.Subscription.modify(
+            subscription.id,
+            cancel_at_period_end=False,
+            proration_behavior='create_prorations',
+            items=[{
+                'id': subscription['items']['data'][0].id,
+                'price': settings.STRIPE_PRO_PRICE_ID,
+            }]
+        )
 
-    context = {
-        'subscription': subscription,
-        'product': product,
-        'on_membership_page': True,
-    }
-    messages.success(request, 'Membership successfully upgraded')
-    return render(request, 'home/index.html', context)
+        profile = get_object_or_404(UserProfile, user=request.user)
+        profile.membership_type = 'Pro'
+        profile.save()
+
+        context = {
+            'subscription': subscription,
+            'product': product,
+            'on_membership_page': True,
+        }
+        messages.success(request, 'Membership successfully upgraded')
+        return render(request, 'home/index.html', context)
+    elif membership_type == 'Pro':
+        context = {
+            'subscription': subscription,
+            'product': product,
+            'on_membership_page': True,
+        }
+        messages.success(request, 'You are already a Pro member')
+        return render(request, 'home/index.html', context)
+    else:
+        context = {
+            'on_membership_page': True,
+        }
+        messages.success(request, 'Please use the stripe portal to purchase a membership')
+        return render(request, 'memberships/memberships.html', context)
