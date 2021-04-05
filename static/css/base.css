@@ -520,8 +520,8 @@ hr {
     }
 
     .nav-item {
-        font-size: 3em;
-        padding: 50px 0px;
+        font-size: 2em;
+        padding: 30px 0px;
         text-align: center;
         filter: opacity(100%) !important;
     }
