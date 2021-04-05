@@ -139,15 +139,15 @@
         <div class="row footer-row">
             <div class="col-12">
                 <div class="row mx-auto">
-                    <div class="col footer_list ">
-                        <p class="mb-0">Wrottesley Golf Club</p>
-                        <p class="mb-0">Holyhead Road</p>
-                        <p class="mb-0">Codsall</p>
-                        <p class="mb-0">Wolverhampton</p>
-                        <p class="mb-0">WV8 2HL</p>
+                    <div class="col-12 col-md-4 footer_list ">
+                        <p class="mb-0 p-0">Wrottesley Golf Club</p>
+                        <p class="mb-0 p-0">Holyhead Road</p>
+                        <p class="mb-0 p-0">Codsall</p>
+                        <p class="mb-0 p-0">Wolverhampton</p>
+                        <p class="mb-0 p-0">WV8 2HL</p>
                     </div>
                     {% if request.user.is_authenticated %}
-                    <div class="col">
+                    <div class="col-12 col-md-4">
                         <ul class="footer_list">
                             <li>
                                 <a class="off-white" href="{% url 'tournaments' %}">Tournaments</a>
@@ -168,7 +168,7 @@
                     </div>
                     {% else %}
                     <!-- OPTIONS IF USER IS LOGGED OUT -->
-                    <div class="col">
+                    <div class="col-12 col-md-4 p-0">
                         <ul class="footer_list">
                             <li>
                                 <a class="off-white" href="{% url 'account_signup' %}">Sign Up</a>
@@ -179,7 +179,7 @@
                         </ul>
                     </div>
                     {% endif %}
-                    <div class="col footer_list">
+                    <div class="col-12 col-md-4 p-0">
                         <div class="col footer_list social-links">
                             <a class="off-white" href="https://www.facebook.com/wrottesleygolfclub" target="_blank">
                                 <i class="fab fa-facebook-square mr-5"></i>
