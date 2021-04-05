@@ -1,6 +1,9 @@
 ![Logo Text](https://user-images.githubusercontent.com/64138643/108905833-17788880-7618-11eb-85e6-b6c7e066fe7c.PNG)
 
-Wrottesley Golf Club is my fourth milestone project as part of my Full Stack Web Development Course with [Code Institute](https://codeinstitute.net/). This project focuses on "Full stack Frameworks With Django" and will put into practice what I have learned over the last year on the course.
+### [Heroku App](https://wrottesley-golf-club.herokuapp.com/)
+### [GitHub](https://github.com/CarterStefan/wrottesley_golf_club)
+
+Wrottesley Golf Club is a golf course located in the west midlands. There are a number of users that the website will target and each of these user types will have a different need when using the website. This is my fourth milestone project as part of my Full Stack Web Development Course with [Code Institute](https://codeinstitute.net/). This project focuses on "Full stack Frameworks With Django" and will put into practice what I have learned over the last year on the course.
 
 ## Table of Contents
 1. [**Project overview**](#project-overview)
@@ -28,7 +31,8 @@ The project was built using [Django](https://www.djangoproject.com/) - web frame
 ## UX
 
 ### User Stories
-Wrottesley Golf Club is a golf course located in the west midlands. There are a number of users that the website will target and each of these user types will have a different need when using the website. The three user types are:
+
+The three targetted users of the site will be:
 - Existing members of the club
 - Potential Members of the club
 - Casual golfers wishing to play a round or purchase products from the store
@@ -37,9 +41,6 @@ Using the website, all users will be able to:
 
 #### Viewing & Navigation
 - View informatiion about the club
- -View membership pricing and benefits
-- View pricing information about the course
-- View directions and location of the map
 - View contact information about the club
 - See a list of all the products that I can purchase through the club
 
@@ -65,30 +66,38 @@ Using the website, all users will be able to:
 - Recieve an email confirmation
 
 #### Subscribtions
-- Siee the benefits of a pro membership
+- See the benefits of a pro membership
 - Be able to purchase a pro membership
+- Be able to downgrade to beginner membership at any time
 
 #### Blog
 - Read the latest news about the course
-- Upload blog posts about the course (Admin Only)
 - Comment on a blog post
+- Upload new blog posts (Admin Only)
+- Edit blog posts (Admin Only)
+- Delete blog posts (Admin Only)
 
 #### Administration
 - Upload new products to the store (Admin Only)
 - Edit the existing products in the store (Admin Only)
 - Delete a product from the store (Admin Only)
- 
-### Pages
+- Approve comments which have been made on blog posts (Admin Only)
 
-- Homepage
-- The Club (History and current information)
-- Blog
-- Store
-- Memberships
-- Account
-- Basket and checkout
 
-## UX
+## UI
+
+#### Color Scheme
+[uiuxcenter](https://www.instagram.com/uiuxcenter/?hl=en) - Used for inspiration on my color scheme, to create a bold web experience.
+
+#### Typography
+[GoogleFonts](https://fonts.google.com/)
+- [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville?query=Libre+Baskerville) - Used for the logo and headings around the site
+- [Roboto](https://fonts.google.com/specimen/Roboto?query=Roboto) - Used for the main body text
+
+#### Third party Libraries
+ - [Bootstrap](https://getbootstrap.com/) - A modern responsive front-end framework. Used for the layout of the site, responsiveness to screen sizes and various features around the site (forms, cards, buttons, search selctions etc)
+ - [jQuery](https://jquery.com/) - jQuery is a fast, small, and feature-rich JavaScript library. Used for some interactive elements with the Bootstrap features.
+ - [Fontawesome](https://fontawesome.com/) - Font Awesome is a font and icon toolkit based on CSS and Less. Used for all the icons around the site.
 
 #### Desktop Wireframes
 ##### Homepage
@@ -112,4 +121,15 @@ Using the website, all users will be able to:
 ##### Tournaments
 ![Tournaments](https://user-images.githubusercontent.com/64138643/109057017-21ae8b80-76d9-11eb-8faa-fc96ce54c6c2.png)
 
+### Features
 
+The Wrottesley Golf Club website has 9 apps:
+- Basket
+- Blog
+- Checkout
+- Home
+- Memberships
+- Products
+- Profiles
+- Tournaments
+- Account
