@@ -25,6 +25,12 @@ Wrottesley Golf Club is a golf course located in the west midlands. There are a 
 
 ## Project overview
 The project was built using [Django](https://www.djangoproject.com/) - web framework. 
+
+For the testing of the store and subscriptions, a test credit card can be used by inputting the following details:
+- Card Number: 4242 4242 4242 4242
+- Exp date: 04/24
+- CVC: 424
+- ZIP: 42424
  
 ## UX
 ### User Stories
@@ -429,6 +435,47 @@ The Wrottesley Golf Club website has 9 apps:
 - Free image hosting website used for embedding links to images into websites.
 
 ## Deployment
+All code on this project was created in [Gitpod](https://www.gitpod.io/) for development. When development was nearing completion it was deployed to Heroku for hosting the webpage and AWS S3 for hosting the static files and all images.
+
+If someone wishes to run this project locally, they should install the Gitpod chrome browser extension. Then:
+- Go to https://github.com/CarterStefan/wrottesley_golf_club and click the green button titled 'Gitpod'
+
+- In the gitpod settings click 'variables' and then 'add new variable' and add the following variables
+    - STRIPE_SECRET_KEY = {Your stripe secret key}
+    - DEVELOPMENT = {True}
+    - STRIPE_BEGINNER_PRICE_ID = {Your stripe beginner price ID}
+    - DOMAIN_URL = {Your domain url}
+    - STRIPE_PRO_PRICE_ID = {Your stripe pro price ID}
+    - STRIPE_WH_SECRET = {Your stripe webhook secret key}
+    - STRIPE_PUBLIC_KEY = {Your stripe public key}
+    - SECRET_KEY = {Your stripe secret key}
+    - STRIPE_MEMBERSHIP_WH_SECRET = {your stripe membership webhook secret key}
+
+    - Any stripe secret keys will need to be set up in the stripe interface once registered for an account
+
+- In the command line type 'pip install -r requirements.txt'
+
+- Migrate the models to the database by going to the command line and typing:
+    - python3 manage.py makemigrations
+    - python3 manage.py migrate
+
+- Create a super user by going to the command line and typing:
+    - python3 manage.py createsuperuser
+    
+    - Enter a email, username and password
+
+- Load the data for the categories and the products by going to the command line and typing:
+    - python3 manage.py loaddata categories
+    - python3 manage.py loaddata Products
+
+- Start the web app by going to the command line and typing:
+    - python3 manage.py runserver
+    
+- Go to the admin page, by tacking /admin to the end of the url
+    - Login with the credentials of the superuser you just created
+    - Go to the blog option, and add a new blog using the form
+    - Go to the Tournaments option, and add a new tournament using the form
+
 
 ## Testing
 
