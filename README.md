@@ -9,27 +9,24 @@ Wrottesley Golf Club is a golf course located in the west midlands. There are a 
 1. [**Project overview**](#project-overview)
 2. [**UX**](#ux)
   - [**User Stories**](#user-stories)
-  - [**Design**](#design)
-    - [**Libraries**](#third-party-libraries)
-    - [**Color Scheme**](#color-scheme)
-    - [**Typography**](#typography)
+3. [**UI**](#ui)
+  - [**Color Scheme**](#color-scheme)
+  - [**Typography**](#typography)
   - [**Wireframes**](#wireframes)
-3. [**Features**](#features)
+4. [**Features**](#features)
   - [**Existing Features**](#existing-features)
   - [**Features Left to Implement**](#features-left-to-implemement)
-4. [**Technologies Used**](#technologies-used)
-5. [**Databases Used**](#databases-used)
-6. [**Deployment**](#Deployment)
-7. [**Testing**](#Testing)
-8. [**Acknowledgments**](#Acknowledgments)
+5. [**Technologies Used**](#technologies-used)
+6. [**Databases Used**](#databases-used)
+7. [**Deployment**](#Deployment)
+8. [**Testing**](#Testing)
+9. [**Acknowledgments**](#Acknowledgments)
 ---
 
 ## Project overview
-The project was built using [Django](https://www.djangoproject.com/) - web framework.
- 
+The project was built using [Django](https://www.djangoproject.com/) - web framework. 
  
 ## UX
-
 ### User Stories
 
 The three targetted users of the site will be:
@@ -42,7 +39,11 @@ Using the website, all users will be able to:
 #### Viewing & Navigation
 - View informatiion about the club
 - View contact information about the club
-- See a list of all the products that I can purchase through the club
+- Easily navigate to the Tournaments page
+- Easily navigate to the Blog page
+- Easily navigate to the Store page
+- Easily navigate to the Memberships page
+- Alwys be able to see the total count of the basket
 
 #### Registration & User Accounts
 - Register for an account
@@ -71,24 +72,33 @@ Using the website, all users will be able to:
 - Be able to downgrade to beginner membership at any time
 
 #### Blog
-- Read the latest news about the course
+- Read the latest news about the course through individual blog posts
 - Comment on a blog post
 - Upload new blog posts (Admin Only)
 - Edit blog posts (Admin Only)
 - Delete blog posts (Admin Only)
+- Approve comments which have been posted on a blog
+- Only allow approved comments to be visible to members
+
+#### Tournaments
+- See a list of all the upcoming tournaments
+- See the dates and times of the tournaments
+- See the location of the tournaments
+- See the prices of the tournaments
 
 #### Administration
 - Upload new products to the store (Admin Only)
+- Upload new tournaments to the Tournaments page (Admin Only)
+- Edit tournaments on the Tournaments page (Admin Only)
+- Delete tournaments
 - Edit the existing products in the store (Admin Only)
 - Delete a product from the store (Admin Only)
 - Approve comments which have been made on blog posts (Admin Only)
 
-
 ## UI
-
 #### Color Scheme
 [uiuxcenter](https://www.instagram.com/uiuxcenter/?hl=en) - Used for inspiration on my color scheme, to create a bold web experience.
-(https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/color_scheme.PNG)
+![ColorScheme](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/color_scheme.PNG)
 
 #### Typography
 [GoogleFonts](https://fonts.google.com/)
@@ -340,6 +350,7 @@ Using the website, all users will be able to:
 
 
 ### Features
+#### Existing Features
 The Wrottesley Golf Club website has 9 apps:
 - Basket
 - Blog
@@ -350,6 +361,8 @@ The Wrottesley Golf Club website has 9 apps:
 - Profiles
 - Tournaments
 - Account
+
+#### Future Features
 
 ## Technologies Used
 1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
@@ -417,7 +430,6 @@ The Wrottesley Golf Club website has 9 apps:
 
 
 ## Acknowledgments
-
 #### Code
 - The store section of the website was largely created by following the tutorials from the Boutique Ado project from [CodeInstitute](https://codeinstitute.net/). The code was adapted to suit the needs of my store and fit with the branding of my project. This code included the bag, store products and checkout process.
 
@@ -440,7 +452,7 @@ The Wrottesley Golf Club website has 9 apps:
 [Unsplash](https://unsplash.com/s/photos/golf)
 - Used for stock images of golf courses used on blogs, memberships and homepage
 
-##### Thanks
+#### Thanks
 - I would like to thank [CodeInstitute](https://codeinstitute.net/) for providing the lessons on full stack frameworks and the tutorials on how to set up a store. Also, a big thankyou to the tutor support team, who not only helped with this project, but also throughout the last year.
 
 - A big thank you also to my mentor Gbenga, whose encouragement and support has helped me through this project and throughtout my time on the course.
