@@ -100,34 +100,83 @@ Using the website, all users will be able to:
  - [Fontawesome](https://fontawesome.com/) - Font Awesome is a font and icon toolkit based on CSS and Less. Used for all the icons around the site.
 
 #### Desktop Wireframes
+<details><summary>Homepage</summary>
+<p>
+
 ![Homepage](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/homepage.png)
 
+</p>
+
+<details><summary>Products</summary>
+<p>
 
 ![Products](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/products.png)
 
+</p>
+
+<details><summary>Product Details</summary>
+<p>
 
 ![Product Details](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/product_details.png)
 
+</p>
+
+<details><summary>Basket</summary>
+<p>
 
 ![Basket](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/Basket.png)
 
+</p>
+
+<details><summary>Checkout</summary>
+<p>
 
 ![Checkout](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/checkout.png)
 
+</p>
+
+<details><summary>Checkout</summary>
+<p>
 
 ![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog.png)
 
+</p>
+
+<details><summary>Blog</summary>
+<p>
+
+![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog.png)
+
+</p>
+
+<details><summary>Blog Post</summary>
+<p>
 
 ![Blog Post](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog_post.png)
 
+</p>
+
+<details><summary>Tournaments</summary>
+<p>
 
 ![Tournaments](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static//UX/Wireframes/Desktop/tournaments.png)
 
+</p>
+
+<details><summary>Memberships</summary>
+<p>
 
 ![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/memberships.png)
 
+</p>
+
+<details><summary>Profile</summary>
+<p>
 
 ![Profile](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/profile.png)
+
+</p>
+
 
 
 ### Features
