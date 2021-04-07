@@ -106,6 +106,7 @@ Using the website, all users will be able to:
 ![Homepage](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/homepage.png)
 
 </p>
+</details>
 
 <details><summary>Products</summary>
 <p>
@@ -113,6 +114,7 @@ Using the website, all users will be able to:
 ![Products](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/products.png)
 
 </p>
+</details>
 
 <details><summary>Product Details</summary>
 <p>
@@ -120,6 +122,7 @@ Using the website, all users will be able to:
 ![Product Details](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/product_details.png)
 
 </p>
+</details>
 
 <details><summary>Basket</summary>
 <p>
@@ -127,6 +130,7 @@ Using the website, all users will be able to:
 ![Basket](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/Basket.png)
 
 </p>
+</details>
 
 <details><summary>Checkout</summary>
 <p>
@@ -134,6 +138,7 @@ Using the website, all users will be able to:
 ![Checkout](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/checkout.png)
 
 </p>
+</details>
 
 <details><summary>Checkout</summary>
 <p>
@@ -141,6 +146,7 @@ Using the website, all users will be able to:
 ![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog.png)
 
 </p>
+</details>
 
 <details><summary>Blog</summary>
 <p>
@@ -148,6 +154,7 @@ Using the website, all users will be able to:
 ![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog.png)
 
 </p>
+</details>
 
 <details><summary>Blog Post</summary>
 <p>
@@ -155,6 +162,7 @@ Using the website, all users will be able to:
 ![Blog Post](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog_post.png)
 
 </p>
+</details>
 
 <details><summary>Tournaments</summary>
 <p>
@@ -162,6 +170,7 @@ Using the website, all users will be able to:
 ![Tournaments](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static//UX/Wireframes/Desktop/tournaments.png)
 
 </p>
+</details>
 
 <details><summary>Memberships</summary>
 <p>
@@ -169,6 +178,7 @@ Using the website, all users will be able to:
 ![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/memberships.png)
 
 </p>
+</details>
 
 <details><summary>Profile</summary>
 <p>
@@ -176,6 +186,7 @@ Using the website, all users will be able to:
 ![Profile](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/profile.png)
 
 </p>
+</details>
 
 
 
