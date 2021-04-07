@@ -428,6 +428,10 @@ The Wrottesley Golf Club website has 9 apps:
 20. [Imgur](https://imgur.com/)
 - Free image hosting website used for embedding links to images into websites.
 
+## Deployment
+
+## Testing
+
 
 ## Acknowledgments
 #### Code
