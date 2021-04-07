@@ -329,7 +329,7 @@ Using the website, all users will be able to:
 <details><summary>Memberships</summary>
 <p>
 
-![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/TMobile/mobile_memberships.png)
+![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_memberships.png)
 
 </p>
 </details>
