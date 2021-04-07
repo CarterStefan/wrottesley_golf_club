@@ -88,16 +88,12 @@ Using the website, all users will be able to:
 
 #### Color Scheme
 [uiuxcenter](https://www.instagram.com/uiuxcenter/?hl=en) - Used for inspiration on my color scheme, to create a bold web experience.
+(https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/color_scheme.PNG)
 
 #### Typography
 [GoogleFonts](https://fonts.google.com/)
 - [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville?query=Libre+Baskerville) - Used for the logo and headings around the site
 - [Roboto](https://fonts.google.com/specimen/Roboto?query=Roboto) - Used for the main body text
-
-#### Third party Libraries
- - [Bootstrap](https://getbootstrap.com/) - A modern responsive front-end framework. Used for the layout of the site, responsiveness to screen sizes and various features around the site (forms, cards, buttons, search selctions etc)
- - [jQuery](https://jquery.com/) - jQuery is a fast, small, and feature-rich JavaScript library. Used for some interactive elements with the Bootstrap features.
- - [Fontawesome](https://fontawesome.com/) - Font Awesome is a font and icon toolkit based on CSS and Less. Used for all the icons around the site.
 
 #### Desktop Wireframes
 <details><summary>Homepage</summary>
@@ -344,7 +340,6 @@ Using the website, all users will be able to:
 
 
 ### Features
-
 The Wrottesley Golf Club website has 9 apps:
 - Basket
 - Blog
@@ -355,3 +350,97 @@ The Wrottesley Golf Club website has 9 apps:
 - Profiles
 - Tournaments
 - Account
+
+## Technologies Used
+1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- HTML is the standard markup language for Web pages.
+
+2. [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.
+
+3. [JAVASCRIPT](https://www.javascript.com/)
+- JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. The vast majority of websites use it for client-side page behavior,[11] and all major web browsers have a dedicated JavaScript engine to execute it.
+
+5. [PYTHON](https://www.python.org/)
+- Python is a programming language that lets you work quickly and integrate systems more effectively.
+
+4. [JQUERY](https://jquery.com/)
+- jQuery is a fast, small, and feature-rich JavaScript library.
+
+5. [BOOTSTRAP](https://getbootstrap.com/)
+- A modern responsive front-end framework based on Material Design.
+
+6. [FONTAWESOME](https://fontawesome.com/)
+- Font Awesome is a font and icon toolkit based on CSS and Less.
+
+7. [GOOGLE FONTS](https://fonts.google.com/)
+- Google Fonts is a library of more than a thousand free and open source font families, an interactive web directory for browsing the library, and APIs for using the fonts via CSS and Android.
+
+8. [DJANGO](https://www.djangoproject.com/)
+- Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+
+9. [BOTO3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
+- You use the AWS SDK for Python (Boto3) to create, configure, and manage AWS services, such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3).
+
+10. [GUNICORN](https://gunicorn.org/)
+- Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX.
+
+11. [PILLOW](https://pillow.readthedocs.io/en/stable/)
+- Python Imaging Library is a free and open-source additional library for the Python programming language that adds support for opening, manipulating, and saving many different image file formats.
+
+12. [POSTGRES](https://www.postgresql.org/)
+- PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance. 
+
+13. [PSYCOPG2](https://pypi.org/project/psycopg2/)
+- Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+
+14. [STRIPE](https://stripe.com/en-gb)
+- Stripe is an Irish-American financial services and software as a service company. The company primarily offers payment processing software and application programming interfaces for e-commerce websites and mobile applications.
+
+15. [SQLITE3](https://www.sqlite.org/index.html)
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+
+16. [GITPOD](https://www.gitpod.io/)
+- Gitpod streamlines developer workflows by providing prebuilt, collaborative development environments in your browser - powered by VS Code.
+
+17. [GITHUB](https://github.com/)
+- Hosting for software development and version control using Git.
+
+18. [HEROKU](https://www.heroku.com/home)
+- Heroku is a cloud platform as a service supporting several programming languages.
+
+19. [ADOBEXD](https://www.adobe.com/products/xd.html)
+- Adobe XD is a vector-based user experience design tool for web apps and mobile apps, developed and published by Adobe Inc.
+
+20. [Imgur](https://imgur.com/)
+- Free image hosting website used for embedding links to images into websites.
+
+
+## Acknowledgments
+
+#### Code
+- The store section of the website was largely created by following the tutorials from the Boutique Ado project from [CodeInstitute](https://codeinstitute.net/). The code was adapted to suit the needs of my store and fit with the branding of my project. This code included the bag, store products and checkout process.
+
+- The blog application was created by following along with the [DjangoCentral](https://djangocentral.com/building-a-blog-application-with-django/) post 'Building a blog application with django'. I then adapted the code to fit with my project.
+
+- The memberships subscription logic was built with help from the [TestDriven](https://testdriven.io/blog/django-stripe-subscriptions/) tutorial on integrating stripe subscription services.
+
+- I took the code for the dropdowns in the wireframes section of the readme from [Joyrexus](https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f).
+
+#### Media
+[ClubHouse](https://www.clubhousegolf.co.uk/)
+- Used for all product images, details and descriptions
+
+[StAndrews](https://www.standrews.com/play/the-home-of-golf/blog)
+- Used for all blog Contents
+
+[AllSquareGolf](https://www.allsquaregolf.com/golf-courses/england/wrottesley-golf-club)
+- Used for hero image on site
+
+[Unsplash](https://unsplash.com/s/photos/golf)
+- Used for stock images of golf courses used on blogs, memberships and homepage
+
+##### Thanks
+- I would like to thank [CodeInstitute](https://codeinstitute.net/) for providing the lessons on full stack frameworks and the tutorials on how to set up a store. Also, a big thankyou to the tutor support team, who not only helped with this project, but also throughout the last year.
+
+- A big thank you also to my mentor Gbenga, whose encouragement and support has helped me through this project and throughtout my time on the course.
