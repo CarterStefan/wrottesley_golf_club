@@ -140,14 +140,6 @@ Using the website, all users will be able to:
 </p>
 </details>
 
-<details><summary>Checkout</summary>
-<p>
-
-![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Desktop/blog.png)
-
-</p>
-</details>
-
 <details><summary>Blog</summary>
 <p>
 
@@ -188,6 +180,167 @@ Using the website, all users will be able to:
 </p>
 </details>
 
+#### Tablet Wireframes
+<details><summary>Homepage</summary>
+<p>
+
+![Homepage](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_homepage.png)
+
+</p>
+</details>
+
+<details><summary>Products</summary>
+<p>
+
+![Products](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_store.png)
+
+</p>
+</details>
+
+<details><summary>Product Details</summary>
+<p>
+
+![Product Details](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_store_product.png)
+
+</p>
+</details>
+
+<details><summary>Basket</summary>
+<p>
+
+![Basket](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_basket.png)
+
+</p>
+</details>
+
+<details><summary>Checkout</summary>
+<p>
+
+![Checkout](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_checkout.png)
+
+</p>
+</details>
+
+<details><summary>Blog</summary>
+<p>
+
+![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_blog.png)
+
+</p>
+</details>
+
+<details><summary>Blog Post</summary>
+<p>
+
+![Blog Post](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_blog_post.png)
+
+</p>
+</details>
+
+<details><summary>Tournaments</summary>
+<p>
+
+![Tournaments](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static//UX/Wireframes/Tablet/tablet_tournaments.png)
+
+</p>
+</details>
+
+<details><summary>Memberships</summary>
+<p>
+
+![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_memberships.png)
+
+</p>
+</details>
+
+<details><summary>Profile</summary>
+<p>
+
+![Profile](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Tablet/tablet_profile.png)
+
+</p>
+</details>
+
+#### Mobile Wireframes
+<details><summary>Homepage</summary>
+<p>
+
+![Homepage](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_homepage.png)
+
+</p>
+</details>
+
+<details><summary>Products</summary>
+<p>
+
+![Products](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_store.png)
+
+</p>
+</details>
+
+<details><summary>Product Details</summary>
+<p>
+
+![Product Details](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_store_item.png)
+
+</p>
+</details>
+
+<details><summary>Basket</summary>
+<p>
+
+![Basket](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_basket.png)
+
+</p>
+</details>
+
+<details><summary>Checkout</summary>
+<p>
+
+![Checkout](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_checkout.png)
+
+</p>
+</details>
+
+<details><summary>Blog</summary>
+<p>
+
+![Blog](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_blog.png)
+
+</p>
+</details>
+
+<details><summary>Blog Post</summary>
+<p>
+
+![Blog Post](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_blog_post.png)
+
+</p>
+</details>
+
+<details><summary>Tournaments</summary>
+<p>
+
+![Tournaments](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static//UX/Wireframes/Mobile/mobile_tournaments.png)
+
+</p>
+</details>
+
+<details><summary>Memberships</summary>
+<p>
+
+![Memberships](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/TMobile/mobile_memberships.png)
+
+</p>
+</details>
+
+<details><summary>Profile</summary>
+<p>
+
+![Profile](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Wireframes/Mobile/mobile_profile.png)
+
+</p>
+</details>
 
 
 ### Features
