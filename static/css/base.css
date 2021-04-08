@@ -58,7 +58,6 @@ hr {
 
 .strikethrough {
     text-decoration: line-through;
-    text-decoration-thickness: 3px;
 }
 
 .form-control {
