@@ -16,8 +16,8 @@ Wrottesley Golf Club is a golf course located in the west midlands. There are a 
 4. [**Features**](#features)
   - [**Existing Features**](#existing-features)
   - [**Features Left to Implement**](#features-left-to-implemement)
-5. [**Technologies Used**](#technologies-used)
-6. [**Databases Used**](#databases-used)
+5. [**Databases**](#databases)
+6. [**Technologies Used**](#technologies-used)
 7. [**Deployment**](#Deployment)
 8. [**Testing**](#Testing)
 9. [**Acknowledgments**](#Acknowledgments)
@@ -355,7 +355,7 @@ Using the website, all users will be able to:
 </details>
 
 
-### Features
+## Features
 #### Existing Features
 The Wrottesley Golf Club website has 9 apps:
 - Basket
@@ -369,6 +369,123 @@ The Wrottesley Golf Club website has 9 apps:
 - Account
 
 #### Future Features
+
+## Databases
+For my development environment, I was using SQLite, as this is the default with Django. Once my code was deployed to Heroku, I switched to a PostgreSQL database.
+
+### models and apps
+My site consists of 9 apps, and a total of 'xxxxx' models:
+
+#### Home App
+- The home app is used to display index.html, which serves as the root page of the site. This app contains no models.
+
+#### Basket App
+- The basket app is used for basic CRUD operations for managing products in the shopping basket. This app contains no models.
+
+#### Blog App
+- The blog app is used to show blog posts which have been added by an admin. Users can read and also comment on blog.
+
+##### Blog model
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='blog_posts'
+    slug = models.SlugField(max_length=200, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    main_image = models.ImageField(null=False, blank=False)
+    title = models.CharField(max_length=300, unique=True, null=False, blank=False,)
+    sub_title_one = models.CharField(max_length=300, unique=True, null=False, blank=False,)
+    blog_content_one = models.TextField(null=False, blank=False,)
+    sub_title_two = models.CharField(max_length=300, null=True, blank=True,)
+    blog_content_two = models.TextField(null=True, blank=True,)
+    last_updated = models.DateTimeField(auto_now=True)
+
+##### Comment model
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=100)
+    body = models.CharField(max_length=200)
+    date_created = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+#### Checkout App
+- The checkout app is used to handle the chekout process of the store and enabled users purchase their products through the Stripe payments system.
+
+##### Order model
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    street_address = models.CharField(max_length=80, null=False, blank=False)
+    county = models.CharField(max_length=30, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_basket = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+
+##### OrderLineItem model
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product_size = models.CharField(max_length=2, null=True, blank=True)  # S, M, L, XL
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models. DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+
+#### Memberships App
+- The memberships app is used to allow users to upgrade their membership to 'pro' or downgrade to 'beginner' if they have signed up but no longer which to be a 'pro'memnber.
+
+##### StripeCustomer model
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
+    stripeCustomerId = models.CharField(max_length=255)
+    stripeSubscriptionId = models.CharField(max_length=255)
+
+#### Products App
+- The products app is used to store the details of an individual product and associate it with a particular category.
+
+##### Category model
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+##### Product model
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254)
+    description = models.TextField()
+    material = models.TextField()
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+
+#### Profiles App
+- The profiles app is used to store information about the registered users of the site, this can be used for faster checkout and handles the membership level for discounts and access around the site.
+
+##### UserProfile model
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    membership_type = models.CharField(max_length=20, null=True, blank=True)
+    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_street_address = models.CharField(max_length=80, null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_county = models.CharField(max_length=30, null=True, blank=True)
+    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    default_country = CountryField(blank_label='Country *', null=True, blank=True)
+
+#### Tournaments App
+- The tournaments app is used to store information about upcoming tournaments at the golf club.
+
+##### Tournament model
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    membership_type = models.CharField(max_length=20, null=True, blank=True)
+    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_street_address = models.CharField(max_length=80, null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_county = models.CharField(max_length=30, null=True, blank=True)
+    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    default_country = CountryField(blank_label='Country *', null=True, blank=True)
+
 
 ## Technologies Used
 1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
