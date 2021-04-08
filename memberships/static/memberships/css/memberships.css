@@ -8,3 +8,10 @@
 .memberships-card-header {
     color: #f5dfbb; 
 }
+
+.memberships-success-card-image {
+    background: url('/media/courtney-cook-FALrwN_MpeE-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+}

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'memberships/css/memberships.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -13,8 +14,45 @@
 {% endblock page_header %}
 
 {% block content %}
-<div class="container mt-5">
-    <p>You have successfully subscribed!</p>
-    <p><a href="{% url 'home' %}">Return to the homepage</a></p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <h1 class="libre">Memberships</h1>
+            <hr>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-10 offset-md-1 text-center mt-5 mb-5">
+            <div class="card">
+                <div class="card-header memberships-card-header bg-green libre">
+                    <h2 class="p-5">Success!</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-none col-md-6 col-lg-4">
+                            <div class="memberships-success-card-image h-100"></div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-8">
+                            <p class="card-text text-justify pt-5">
+                                Thank you for signing up to our Pro membership. The main benefit of a Pro membership is that you will get a pernament 10% off all products in our store, which you can now take full advantage of! Another bonus within our store is that all delivery charges are now comepletely FREE!
+                            </p>
+                            <p class="card-text text-justify pt-5">
+                                As well as this, you will no longer have to pay entry fees for any tournaments you enter, and will now be free while you continue to take advantage of the plus membership.
+                                <br>
+                                Although we hope you enjoy the benefits of being a Pro, you are able to cancel at any time
+                            </p>
+                            <p>
+                                <button class="btn primary-btn-lg">
+                                    <a href="{% url 'products' %}">Go to the store</a>
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}
