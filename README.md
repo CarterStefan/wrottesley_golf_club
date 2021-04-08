@@ -357,7 +357,7 @@ Using the website, all users will be able to:
 
 ## Features
 #### Existing Features
-The Wrottesley Golf Club website has 9 apps:
+The Wrottesley Golf Club website has 8 apps:
 - Basket
 - Blog
 - Checkout
@@ -366,7 +366,6 @@ The Wrottesley Golf Club website has 9 apps:
 - Products
 - Profiles
 - Tournaments
-- Account
 
 #### Future Features
 
@@ -374,7 +373,7 @@ The Wrottesley Golf Club website has 9 apps:
 For my development environment, I was using SQLite, as this is the default with Django. Once my code was deployed to Heroku, I switched to a PostgreSQL database.
 
 ### models and apps
-My site consists of 9 apps, and a total of 'xxxxx' models:
+My site consists of 9 models and 8 apps
 
 #### Home App
 - The home app is used to display index.html, which serves as the root page of the site. This app contains no models.
@@ -552,6 +551,7 @@ My site consists of 9 apps, and a total of 'xxxxx' models:
 - Free image hosting website used for embedding links to images into websites.
 
 ## Deployment
+### Local deployment
 All code on this project was created in [Gitpod](https://www.gitpod.io/) for development. When development was nearing completion it was deployed to Heroku for hosting the webpage and AWS S3 for hosting the static files and all images.
 
 If someone wishes to run this project locally, they should install the Gitpod chrome browser extension. Then:
@@ -593,6 +593,44 @@ If someone wishes to run this project locally, they should install the Gitpod ch
     - Go to the blog option, and add a new blog using the form
     - Go to the Tournaments option, and add a new tournament using the form
 
+### Heroku deployment
+If someone wishes to deploy this project on Heroku, they should follow these steps:
+
+- Within Stripe, create a new account and set up webhook endpoints for checkout/wh and memberships/webhooks
+- Within Stripe, create two products for 'Pro' and 'Beginner' membership products
+
+- Setup up an AWS account with the following:
+    - AWS S3 Bucket
+    - Bucket Policy
+    - Group
+    - Access Policy
+    - User
+
+- Create a requirements.txt file by going to the CLI and typing 'pip freeze > requirements.txt'
+- Create a procfile with the line 'web: gunicorn {the_name_of_your_heroku_app_here}.wsgi:application
+- Save and push the code to github
+- Create a Heroku account
+- In Heroku, create a new app for the project with a unique name
+- In Heroku, on the'resources page' search and select 'Heroku Postgress'
+- In Heroku, set your config variables:
+    - AWS_ACCESS_KEY_ID = {Your AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY = {Your AWS_SECRET_ACCESS_KEY}
+    - DATABASE_URL = {Your DATABASE_URL}
+    - DOMAIN_URL = {Your DOMAIN_URL}
+    - SECRET_KEY = {Your SECRET_KEY}
+    - STRIPE_BEGINNER_PRICE_ID = Your STRIPE_BEGINNER_PRICE_ID}
+    - STRIPE_MEMBERSHIP_WH_SECRET = {Your STRIPE_MEMBERSHIP_WH_SECRET}
+    - STRIPE_PRO_PRICE_ID = {Your STRIPE_PRO_PRICE_ID}
+    - STRIPE_PUBLIC_KEY = {Your STRIPE_PUBLIC_KEY}
+    - STRIPE_SECRET_KEY = {Your STRIPE_SECRET_KEY}
+    - STRIPE_WH_SECRET = {Your STRIPE_WH_SECRET}
+    - USE_AWS = True
+- Change the allowed hosts in settings.py to match your new heroku app
+- In the CLI, type 'python3 manage.py makemigrations' then 'python3 manage.py migrate' to migrate your models to the new database
+- In the CLI, import the products and categories by typing 'python3 manage.py loaddata categories' then 'python3 manage.py loaddata products'
+- In the CLI, create a super user for your deployed site by typing 'python3 manage.py createsuperuser' and entering the required details
+- Set Heroku to get changes from github automatically
+- Save and push the code to github
 
 ## Testing
 
