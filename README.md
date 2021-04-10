@@ -483,7 +483,7 @@ My site consists of 9 models and 8 apps
     entry_fee = models.CharField(max_length=254, null=True, blank=True)
 
 ### Database Schema
-![ColorScheme](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/database_schema.PNG)
+![DatabaseSchema](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/database_schema.png)
 
 ## Technologies Used
 1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
