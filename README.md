@@ -476,15 +476,14 @@ My site consists of 9 models and 8 apps
 - The tournaments app is used to store information about upcoming tournaments at the golf club.
 
 ##### Tournament model
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    membership_type = models.CharField(max_length=20, null=True, blank=True)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_street_address = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    default_county = models.CharField(max_length=30, null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label='Country *', null=True, blank=True)
+    name = models.CharField(max_length=254, null=True, blank=True)
+    start_date = models.CharField(max_length=254, null=True, blank=True)
+    start_time = models.CharField(max_length=254, null=True, blank=True)
+    location = models.CharField(max_length=254, null=True, blank=True)
+    entry_fee = models.CharField(max_length=254, null=True, blank=True)
 
+### Database Schema
+![ColorScheme](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/database_schema.PNG)
 
 ## Technologies Used
 1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
