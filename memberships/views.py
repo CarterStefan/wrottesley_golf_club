@@ -21,7 +21,8 @@ def memberships(request):
         # Retrieve the subscription & product
         stripe_customer = StripeCustomer.objects.get(user=request.user)
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        subscription = stripe.Subscription.retrieve(
+            stripe_customer.stripeSubscriptionId)
         product = stripe.Product.retrieve(subscription.plan.product)
 
         return render(request, 'memberships/memberships.html', {
@@ -49,8 +50,12 @@ def create_checkout_session(request):
         price = settings.STRIPE_PRO_PRICE_ID
         try:
             checkout_session = stripe.checkout.Session.create(
-                client_reference_id=(request.user.id if request.user.is_authenticated else None),
-                success_url=(domain_url + 'success?session_id={CHECKOUT_SESSION_ID}'),
+                client_reference_id=(
+                    request.user.id if request.user.is_authenticated else None
+                    ),
+                success_url=(
+                    domain_url + 'success?session_id={CHECKOUT_SESSION_ID}'
+                    ),
                 cancel_url=domain_url + 'cancel/',
                 payment_method_types=['card'],
                 mode='subscription',
@@ -90,10 +95,12 @@ def stripe_webhook(request):
         )
     except ValueError as e:
         # Invalid payload
-        return HttpResponse(status=400)
+        return HttpResponse(content=e, status=400)
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
-        return HttpResponse(status=400)
+        return HttpResponse(content=e, status=400)
+    except Exception as e:
+        return HttpResponse(content=e, status=400)
 
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
@@ -127,7 +134,9 @@ def downgrade(request):
     if membership_type == 'Pro':
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe_customer = StripeCustomer.objects.get(user=request.user)
-        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        subscription = stripe.Subscription.retrieve(
+            stripe_customer.stripeSubscriptionId
+        )
         product = stripe.Product.retrieve(subscription.plan.product)
 
         stripe.Subscription.modify(
@@ -167,7 +176,9 @@ def upgrade(request):
     if membership_type == 'Beginner':
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe_customer = StripeCustomer.objects.get(user=request.user)
-        subscription = stripe.Subscription.retrieve(stripe_customer.stripeSubscriptionId)
+        subscription = stripe.Subscription.retrieve(
+            stripe_customer.stripeSubscriptionId
+        )
         product = stripe.Product.retrieve(subscription.plan.product)
 
         stripe.Subscription.modify(
@@ -203,5 +214,8 @@ def upgrade(request):
         context = {
             'on_membership_page': True,
         }
-        messages.success(request, 'Please use the stripe portal to purchase a membership')
+        messages.success(
+            request,
+            'Please use the stripe portal to purchase a membership'
+            )
         return render(request, 'memberships/memberships.html', context)

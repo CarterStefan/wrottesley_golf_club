@@ -10,7 +10,10 @@ import random
 
 
 def all_products(request):
-    """ A view for the products page, including different categories, searching and sorting """
+    """
+    A view for the products page, including different
+    categories, searching and sorting
+    """
 
     products = Product.objects.all()
     categories = Category.objects.all()
@@ -43,10 +46,17 @@ def all_products(request):
         if 'search' in request.GET:
             search_term = request.GET['search']
             if not search_term:
-                messages.error(request, "Please enter something to search the store!")
+                messages.error(
+                    request,
+                    "Please enter something to search the store!"
+                )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=search_term) | Q(description__icontains=search_term) | Q(category__name__icontains=search_term)
+            queries = Q(
+                name__icontains=search_term) | Q(
+                    description__icontains=search_term) | Q(
+                        category__name__icontains=search_term
+                        )
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
