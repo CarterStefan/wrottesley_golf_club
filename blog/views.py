@@ -24,7 +24,9 @@ def blog_list(request):
 def blog_detail(request, slug):
     """ A view to show the individual blog post """
     blog_post = get_object_or_404(Blog, slug=slug)
-    comments = blog_post.comments.filter(approved=True).order_by("-date_created")
+    comments = (
+        blog_post.comments.filter(approved=True).order_by("-date_created")
+    )
     new_comment = None
 
     if request.method == 'POST':
@@ -39,7 +41,11 @@ def blog_detail(request, slug):
             # Save the comment to the database
             new_comment.save()
             # Show message to confirm comment
-            messages.success(request, 'Thank you for your comment, it has been sent for approval and will appear once done')
+            messages.success(
+                request,
+                'Thank you for your comment, it has been sent \
+                    for approval and will appear once done'
+            )
             return redirect(reverse('blog_detail', args=[blog_post.slug]))
     else:
         comment_form = CommentForm()
@@ -66,7 +72,9 @@ def add_blog(request):
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
             blog_post = form.save()
-            messages.success(request, f'New post: {blog_post.title} uploaded successfully')
+            messages.success(
+                request, f'New post: {blog_post.title} uploaded successfully'
+            )
             new_blog = get_object_or_404(Blog, slug=blog_post.slug)
             new_blog.author = request.user
             new_blog.save()

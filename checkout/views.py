@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse,
+    get_object_or_404, HttpResponse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -68,7 +71,9 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in (
+                            item_data['items_by_size'].items()
+                        ):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -84,13 +89,17 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
         else:
             messages.error(request, 'There was an error with your form')
     else:
         basket = request.session.get('basket', {})
         if not basket:
-            messages.error(request, "There is currently no items in your basket")
+            messages.error(
+                request, "There is currently no items in your basket"
+            )
             return redirect(reverse('products'))
 
         current_basket = basket_contents(request)
