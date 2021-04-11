@@ -633,6 +633,11 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 
 ## Testing
 
+### Validation
+#### Templates
+- base.html
+    - 
+
 
 ## Acknowledgments
 #### Code

@@ -213,6 +213,7 @@ hr {
     border-color: #f5dfbb;
 }
 
+
 /* ------------------------------------------------------- FOOTER */
 
 .content {
@@ -318,6 +319,11 @@ hr {
     padding-top: 150px;
     padding-bottom: 150px;
     color: #127475;
+}
+
+.homepage-subtitle {
+    font-size: 1.3em;
+    font-weight: 500;
 }
 
 /* ------------------------------------------------------- PRODUCTS */

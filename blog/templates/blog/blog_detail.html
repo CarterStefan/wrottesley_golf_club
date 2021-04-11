@@ -31,12 +31,12 @@
                 <hr>
             </div>
             <div class="card-body blog-text">
-                <h3 class="blog_subtitle libre">{{ blog_post.sub_title_one }}</h3>
-                <p class="card-text">{{ blog_post.blog_content_one | linebreaks }}</p>
+                <p class="blog_subtitle libre">{{ blog_post.sub_title_one }}</p>
+                <p class="card-text">{{ blog_post.blog_content_one|linebreaksbr }}</p>
                 <br>
                 {% if blog_post.sub_title_two %}
-                <h3 class="blog_subtitle libre">{{ blog_post.sub_title_two }}</h3>
-                <p class="card-text">{{ blog_post.blog_content_two | linebreaks }}</p>
+                <p class="blog_subtitle libre">{{ blog_post.sub_title_two }}</p>
+                <p class="card-text">{{ blog_post.blog_content_two|linebreaksbr }}</p>
                 {% endif %}
                 <p class="card-text">
                     <small class="text-muted">Last updated on {{ blog_post.last_updated }}</small>
@@ -112,7 +112,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('#id_body').keyup(function () {
         var maxLength = 800;
         var currentLegnth = $('#id_body').val().length;

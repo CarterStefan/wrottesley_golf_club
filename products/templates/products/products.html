@@ -17,22 +17,26 @@
                 <div class="col-12">
                     {% if current_category != None %}
                     <p>
-                        <a href="{% url 'products'%}?category={{ current_category }}"><span
-                                class="product_count"><strong>{{ current_category_upper }}</strong> |
-                                {{ products|length }} products</span></a>
+                        <a href="{% url 'products'%}?category={{ current_category }}">
+                            <span class="product_count">
+                                <strong>{{ current_category_upper }}</strong> | {{ products|length }} products
+                            </span>
+                        </a>
                     </p>
                     {% else %}
-                    <p class="product_count">{{ products|length }} products {% if search_term %} found for
-                        <strong>"{{ search_term }}"</strong>{% endif %}</p>
+                    <p class="product_count">
+                        {{ products|length }} products {% if search_term %} found for
+                        <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
                     {% endif %}
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 p-1">
                     <form method="GET" action="{% url 'products' %}">
-                        <div class="input-group mb-3">
-                            <input type="text" name="search" class="form-control store-search-box" placeholder="Search..."
-                                aria-label="Search our Store" aria-describedby="basic-addon1">
+                        <div id="search-box" class="input-group mb-3">
+                            <input type="text" name="search" class="form-control store-search-box"
+                                placeholder="Search..." aria-label="Search our Store" aria-labelledby="search-box">
                             <button type="submit" class="store-search-btn">
                                 <span><i class="fas fa-search"></i></span>
                             </button>
@@ -43,18 +47,14 @@
             <div class="row">
                 {% for category in categories %}
                 <div class="col-6 col-lg-12 p-1">
-                    <a href="{% url 'products'%}?category={{ category.name }}">
-                        <button class="btn secondary-btn w-100">
-                            {{ category.friendly_name }}
-                        </button>
+                    <a href="{% url 'products'%}?category={{ category.name }}" class="btn secondary-btn w-100">                        
+                        {{ category.friendly_name }}
                     </a>
                 </div>
                 {% endfor %}
                 <div class="col-6 col-lg-12 p-1">
-                    <a href="{% url 'products'%}">
-                        <button class="btn secondary-btn w-100">
-                            All Products
-                        </button>
+                    <a href="{% url 'products'%}" class="btn secondary-btn w-100">
+                        All Products                        
                     </a>
                 </div>
             </div>
@@ -107,7 +107,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         let selector = $(this)
         let currentUrl = new URL(window.location)
