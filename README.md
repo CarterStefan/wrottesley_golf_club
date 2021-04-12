@@ -49,7 +49,7 @@ Using the website, all users will be able to:
 - Easily navigate to the Blog page
 - Easily navigate to the Store page
 - Easily navigate to the Memberships page
-- Alwys be able to see the total count of the basket
+- Always be able to see the total count of the basket
 
 #### Registration & User Accounts
 - Register for an account
@@ -70,7 +70,7 @@ Using the website, all users will be able to:
 - Delete an item and reduce the size selected
 - Easily fill out delivery and payment information
 - View an order summary once a purchase is made
-- Recieve an email confirmation
+- Recieve an email confirmation when a purchase is made
 
 #### Subscribtions
 - See the benefits of a pro membership
@@ -385,20 +385,20 @@ My site consists of 9 models and 8 apps
 - The blog app is used to show blog posts which have been added by an admin. Users can read and also comment on blog.
 
 ##### Blog model
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='blog_posts'
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='blog_posts')
     slug = models.SlugField(max_length=200, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     main_image = models.ImageField(null=False, blank=False)
     title = models.CharField(max_length=300, unique=True, null=False, blank=False,)
     sub_title_one = models.CharField(max_length=300, unique=True, null=False, blank=False,)
     blog_content_one = models.TextField(null=False, blank=False,)
-    sub_title_two = models.CharField(max_length=300, null=True, blank=True,)
-    blog_content_two = models.TextField(null=True, blank=True,)
+    sub_title_two = models.CharField(max_length=300, default='', blank=True,)
+    blog_content_two = models.TextField(default='', blank=True,)
     last_updated = models.DateTimeField(auto_now=True)
 
 ##### Comment model
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=100)
+    name = models.OneToOneField(to=User, on_delete=models.CASCADE)
     body = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
@@ -408,16 +408,15 @@ My site consists of 9 models and 8 apps
 
 ##### Order model
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    postcode = models.CharField(max_length=20, default='', blank=True)
     street_address = models.CharField(max_length=80, null=False, blank=False)
-    county = models.CharField(max_length=30, null=True, blank=True)
+    county = models.CharField(max_length=30, default='', blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
@@ -429,7 +428,7 @@ My site consists of 9 models and 8 apps
 ##### OrderLineItem model
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=2, null=True, blank=True)  # S, M, L, XL
+    product_size = models.CharField(max_length=2, default='', blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models. DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
@@ -441,46 +440,47 @@ My site consists of 9 models and 8 apps
     stripeCustomerId = models.CharField(max_length=255)
     stripeSubscriptionId = models.CharField(max_length=255)
 
+
 #### Products App
 - The products app is used to store the details of an individual product and associate it with a particular category.
 
 ##### Category model
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(max_length=254, default='', blank=True)
 
 ##### Product model
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, default='', blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     material = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image_url = models.URLField(max_length=1024, default='', blank=True)
+    image = models.ImageField(default='', blank=True)
 
 #### Profiles App
 - The profiles app is used to store information about the registered users of the site, this can be used for faster checkout and handles the membership level for discounts and access around the site.
 
 ##### UserProfile model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    membership_type = models.CharField(max_length=20, null=True, blank=True)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_street_address = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    default_county = models.CharField(max_length=30, null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    membership_type = models.CharField(max_length=20, default='', blank=True)
+    default_phone_number = models.CharField(max_length=20, default='', blank=True)
+    default_street_address = models.CharField(max_length=80, default='', blank=True)
+    default_town_or_city = models.CharField(max_length=40, default='', blank=True)
+    default_county = models.CharField(max_length=30, default='', blank=True)
+    default_postcode = models.CharField(max_length=20, default='', blank=True)
     default_country = CountryField(blank_label='Country *', null=True, blank=True)
 
 #### Tournaments App
 - The tournaments app is used to store information about upcoming tournaments at the golf club.
 
 ##### Tournament model
-    name = models.CharField(max_length=254, null=True, blank=True)
-    start_date = models.CharField(max_length=254, null=True, blank=True)
-    start_time = models.CharField(max_length=254, null=True, blank=True)
-    location = models.CharField(max_length=254, null=True, blank=True)
-    entry_fee = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254, default='', blank=True)
+    start_date = models.CharField(max_length=254, default='', blank=True)
+    start_time = models.CharField(max_length=254, default='', blank=True)
+    location = models.CharField(max_length=254, default='', blank=True)
+    entry_fee = models.CharField(max_length=254, default='', blank=True)
 
 ### Database Schema
 ![DatabaseSchema](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/database_schema.png)
@@ -634,10 +634,19 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 ## Testing
 
 ### Validation
-#### Templates
-- base.html
-    - 
+#### Pages
+- Home
 
+#### CSS
+- I used [W3C](https://jigsaw.w3.org/css-validator/#validate_by_input) validator the three CSS files in my project:
+    - base.css
+    - memberships.css
+    - blog.css
+
+All three files passed the validator with no errors or warnings.
+
+#### Pep8
+- All python files (excluding those which come as built in with django) pass the [PEP8](http://pep8online.com/) online code check.
 
 ## Acknowledgments
 #### Code
