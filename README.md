@@ -635,51 +635,133 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 ### Nav bar 
     - Nav bar is permanently visible at the top of the page for ease of access across the site.
 ##### Desktop
-    - The top part of the nav bar always shows three options - logo / my account / basket.
-    - Clicking the logo in the top left takes the user to the homepage.
-    - If a user clicks on the 'my account' button they will be shown a dropdown.
-        - When logged out this dropdown shows the options - signup / login.
-            - Clicking on signup takes the user to the sign up form.
-            - Clicking on login takes the user to the login screen.
-        - When logged in this dropdown displays the options - my profile / logout.
-            - Clicking on my profile takes the user to the profile page.
-            - Clicking logout takes the user to the confirm logout page.
-        - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
-            - Clicking admin takes the user to the Django admin page.
-    - The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
-        - Clicking on basket takes the user to the basket page.
-    - The bottom part of the nav bar shows four more navigation links to the site - tournaments / blog / store / memberships.
-        - Clicking tournaments takes the user to the tournamnets page.
-        - Clicking blog takes the user to the blog page.
-        - Clicking store takes the user to the store page.
-        - Clicking memberships takes the user to the memberships page.
+- The top part of the nav bar always shows three options - logo / my account / basket.
+- Clicking the logo in the top left takes the user to the homepage.
+- If a user clicks on the 'my account' button they will be shown a dropdown.
+    - When logged out this dropdown shows the options - signup / login.
+        - Clicking on signup takes the user to the sign up form.
+        - Clicking on login takes the user to the login screen.
+    - When logged in this dropdown displays the options - my profile / logout.
+        - Clicking on my profile takes the user to the profile page.
+        - Clicking logout takes the user to the confirm logout page.
+    - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
+        - Clicking admin takes the user to the Django admin page.
+- The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
+    - Clicking on basket takes the user to the basket page.
+- The bottom part of the nav bar shows four more navigation links to the site - tournaments / blog / store / memberships.
+    - Clicking tournaments takes the user to the tournamnets page.
+    - Clicking blog takes the user to the blog page.
+    - Clicking store takes the user to the store page.
+    - Clicking memberships takes the user to the memberships page.
 ##### Tablet / Mobile
-    - The top part of the nav bar always shows four options - hamburger menu / home / my account / basket.
-    - Clicking the hamburger option in the top left shows a fullscreen submenu.
-    - The fullscreen submenu displays the options - tournaments / blog / store / memberships.
-        - Clicking tournaments takes the user to the tournamnets page.
-        - Clicking blog takes the user to the blog page.
-        - Clicking store takes the user to the store page.
-        - Clicking memberships takes the user to the memberships page.    
-    - Clicking the home button takes the user to the homepage.
-    - If a user clicks on the 'my account' button they will be shown a dropdown.
-        - When logged out this dropdown shows the options - signup / login.
-            - Clicking on signup takes the user to the sign up form.
-            - Clicking on login takes the user to the login screen.
-        - When logged in this dropdown displays the options - my profile / logout.
-            - Clicking on my profile takes the user to the profile page.
-            - Clicking logout takes the user to the confirm logout page.
-        - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
-            - Clicking admin takes the user to the Django admin page.
-    - The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
-        - Clicking on basket takes the user to the basket page.
-    - Clicking the hamburger menu when the menu is oen closes the hamburger menu.  
-        
-    
+- The top part of the nav bar always shows four options - hamburger menu / home / my account / basket.
+- Clicking the hamburger option in the top left shows a fullscreen submenu.
+- The fullscreen submenu displays the options - tournaments / blog / store / memberships.
+    - Clicking tournaments takes the user to the tournamnets page.
+    - Clicking blog takes the user to the blog page.
+    - Clicking store takes the user to the store page.
+    - Clicking memberships takes the user to the memberships page.    
+- Clicking the home button takes the user to the homepage.
+- If a user clicks on the 'my account' button they will be shown a dropdown.
+    - When logged out this dropdown shows the options - signup / login.
+        - Clicking on signup takes the user to the sign up form.
+        - Clicking on login takes the user to the login screen.
+    - When logged in this dropdown displays the options - my profile / logout.
+        - Clicking on my profile takes the user to the profile page.
+        - Clicking logout takes the user to the confirm logout page.
+    - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
+        - Clicking admin takes the user to the Django admin page.
+- The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
+    - Clicking on basket takes the user to the basket page.
+- Clicking the hamburger menu when the menu is oen closes the hamburger menu.
+
+### Footer
+- Footer is located by scrolling to the bottom of any page across the site.
+- In scenarios where the content of the page does not fill the entire viewport height, the footer will still remain at the bottom of the page-.
+- The adress is permanently in the first column of the footer.
+- The second column consists of two states depending on if you are logged in or logged out.
+    - When logged out the footer links show the options - signup / login.
+        - Clicking on signup takes the user to the sign up form.
+        - Clicking on login takes the user to the login screen.
+    - When logged in the footer links show the options - tournaments / blog / store / memberships.
+    - Clicking tournaments takes the user to the tournamnets page.
+    - Clicking blog takes the user to the blog page.
+    - Clicking store takes the user to the store page.
+    - Clicking memberships takes the user to the memberships page.
+- The third column shows 3 social links - Facebook / Twitter / Instagram.
+    - Clicking facbook takes the user to the WGC facebook page in an external tab.
+    - Clicking twitter takes the user to the WGC twitter page in an external tab.
+    - Clicking instagram takes the user to an instagram page, showing all pictures with the 'wrottesley golf club' location, in an external tab.
+- The cloumns stack when the page becomes too thin for them to be alligned horizontaly.
+
+### Homepage
+- Home page loads as intended as is responsive to all screen sizes.
+- Hero image is the first feature you see, with a card giving the user the option to go to the store.
+    - Clicking on 'visit store' takes the user to the store.
+- The second feature is a banner advertising the pro membership.
+    - Clicking 'see more' takes the user to the memberships page.
+- The third feature is three cards with some navigation around the site to the pages - blog / memberships / store
+    - Clicking on blog takes the user to the blog page.
+    - Clicking on memberships takes the user to the memberships page.
+    - Clicking on store takes the user to the store page.
+
+### Blog
+- The blog page loads as intended as is responsive to all screen sizes.
+- Each blog is displayed in a card.
+    - The card header features the blog image.
+    - The card body features:
+        - The blog title is displayed as the card title.
+        - The blog author is displayed underneath the title preceeded by the words 'A blog post by'.
+        - The first 200 characters of the blog content one followed by...
+        - A read more button.
+        - The date when the blog was last updated preceeded by the words 'Last updated'.
+        - If logged in as super user an 'add' button appears in the bottom right of the page which takes the super user to the add blog page.
+        - If logged in as super user an 'edit' and 'delete' options are available in the card footer.
+            - The edit button takes the super user to the edit page for that individual blog post.
+            - The delete button deletes the blog and reloads the page. The deleted blog is no longer visible.
+    - Clicking on the 'read more' button will take you to the correct blog post.
+
+### Blog Post
+- The blog post page loads as intended as is responsive to all screen sizes.
+- The top of the page features the correct main image full width.
+- The page title shows the correct blog title.
+- The blog author shows the correct author underneath the title preceeded by the words 'A blog post by'.
+- A count of the number of comments on the individual blog post shows the correct number.
+- The blog subtitles show the correct blog subtitles in a large, bold font.
+- Blog content show the correct blog contents in body font.
+- The bottom of the blog post shows the correct last updated date preceeded by 'Last updated on'.
+- If logged in as super user an 'edit' and 'delete' options are available at the bottom of the blog.
+            - The edit button takes the super user to the edit page for that individual blog post.
+            - The delete button deletes the blog and goes to the main blog page. The deleted blog is no longer visible.
+- The comment section appears below the blog and has X states:
+#### A logged out user
+- The number of comments count.
+    - If there is one comment, the count correctly says '1 comment'.
+    - If there is not one comment, the count correctly says '{{ number }} comments'.
+- The line 'Login to leave a comment' is correctly displayed i
+- Clicking the login word, the user is taken to the login screen.
+- If there are comments for that blog, the correct comments for that blog post are displayed underneath.
+- Only approved comments are shown.
+- If there are no comments for that blog, the sentence 'No comments yet. Be the first to comment' is displayed.
+#### A logged in user
+- The number of comments count.
+    - If there is one comment, the count correctly says '1 comment'.
+    - If there is not one comment, the count correctly says '{{ number }} comments'.
+- The text field to leave a comment is correctly displayed.
+- There is a character count beneath which updates the left number as you type.
+- When you go past 140 characters, the word count changes color to warn users they are approaching the limit.
+- When you go past the 200 character limit, the 'post comment' button is disabled.
+- Removing characters to make the character count below the 200 limit re-enables the 'post comment' button.
+- Removing characters to make the character count below 140 characters, the text will go back to green.
+- If there are comments for that blog, the correct comments for that blog post are displayed underneath.
+    - Only approved comments are shown.
+- If there are no comments for that blog, the sentence 'No comments yet. Be the first to comment' is displayed.
+- Writing a comment and clicking 'post comment' will display a toast message and reload the page.
 
 ### Validation
 #### Pages
-- Home
+
+
 
 #### CSS
 - I used [W3C](https://jigsaw.w3.org/css-validator/#validate_by_input) validator the three CSS files in my project:
