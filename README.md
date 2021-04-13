@@ -440,7 +440,6 @@ My site consists of 9 models and 8 apps
     stripeCustomerId = models.CharField(max_length=255)
     stripeSubscriptionId = models.CharField(max_length=255)
 
-
 #### Products App
 - The products app is used to store the details of an individual product and associate it with a particular category.
 
@@ -632,6 +631,51 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - Save and push the code to github
 
 ## Testing
+
+### Nav bar 
+    - Nav bar is permanently visible at the top of the page for ease of access across the site.
+##### Desktop
+    - The top part of the nav bar always shows three options - logo / my account / basket.
+    - Clicking the logo in the top left takes the user to the homepage.
+    - If a user clicks on the 'my account' button they will be shown a dropdown.
+        - When logged out this dropdown shows the options - signup / login.
+            - Clicking on signup takes the user to the sign up form.
+            - Clicking on login takes the user to the login screen.
+        - When logged in this dropdown displays the options - my profile / logout.
+            - Clicking on my profile takes the user to the profile page.
+            - Clicking logout takes the user to the confirm logout page.
+        - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
+            - Clicking admin takes the user to the Django admin page.
+    - The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
+        - Clicking on basket takes the user to the basket page.
+    - The bottom part of the nav bar shows four more navigation links to the site - tournaments / blog / store / memberships.
+        - Clicking tournaments takes the user to the tournamnets page.
+        - Clicking blog takes the user to the blog page.
+        - Clicking store takes the user to the store page.
+        - Clicking memberships takes the user to the memberships page.
+##### Tablet / Mobile
+    - The top part of the nav bar always shows four options - hamburger menu / home / my account / basket.
+    - Clicking the hamburger option in the top left shows a fullscreen submenu.
+    - The fullscreen submenu displays the options - tournaments / blog / store / memberships.
+        - Clicking tournaments takes the user to the tournamnets page.
+        - Clicking blog takes the user to the blog page.
+        - Clicking store takes the user to the store page.
+        - Clicking memberships takes the user to the memberships page.    
+    - Clicking the home button takes the user to the homepage.
+    - If a user clicks on the 'my account' button they will be shown a dropdown.
+        - When logged out this dropdown shows the options - signup / login.
+            - Clicking on signup takes the user to the sign up form.
+            - Clicking on login takes the user to the login screen.
+        - When logged in this dropdown displays the options - my profile / logout.
+            - Clicking on my profile takes the user to the profile page.
+            - Clicking logout takes the user to the confirm logout page.
+        - When logged in as a superuser this dropdown displays the options - admin / my profile / logout.
+            - Clicking admin takes the user to the Django admin page.
+    - The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
+        - Clicking on basket takes the user to the basket page.
+    - Clicking the hamburger menu when the menu is oen closes the hamburger menu.  
+        
+    
 
 ### Validation
 #### Pages
