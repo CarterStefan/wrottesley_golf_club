@@ -633,7 +633,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 ## Testing
 
 ### Nav bar 
-    - Nav bar is permanently visible at the top of the page for ease of access across the site.
+- Nav bar is permanently visible at the top of the page for ease of access across the site.
 ##### Desktop
 - The top part of the nav bar always shows three options - logo / my account / basket.
 - Clicking the logo in the top left takes the user to the homepage.
@@ -733,7 +733,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - If logged in as super user an 'edit' and 'delete' options are available at the bottom of the blog.
             - The edit button takes the super user to the edit page for that individual blog post.
             - The delete button deletes the blog and goes to the main blog page. The deleted blog is no longer visible.
-- The comment section appears below the blog and has X states:
+- The comment section appears below the blog and has 2 states:
 #### A logged out user
 - The number of comments count.
     - If there is one comment, the count correctly says '1 comment'.
@@ -757,6 +757,65 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - Only approved comments are shown.
 - If there are no comments for that blog, the sentence 'No comments yet. Be the first to comment' is displayed.
 - Writing a comment and clicking 'post comment' will display a toast message and reload the page.
+- The commentis then created as unapproved on the database for the superuser to approve.
+
+### Blog Edit
+- The edit blog page loads as intended as is responsive to all screen sizes.
+- All fields from the Django form are displayed.
+- All fields have the current content for the correct blog post pre-filled.
+- Selecting a new image will show the chosen image in a message underneath the current image.
+- A toast message displays to say which blog post you are editing.
+- Fields which are required have an asterisk next to them.
+- Trying to confirm the form with a required field missing will not proceed and show the validation 'please fill in this field'.
+- Removing content from none required fields and clicking confirm lets you proceed as expected.
+- Clicking confirm after editing a field updates the blog correctly.
+- Clicking confirrm will take the super user back to the blog post page, with the updated changes now showing.
+- A toast message appears to confirm the change was successful.
+- Clicking cancel will take the user back to the blog post with no edits made.
+
+### Blog Delete
+- Clicking delete will reload the page with the deleted blog no longer visible.
+- A toast message appears to confirm the deletion was successful.
+
+### Store
+- The store page loads as intended as is responsive to all screen sizes.
+- When the page is initially loaded, all products are displayed.
+- The number of products correctly shows the correct number shown on the page.
+- When a user searches for a product the results are filtered correctly based on the input. Showing results compared against the title, category and description.
+- When a user searches for a product and results are found the product count reads "1 products found for 'search query here' " with the search query in bold.
+- If the search returns no results, there are no products found and the product count reads "0 products found for 'search query here' " with the search query in bold.
+- If a user tries to search with nothing entered into the box all products are shown with an error message to say 'Please enter something to search the store!'
+- Clicking on each of the individual categories correctly filters the result by that category.
+    - The product count is updated to show you have filtered by category and correctly says 'Accessories | 4 products', with the category in bold.
+- The sort by is located above the products and has 4 options:
+    - price (low to high)
+    - price (high to low)
+    - name (a - z)
+    - name (z - a)
+- Clicking each of the sort orders correctly sorts the products by the chosen sort order.
+- This also works when sorting while filtering by a specific category.
+- Each product is displayed in a card and correctly displays:
+    - The product category.
+    - The product image.
+    - The product title.
+    - The product price.
+- Clicking the product image takes the user to the correct product detail page.
+
+### Product Details
+
+### Memberships
+
+### Basket
+
+### Checkout
+
+### Profile
+
+### Tournaments
+
+
+
+
 
 ### Validation
 #### Pages

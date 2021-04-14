@@ -13,7 +13,7 @@ class BlogPostForm(forms.ModelForm):
     main_image = (
         forms.ImageField(
             label="Main Image",
-            required=False,
+            required=True,
             widget=CustomClearableFileInput
         )
     )

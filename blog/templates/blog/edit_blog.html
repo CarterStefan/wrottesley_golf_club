@@ -34,7 +34,7 @@
                 {{ field }}
                 {% endif %}
                 {% endfor %}
-                <a class="btn secondary-btn" href="{% url 'blog_list' %}">Cancel</a>
+                <a class="btn secondary-btn" href="{% url 'blog_detail' blog_post.slug %}">Cancel</a>
                 <button class="btn primary-btn-lg" type="submit">Confirm</button>
             </form>
         </div>
