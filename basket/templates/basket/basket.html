@@ -57,7 +57,7 @@
                                 </div>
                                 <input class="form-control qty_selection" type="number" name="quantity"
                                     value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                                    id="id_qty_{{ item.item_id }}">
+                                    id="id_qty_{{ item.item_id }}" onkeydown="return false">
                                 <div class="input-group-append bg-green">
                                     <button class="btn plus-qty" data-item_id="{{ item.item_id }}"
                                         id="plus-qty_{{ item.item_id }}">

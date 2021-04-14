@@ -802,17 +802,85 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - Clicking the product image takes the user to the correct product detail page.
 
 ### Product Details
-
-### Memberships
+- The product detail page loads as intended as is responsive to all screen sizes.
+- The page consists of the product:
+    - Image
+    - SKU 
+    - Title 
+    - Price 
+    - Category
+    - Quantity selector
+    - Size selector (if applicable)
+    - Description 
+    - Back to products button
+    - 'You may also like' specification
+- All of the above are correctly displayed for the product that was just clicked on the store page.
+- Clicking the category takes the user to the store page with only products from that category showing.
+- Clicking the plus button makes the quantity count increase by one.
+- If the number is 99, the plus is disabled.
+- Clicking the minus button makes the quantity count decrease by one.
+- If the number is 1, the minus button is disabled.
+- The minus button is disabled when the page first loads as the number is one by default.
+- If a user types a number which is less 1 or greater than 99 and tries to add to basket, a validation message appears.
+- If the product has sizes, the size selector is visible.
+- The size selection is on medium by default.
+- Clicking the dropdown shows the other size options available.
+- Selecting a different size changes the option in the dropdown.
+- Clicking the 'add to basket' button add the correct item to the basket with the correct size and quantity selected.
+- A toast message appears with the correct item, sizes (if applicable) and quantity that the user has just added.
+- Clicking the 'back to products' button, the user is taken to the store page showing all products.
+- The 'you may also like section is displayed underneath the product details. 
+- Only items from the category of the product you are on are displayed.
+- Clicking one of these products takes you to the correct product details page.
 
 ### Basket
+- When an item is added to the basket, the price in the nav bar is updated and a toast message appears with details of:
+    - The item which was just added to the basket.
+    - The current count of the items in the basket.
+    - A list of all the items showing:
+        - Product title
+        - Product price
+        - Size (will show as N/A if product has no sizes)
+        - Quantity of that item with that size (if applicable) in the basket
+    - The basket total
+    - A view basket button
+- Clicking 'view basket' will take the user to the main basket page.
+- The basket page is also accessed by clicking the basket icon in the nav bar.
+- The basket page loads as intended as is responsive to all screen sizes.
+- If the user has no items in their basket the page shows a message informing the user they have no items in their basket with a button to go to the store.
+    - Clicking the 'go to store' button takes the user to the store page with all products visible.
+- If the user does have items in their basket.
+    - The page shows a list view of all the products in the basket.
+    - For each item in the basket the user can see:
+        - Product price
+        - Product title
+        - Size (will show as N/A if product has no sizes)
+        - Quantity displayed in a quantity picker
+    - While testing that the user can not enter an amount larger than 99 I discovered a flaw where a user can enter more than the max 99. 
+        - This was fixed by disabling typing on the quantity fields, so a user will now select the item quantity using the plus and minus buttons.
+    - When a user updates the quantity and clicks 'update' the page relaods and correctly shows the new amount.
+    - When a user clicks the delete icon, the page is reloaded and correctly shows the basket with the deleted item no longer showing.
+    - A toast message shows for each of these actions.
+    - The second part of the page is a summary of the total amount of the basket.
+    - This shows:
+        - Basket total
+        - Membership discount
+            - If the member is a pro member, the membership discount shows at 10% of the basket total
+            - If the member is a beginner member (or not signed up for membership) the membership discount shows as 0.00
+        - Delivery
+            - If the member is a pro member, the delivery shows at 0.00
+            - If the member is a beginner member (or not signed up for membership) the delivery shows as 10% of the basket total
+        - total
+            - This is a calculation of basket total + delivery - membership discount
+    - Clicking 'checkout' takes the user to the checkout page where they payment will be processed.
 
 ### Checkout
+
+### Memberships
 
 ### Profile
 
 ### Tournaments
-
 
 
 
