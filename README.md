@@ -875,14 +875,97 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - Clicking 'checkout' takes the user to the checkout page where they payment will be processed.
 
 ### Checkout
+- The checkout page loads as intended as is responsive to all screen sizes.
+- The page shows customer details, delivery details, and a summary of the order amounts.
+- The details form consists of three fields:
+    - Full name
+    - Email adress 
+    - phone number
+
+    - All three fields load correctly.
+    - All three fields are mandatory and validation works correctly on all three fields.
+    - If the user is logged in and has profile information saved, these fields will be pre populated.
+    - If the user is logged in and has not saved profile information, the email field will be pre populated.
+
+- The delivery form consists of five fields:
+    - Street address 
+    - Town or city 
+    - Postcode 
+    - County or state 
+    - Country
+
+    - All five fields load correctly.
+    - Three fields are mandatory, street address / town or city / country, and validation works correctly on all three fields.
+    - If the user is logged in and has profile information saved, these fields will be pre populated.
+    - If the user is logged in and has not saved profile information the fields appear with their placeholders
+
+- The option to save profile information appears when a user is logged in only.
+- The prompt to login or create account appears when a user is logged out.
+    - Clicking 'create account' takes the user to the sign up page.
+    - Clicking 'login' takes the user to the login page.
+- Clicking save information and submitting the form correctly saves the information to the profile page.
+
+- Filling the card information field with invalid information will prompt a validation error from stripe.
+- Submitting the form with invalid information will prompt a validation error from stripe.
+
+- The second part of the page is a summary of the total amount of the basket.
+    - This shows:
+        - Basket total
+        - Membership discount
+            - If the member is a pro member, the membership discount shows at 10% of the basket total
+            - If the member is a beginner member (or not signed up for membership) the membership discount shows as 0.00
+        - Delivery
+            - If the member is a pro member, the delivery shows at 0.00
+            - If the member is a beginner member (or not signed up for membership) the delivery shows as 10% of the basket total
+        - total
+            - This is a calculation of basket total + delivery - membership discount
+    - Clicking 'edit basket' takes the user to the basket page where they can ammend their order.
+    - The final summary confirms the amount the card will be charged and is the same amount at the total.
+
+- Clicking 'complete order' will start the stripe payment process.
+- The form become completely hidden behind the button, which has now become disabled and turned into a 'spinny' while the payment processes.
+- Once confirmation from stripe has come through, the user is taken to a success page which will show a summary of the order.
 
 ### Memberships
 
+
 ### Profile
+- The profile page loads as intended as is responsive to all screen sizes.
+- The page shows user delivery details, and a summary of the users previous orders
+- The details form consists of three fields:
+    - phone number
+    - Street address 
+    - Town or city 
+    - County or state
+    - Postcode 
+    - Country
+
+    - All six fields load correctly.
+    - If the user is logged in and has profile information saved, these fields will be pre populated.
+    - If the user is logged in and has not saved profile information previously, the fields appear with their placeholders.
+    - None of these fields are mandatory.
+- Clicking 'update information' will save the users information and relaod the page with the new information pre populated.
+
+- The second part of the page is a summary of the users previous orders.
+    - This is shown in the form of a table with the following fields:
+        - Order number 
+        - Date 
+        - Items 
+        - Grand total
+- Clicking on the order number takes the user to the previous order page with the correct information shown similar to the checkout success page.
 
 ### Tournaments
-
-
+- The tournaments page loads as intended as is responsive to all screen sizes with the exception compared to other pages where the table will have a horizontal scroll on mobile.
+- The page shows all the tournaments currently in the tournaments database with the following fields:
+    - Tournament name
+    - Start date
+    - Start time
+    - location
+    - Fee 
+- All information is shown correctly, and when adding a new entry into the database the new entry appears on the page.
+- The fee column changes depending on the users membership status.
+    - If a user is a beginner (or not signed up for membership), the entry fee is shown as is on the database entry.
+    - If a user is a pro member, the membership fee shows as Free, with the original price striked out.
 
 
 ### Validation
