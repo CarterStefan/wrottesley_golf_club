@@ -927,7 +927,27 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - Once confirmation from stripe has come through, the user is taken to a success page which will show a summary of the order.
 
 ### Memberships
-
+- The profile page loads as intended as is responsive to all screen sizes.
+- If a user goes to the memberships page while they are logged out, they are redirected to the login page.
+- If a user has not previously subscribed to the plus membership, they have no membership status, but are regarded as a beginner.
+- A user going to the page with no membership status will see the page encouraging them to sign up to plus membership.
+    - Clicking the 'subscribe' takes the user to the stripe checkout page, where they need to provide.
+        - Email
+        - Card information
+        - Country
+        - Postcode
+    - When the checkout session is completed a new customer is created on the Stripe customer on the stripe dashbaord with the 'pro' subscription.
+    - When the checkout session is completed a new entry is created on the StripeCustomer model with the correct member.
+    - When the checkout session is completed the correct users profile membership status is updated to 'pro'.
+- A user going to the page with 'pro' membership status will see the page giving them the option to downgrade.
+    - Clicking the 'downgrade' button takes the user to the homepage and show a toast message confirming the account has been downgraded.
+    - Clicking the 'downgrade' button updates the membership status on the Stripe customer on the stripe dashbaord with the 'beginner' subscription.
+    - Clicking the 'downgrade' button updates the correct users profile membership status to 'beginner'.
+- A user going to the page with 'beginner' membership status will see the page giving them the option to subscribe again (as they have already been a 'pro' member previosuly).
+    - Clicking the 'subscribe' button takes the user to the homepage and show a toast message confirming the account has been upgraded.
+    - Clicking the 'subscribe' button updates the membership status on the Stripe customer on the stripe dashbaord with the 'pro' subscription.
+    - Clicking the 'subscribe' button updates the correct users profile membership status to 'pro'.
+    
 
 ### Profile
 - The profile page loads as intended as is responsive to all screen sizes.
