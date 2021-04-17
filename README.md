@@ -640,6 +640,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 
 <details><summary>Navbar</summary>
 <p>
+
 - Nav bar is permanently visible at the top of the page for ease of access across the site.
 
 ##### Desktop
@@ -683,11 +684,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - The basket icon will always display the amount currently in the basket, or £0.00 if there is nothing.
     - Clicking on basket takes the user to the basket page.
 - Clicking the hamburger menu when the menu is oen closes the hamburger menu.
+
 </p>
 </details>
 
 <details><summary>Footer</summary>
 <p>
+
 - Footer is located by scrolling to the bottom of any page across the site.
 - In scenarios where the content of the page does not fill the entire viewport height, the footer will still remain at the bottom of the page-.
 - The adress is permanently in the first column of the footer.
@@ -705,11 +708,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - Clicking twitter takes the user to the WGC twitter page in an external tab.
     - Clicking instagram takes the user to an instagram page, showing all pictures with the 'wrottesley golf club' location, in an external tab.
 - The cloumns stack when the page becomes too thin for them to be alligned horizontaly.
+
 </p>
 </details>
 
 <details><summary>Homepage</summary>
 <p>
+
 - Home page loads as intended as is responsive to all screen sizes.
 - Hero image is the first feature you see, with a card giving the user the option to go to the store.
     - Clicking on 'visit store' takes the user to the store.
@@ -719,11 +724,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - Clicking on blog takes the user to the blog page.
     - Clicking on memberships takes the user to the memberships page.
     - Clicking on store takes the user to the store page.
+
 </p>
 </details>
 
 <details><summary>Blog</summary>
 <p>
+
 - The blog page loads as intended as is responsive to all screen sizes.
 - Each blog is displayed in a card.
     - The card header features the blog image.
@@ -738,11 +745,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
             - The edit button takes the super user to the edit page for that individual blog post.
             - The delete button deletes the blog and reloads the page. The deleted blog is no longer visible.
     - Clicking on the 'read more' button will take you to the correct blog post.
+
 </p>
 </details>
 
 <details><summary>Blog Post</summary>
 <p>
+
 - The blog post page loads as intended as is responsive to all screen sizes.
 - The top of the page features the correct main image full width.
 - The page title shows the correct blog title.
@@ -781,11 +790,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - If there are no comments for that blog, the sentence 'No comments yet. Be the first to comment' is displayed.
 - Writing a comment and clicking 'post comment' will display a toast message and reload the page.
 - The commentis then created as unapproved on the database for the superuser to approve.
+
 </p>
 </details>
 
 <details><summary>Blog Edit</summary>
 <p>
+
 - The edit blog page loads as intended as is responsive to all screen sizes.
 - All fields from the Django form are displayed.
 - All fields have the current content for the correct blog post pre-filled.
@@ -798,18 +809,22 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - Clicking confirrm will take the super user back to the blog post page, with the updated changes now showing.
 - A toast message appears to confirm the change was successful.
 - Clicking cancel will take the user back to the blog post with no edits made.
+
 </p>
 </details>
 
 <details><summary>Blog Delete</summary>
 <p>
+
 - Clicking delete will reload the page with the deleted blog no longer visible.
 - A toast message appears to confirm the deletion was successful.
+
 </p>
 </details>
 
 <details><summary>Store</summary>
 <p>
+
 - The store page loads as intended as is responsive to all screen sizes.
 - When the page is initially loaded, all products are displayed.
 - The number of products correctly shows the correct number shown on the page.
@@ -832,11 +847,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - The product title.
     - The product price.
 - Clicking the product image takes the user to the correct product detail page.
+
 </p>
 </details>
 
 <details><summary>Product Details</summary>
 <p>
+
 - The product detail page loads as intended as is responsive to all screen sizes.
 - The page consists of the product:
     - Image
@@ -867,11 +884,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - The 'you may also like section is displayed underneath the product details. 
 - Only items from the category of the product you are on are displayed.
 - Clicking one of these products takes you to the correct product details page.
+
 </p>
 </details>
 
 <details><summary>Basket</summary>
 <p>
+
 - When an item is added to the basket, the price in the nav bar is updated and a toast message appears with details of:
     - The item which was just added to the basket.
     - The current count of the items in the basket.
@@ -911,11 +930,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
         - total
             - This is a calculation of basket total + delivery - membership discount
     - Clicking 'checkout' takes the user to the checkout page where they payment will be processed.
+
 </p>
 </details>
 
 <details><summary>Checkout</summary>
 <p>
+
 - The checkout page loads as intended as is responsive to all screen sizes.
 - The page shows customer details, delivery details, and a summary of the order amounts.
 - The details form consists of three fields:
@@ -966,11 +987,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - Clicking 'complete order' will start the stripe payment process.
 - The form become completely hidden behind the button, which has now become disabled and turned into a 'spinny' while the payment processes.
 - Once confirmation from stripe has come through, the user is taken to a success page which will show a summary of the order.
+
 </p>
 </details>
 
 <details><summary>Memberships</summary>
 <p>
+
 - The profile page loads as intended as is responsive to all screen sizes.
 - If a user goes to the memberships page while they are logged out, they are redirected to the login page.
 - If a user has not previously subscribed to the plus membership, they have no membership status, but are regarded as a beginner.
@@ -991,11 +1014,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
     - Clicking the 'subscribe' button takes the user to the homepage and show a toast message confirming the account has been upgraded.
     - Clicking the 'subscribe' button updates the membership status on the Stripe customer on the stripe dashbaord with the 'pro' subscription.
     - Clicking the 'subscribe' button updates the correct users profile membership status to 'pro'.    
+
 </p>
 </details>
 
 <details><summary>Profile</summary>
 <p>
+
 - The profile page loads as intended as is responsive to all screen sizes.
 - The page shows user delivery details, and a summary of the users previous orders
 - The details form consists of three fields:
@@ -1019,11 +1044,13 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
         - Items 
         - Grand total
 - Clicking on the order number takes the user to the previous order page with the correct information shown similar to the checkout success page.
+
 </p>
 </details>
 
 <details><summary>Tournaments</summary>
 <p>
+
 - The tournaments page loads as intended as is responsive to all screen sizes with the exception compared to other pages where the table will have a horizontal scroll on mobile.
 - The page shows all the tournaments currently in the tournaments database with the following fields:
     - Tournament name
@@ -1035,6 +1062,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - The fee column changes depending on the users membership status.
     - If a user is a beginner (or not signed up for membership), the entry fee is shown as is on the database entry.
     - If a user is a pro member, the membership fee shows as Free, with the original price striked out.
+    
 </p>
 </details>
 
