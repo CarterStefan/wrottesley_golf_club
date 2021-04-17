@@ -356,16 +356,90 @@ Using the website, all users will be able to:
 
 
 ## Features
-#### Existing Features
-The Wrottesley Golf Club website has 8 apps:
-- Basket
-- Blog
-- Checkout
-- Home
-- Memberships
-- Products
-- Profiles
-- Tournaments
+### Existing Features & Pages
+
+#### Navbar
+The nav bar serves as the main navigation for the site. It is always visible at the top of the page accross all pages of the site. The navbar shows the Wrottesley Golf Club logo, which links to the homepage, an account button which shows a dropdown with options to go to the profile page or logout, and a basket which is the link to the basket page and also to keep track of the ammount of the current basket. 
+
+The secondary part of the navbar has four links, which go to the tournaments page, the blog page, the store page and the memberships page.
+
+#### Footer
+The footer serves as secondary navigation. It has the same links as the nav bar but also features the golf club address and some external links to facebook, twitter and instagram. 
+
+#### The homepage
+This serves as the landing page upon sign-up and login and the main hub for the site. The main feature on the site is the hero image and a statement to say the store is now live with a CTA to the store page. Beneath this there is a banner for information about memberships as well as some extra navigation to the blog, memberships and store pages.
+
+![Homepage_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/homepage_one.PNG)
+![Homepage_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/homepage_two.PNG)
+
+#### Tournaments
+The tournaments page is a simple table which lists all of the items on the tournaments database. The table shows five columns - Name, Date, Time, Location and Price. The price will show either the ammount or 'Free' depending on your membership level.
+
+#### Blog
+The blog page serves as a place listing all of the blog posts in one page. The items are stacked in a single column vertically down the page on all screen sizes. Each blog post is summarised in a card and shows the main image, the title, the author, the first 200 characters, the time the post was last updated and a button to go to the blog post itself. As a superuser, you can also add, edit and delete a post from this page. 
+
+![Blog_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/blog_one.PNG)
+
+As a superuser, as well as being able to do so on the admin panel, there is also a form to edit or add a new blog to the list of blogs on the website. There will be links to the forms visible on the blog page if you are a superuser.
+
+#### Blog Post
+The blog post page shows the full details of the individual blog post you have just clicked on. This shows the full hero image at the top of the page, the title, the author and the full blog post. At the top of the page you can see a count of how many comments there have been on the post. 
+
+![Blog_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/blog_two.PNG)
+
+Underneath the post, there is the option to leave a comment on the post, up to a maximum of 200 characters. You won't go over this count, as there is a count to warn you when you are close and also the button to submit the comment will not be clickable if you go over. You will only be able to leave a comment if you are logged in. Underneath the form the list of comments are listed in a vertical column. The comments will only be visible if a superuser has deemed the comment as safe and approved it on the database.
+
+![Blog_three](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/blog_three.PNG)
+
+#### Store
+The store page lists all the products which are listed on the product database and some tools to help you navigate these products so you can find exactly what you want when there are a lot more items in the store. 
+
+The first is a search bar which filters the results down by taking the search criteria and matching it to the product title, the product description or the categories. if nothing is entered into the search box when the user presses submits a search query, the page will show all products and a message will appear to let the user know they need to enter search criteria to search the store.
+
+Above the search bar, there is a total count of the number of items currently listed on the page. If no filtering has been done, it will just show the count followed by the word products e.g "12 Products". If a category has been chosen, the count will show the category selected and the total number of ptoducts e.g "Accessories | 4 products". If the user has used the search box, the count will show the number of products and te search term that was entered e.g "1 products found for "tees""
+
+Above the products is a sort dropdown which lets the user sort by four different criteria - Price (high - low), price (low - high), name (a - z), name (z - a). 
+
+All the products are listed in individual cards which show the product category, image, title and price. Clicking the image will take the user to the product detail page. 
+
+![Products_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/products_one.PNG)
+
+#### Product Detail
+The prduct detail page shows more information about a particular product. This has some of the same information seen on the product detail card in the store page, with some extra details. On the product detail page the user can see the product image, title, price, catgeory and full description. On top of this, the user can update the quantity and select the size of the item to purchse, if the product has sizes. There is also a primary button here to add the product to the basket, and a secondary button to go back to the store. Clicking the category will take the user back to the store, but the products will be filtered by that category.
+
+![Products_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/products_two.PNG)
+
+Underneath the product details, there is a banner which shows other products the user may be insterested in. This will show other products from the same category, which when clicked, will take the user to that product.
+
+![Products_three](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/products_three.PNG)
+
+#### Memberships
+The memberships page serves as the page to manage your subscription with the club. The display on the page is dependent on the current membership level of the user. If the user is a new member, and has never had a subscription before, they will be classed as a 'beginner' member for use around the site but will technically have no membership status. When coming to the memberships page in this scenario, the user would see details of the pro membership and a primary button to subscribe. Clicking this would take them to the stripe checkout page where they would add their card details and become a plus member. When navigating back to the membership page, they would see scenario two. 
+
+If coming to the page as a 'pro' member, the user would see a page which highlights the benefits of being a plus member, but will now give them the option to downgrade their membership level from 'pro' to 'beginner'. Clicking this button will not require the user to fill out any other details, but will switch the customers membership level instantly. When navigating back to the memberships page, they would see scenario three. 
+
+When coming to this page as a 'beginner' member, the user would see a page highlighting the benefits of pro membership with the option to upgrade again to this level. This would be easier this time around, and will not require the user to fill out the credit card details, but would switch the membership level to 'pro' on both the user profile and the stripe system, using the original card details.
+
+![Memberships_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/memberships_one.PNG)
+
+#### Basket
+The basket page shows a summary of the products in the basket and the amount that the current basket equates to. Here, the user has the ability to update the quantity of each product or delete it entirely from the basket. The amounts show a breakdown of the prices and a total amount with a button which takes the user to the checkout page.
+
+![Basket_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/basket_one.PNG)
+
+#### Checkout
+The checkout page has two sections, the delivery and personal information details and the total of the order. The details is a form when, if logged in, lets the user save their information to their profile for a quicker checkout next time. The total is similar to the basket page, and shows the breakdown of the amounts with the option ot edit the basket and a final summary of how much will be charged. The final feature on the page is the payment information which uses Stripe to handle the payments. A successfull payment will take the users to the order success page showing the order summary.
+
+![Checkout_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/checkout_one.PNG)
+
+#### Profile
+The profile page is split into two sections, delivery details and order history. The delivery details is a simple form and has an 'update information' button below to update their details on their profile, which would also reflect on the delivery details on the checkout page.
+
+![Profile_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/basket_one.PNG)
+
+The order history shows a summary of the users previous orders. It is in the layout of a table and shows the order number, date, items and the grand total. Clicking the order number would take the user to the order summary where they would see a more detailed breakdown of the order. Underneath the order history is a button to go to the store. 
+
+![Profile_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/basket_two.PNG)
 
 #### Future Features
 
@@ -1062,7 +1136,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - The fee column changes depending on the users membership status.
     - If a user is a beginner (or not signed up for membership), the entry fee is shown as is on the database entry.
     - If a user is a pro member, the membership fee shows as Free, with the original price striked out.
-    
+
 </p>
 </details>
 
