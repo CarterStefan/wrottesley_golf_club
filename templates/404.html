@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid header-container m-0">
+    <div class="row allauth-jumbotron p-0">
+        <div class="col p-3 my-auto mx-auto allauth-jumbotron-box">
+            <div class="card allauth-jumbotron-card mx-auto bg-green">
+                <div class="row">
+                    <div class="col">
+                        <div class="allauth-inner-content p-3 center">
+                            <h2 class="blog-card-title libre">Looks like you've hit the bunker!</h2>
+                            <p class="card-text">The page you are looking for can not be found right now...</p>
+                            <a href="{% url 'products' %}" class="btn primary-btn-lg">Go to store</a>
+                            <a href="{% url 'products' %}" class="btn primary-btn-lg">Go home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
