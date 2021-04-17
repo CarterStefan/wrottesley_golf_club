@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -137,7 +137,6 @@ def downgrade(request):
         subscription = stripe.Subscription.retrieve(
             stripe_customer.stripeSubscriptionId
         )
-        product = stripe.Product.retrieve(subscription.plan.product)
 
         stripe.Subscription.modify(
             subscription.id,
@@ -153,19 +152,11 @@ def downgrade(request):
         profile.membership_type = 'Beginner'
         profile.save()
 
-        context = {
-            'subscription': subscription,
-            'product': product,
-            'on_membership_page': True,
-        }
         messages.success(request, 'Membership successfully downgraded')
-        return render(request, 'home/index.html', context)
+        return redirect(reverse('memberships'))
     else:
-        context = {
-            'on_membership_page': True,
-        }
         messages.success(request, 'You are already a Beginner member')
-        return render(request, 'home/index.html', context)
+        return redirect(reverse('memberships'))
 
 
 @login_required
@@ -179,7 +170,6 @@ def upgrade(request):
         subscription = stripe.Subscription.retrieve(
             stripe_customer.stripeSubscriptionId
         )
-        product = stripe.Product.retrieve(subscription.plan.product)
 
         stripe.Subscription.modify(
             subscription.id,
@@ -195,27 +185,14 @@ def upgrade(request):
         profile.membership_type = 'Pro'
         profile.save()
 
-        context = {
-            'subscription': subscription,
-            'product': product,
-            'on_membership_page': True,
-        }
         messages.success(request, 'Membership successfully upgraded')
-        return render(request, 'home/index.html', context)
+        return redirect(reverse('memberships'))
     elif membership_type == 'Pro':
-        context = {
-            'subscription': subscription,
-            'product': product,
-            'on_membership_page': True,
-        }
         messages.success(request, 'You are already a Pro member')
-        return render(request, 'home/index.html', context)
+        return redirect(reverse('memberships'))
     else:
-        context = {
-            'on_membership_page': True,
-        }
         messages.success(
             request,
             'Please use the stripe portal to purchase a membership'
             )
-        return render(request, 'memberships/memberships.html', context)
+        return redirect(reverse('memberships'))

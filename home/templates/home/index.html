@@ -32,10 +32,20 @@
         <div class="col banner">
             <div class="text-center m-5">
                 <p>
-                    <span class="libre homepage-subtitle">PRO MEMBERSHIP</span>
+                    <span class="libre homepage-subtitle">Memberships</span>
                 </p>
-                <p>Join our membership plan today for exclusive store discount!</p>
-                <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                {% if request.user.is_authenticated %}
+                    {% if membership_level == 'Pro' %} 
+                    <p>Make the most of your Pro membership with your exclusive store discount!</p>
+                    <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                    {% else %}           
+                        <p>Join our membership plan today for exclusive store discount!</p>
+                        <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                    {% endif %}
+                {% else %}           
+                    <p>Join our membership plan today for exclusive store discount!</p>
+                    <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                {% endif %}
             </div>
         </div>
     </div>
