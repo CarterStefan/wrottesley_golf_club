@@ -946,8 +946,7 @@ If someone wishes to deploy this project on Heroku, they should follow these ste
 - A user going to the page with 'beginner' membership status will see the page giving them the option to subscribe again (as they have already been a 'pro' member previosuly).
     - Clicking the 'subscribe' button takes the user to the homepage and show a toast message confirming the account has been upgraded.
     - Clicking the 'subscribe' button updates the membership status on the Stripe customer on the stripe dashbaord with the 'pro' subscription.
-    - Clicking the 'subscribe' button updates the correct users profile membership status to 'pro'.
-    
+    - Clicking the 'subscribe' button updates the correct users profile membership status to 'pro'.    
 
 ### Profile
 - The profile page loads as intended as is responsive to all screen sizes.
