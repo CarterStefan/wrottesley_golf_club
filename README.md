@@ -435,13 +435,21 @@ The checkout page has two sections, the delivery and personal information detail
 #### Profile
 The profile page is split into two sections, delivery details and order history. The delivery details is a simple form and has an 'update information' button below to update their details on their profile, which would also reflect on the delivery details on the checkout page.
 
-![Profile_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/basket_one.PNG)
+![Profile_one](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/profile_one.PNG)
 
 The order history shows a summary of the users previous orders. It is in the layout of a table and shows the order number, date, items and the grand total. Clicking the order number would take the user to the order summary where they would see a more detailed breakdown of the order. Underneath the order history is a button to go to the store. 
 
-![Profile_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/basket_two.PNG)
+![Profile_two](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/profile_two.PNG)
 
 #### Future Features
+
+- Make the tournaments more usable, with the ability to register for a tournament.
+
+- Make the memberships system more robust. This will include using more of the Stripe API to show a dashboard of the users membership details. 
+
+- Make more areas for the admin / superuser to upload new details to the site, such as a form for new tournaments and a products form. 
+
+- Make use of the social media account logins in all auth. 
 
 ## Databases
 For my development environment, I was using SQLite, as this is the default with Django. Once my code was deployed to Heroku, I switched to a PostgreSQL database.
