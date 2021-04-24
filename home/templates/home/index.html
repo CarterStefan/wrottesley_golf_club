@@ -19,7 +19,8 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        <span class="m-2 black homepage-subtitle">View our range of clubs, clothing and accessories today</span>
+                        <span class="m-2 black homepage-subtitle">View our range of clubs, clothing and accessories
+                            today</span>
                     </p>
                     <a class="btn primary-btn-lg m-2" href="{% url 'products' %}">VISIT STORE</a>
                 </div>
@@ -34,18 +35,32 @@
                 <p>
                     <span class="libre homepage-subtitle">Memberships</span>
                 </p>
-                {% if request.user.is_authenticated %}
-                    {% if membership_level == 'Pro' %} 
-                    <p>Make the most of your Pro membership with your exclusive store discount!</p>
-                    <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
-                    {% else %}           
-                        <p>Join our membership plan today for exclusive store discount!</p>
+                <div class="row justify-content-md-center">
+                    <div class="col-12 col-md-6">
+                        {% if request.user.is_authenticated %}
+                        {% if membership_level == 'Pro' %}
+                        <p>Make the most of your Pro membership with your exclusive 20% discount in our store!</p>
                         <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
-                    {% endif %}
-                {% else %}           
-                    <p>Join our membership plan today for exclusive store discount!</p>
-                    <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
-                {% endif %}
+                        {% else %}
+                        <p>
+                            By upgrading to our pro membership, you’ll get access to the features of the Beginner
+                            level membership as well as some added exclusive offers within our store.
+                            By visiting our newly launched store as a pro member, you will have have
+                            access to a permanent 20% discount on all items, and 100% free shipping.
+                        </p>
+                        <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                        {% endif %}
+                        {% else %}
+                        <p>
+                            By upgrading to our pro membership, you’ll get access to the features of the Beginner
+                            level membership as well as some added exclusive offers within our store.
+                            By visiting our newly launched store as a pro member, you will have have
+                            access to a permanent 20% discount on all items, and 100% free shipping.
+                        </p>
+                        <a class="btn secondary-btn m-2" href="{% url 'memberships' %}">See More</a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

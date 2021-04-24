@@ -5,6 +5,8 @@
 
 Wrottesley Golf Club is a golf course located in the west midlands. There are a number of users that the website will target and each of these user types will have a different need when using the website. This is my fourth milestone project as part of my Full Stack Web Development Course with [Code Institute](https://codeinstitute.net/). This project focuses on "Full stack Frameworks With Django" and will put into practice what I have learned over the last year on the course.
 
+![Responsive](https://github.com/CarterStefan/wrottesley_golf_club/blob/master/static/UX/Features/responsive.PNG)
+
 ## Table of Contents
 1. [**Project overview**](#project-overview)
 2. [**UX**](#ux)

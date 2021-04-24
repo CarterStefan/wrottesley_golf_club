@@ -119,7 +119,7 @@ class BlogViewTest(TestCase):
             'blog_content_two': 'new content two',
         })
         self.assertRedirects(resp, '/blog/new-test-title/')
-        blog = Blog.objects.get(id=1)
+        blog = Blog.objects.get(pk=1)
         self.assertEqual(blog.title, 'new test title')
 
     def test_delete_blog_item(self):

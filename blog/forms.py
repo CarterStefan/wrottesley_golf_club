@@ -21,8 +21,28 @@ class BlogPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.fields['slug'].widget.attrs['placeholder'] = (
+            'e.g title-of-your-blog'
+        )
+
+        self.fields['title'].widget.attrs['placeholder'] = (
+            'Title of your blog post'
+        )
+
+        self.fields['sub_title_one'].widget.attrs['placeholder'] = (
+            'First subheading'
+        )
+
         self.fields['blog_content_one'].widget.attrs['placeholder'] = (
-            'Blog content_one'
+            'First paragraph of your blog'
+        )
+
+        self.fields['sub_title_two'].widget.attrs['placeholder'] = (
+            'Second subheading'
+        )
+
+        self.fields['blog_content_two'].widget.attrs['placeholder'] = (
+            'Second paragraph of your blog'
         )
 
 
