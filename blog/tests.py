@@ -107,21 +107,6 @@ class BlogViewTest(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'blog/edit_blog.html')
 
-    def test_add_blog_post(self):
-        self.client.force_login(self.user)
-        resp = self.client.post('/blog/add_blog/', {
-            'slug': 'new-test-title',
-            'main_image': 'new-image.jpg',
-            'title': 'new test title',
-            'sub_title_one': 'new sub title one',
-            'blog_content_one': 'new content one',
-            'sub_title_two': 'new sub title two',
-            'blog_content_two': 'new content two',
-        })
-        self.assertRedirects(resp, '/blog/new-test-title/')
-        blog = Blog.objects.get(pk=1)
-        self.assertEqual(blog.title, 'new test title')
-
     def test_delete_blog_item(self):
         blog = Blog.objects.create(
             author=self.user,
