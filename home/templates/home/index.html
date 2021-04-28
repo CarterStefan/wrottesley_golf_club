@@ -19,8 +19,9 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        <span class="m-2 black homepage-subtitle">View our range of clubs, clothing and accessories
-                            today</span>
+                        <span class="m-2 black homepage-subtitle">
+                            View our range of clubs, clothing and accessories today
+                        </span>
                     </p>
                     <a class="btn primary-btn-lg m-2" href="{% url 'products' %}">VISIT STORE</a>
                 </div>
@@ -36,7 +37,7 @@
                     <span class="libre homepage-subtitle">Memberships</span>
                 </p>
                 <div class="row justify-content-md-center">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-lg-8">
                         {% if request.user.is_authenticated %}
                         {% if membership_level == 'Pro' %}
                         <p>Make the most of your Pro membership with your exclusive 20% discount in our store!</p>
