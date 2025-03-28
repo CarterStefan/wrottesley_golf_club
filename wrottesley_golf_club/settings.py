@@ -201,8 +201,8 @@ if 'USE_AWS' in os.environ:
     MEDIAFILES_LOCATION = 'media'
 
     # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'.rstrip('/') + '/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'.rstrip('/') + '/'
 
 
 PRO_DELIVERY_CHARGE = 0
@@ -216,6 +216,8 @@ BEGINNER_STORE_DISCOUNT = 0
 MEMBERSHIP_LEVEL = 'Pro'
 
 DOMAIN_URL = os.environ.get('DOMAIN_URL', '')
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Stripe
@@ -238,3 +240,5 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+    print(f"STATIC_URL: {STATIC_URL}")
